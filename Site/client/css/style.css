@@ -1,0 +1,22 @@
+.nv-bg-blue{
+    background-color: aqua !important;
+}
+
+#msgErrEnreg{
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}
+
+.msg{
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    margin-top: 20px;
+}
+
+.posToast {
+    position: absolute;
+    top: 5%;
+    left: 40%;
+}

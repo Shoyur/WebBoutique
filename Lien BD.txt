@@ -1,0 +1,10 @@
+Pour notre code (En Java c'était) :
+	public static final String URL_BD = "jdbc:mysql://sql9.freesqldatabase.com/sql9558434";
+	public static final String USAGER = "sql9558434";
+	public static final String PASS = "bQV64kWUMF";
+
+Pour administrer :
+	https://www.phpmyadmin.co/db_sql.php?db=sql9558434
+	Server:		sql9.freesqldatabase.com
+	User:		sql9558434
+	Pass:		bQV64kWUMF
