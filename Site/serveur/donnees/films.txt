@@ -1,8 +1,0 @@
-1;Titanic;James;120
-2;Avenger23;James Cameron222;222
-3;Wall Street;James;180
-;Avengers2;James Cameron;120
-5;Inception;Jaaaa;120
-7;Wall Street;James;123
-8;Inception;James Cameron;120
-9;Inception12345;James Cameron;120
