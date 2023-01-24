@@ -108,14 +108,16 @@
 									<label for="mdp" class="form-label">Mot de passe</label>
 									<input type="text" class="form-control is-valid" id="mdp" name="mdp" required>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-8" style="margin-bottom:15px">
 									<label for="cmdp" class="form-label">Confirmation du mot de passe</label>
 									<input type="text"  class="form-control is-valid" id="cmdp" name="cmdp" required>
 								</div>
 								<br/>
-								<div class="modal-footer">
-									<button type="submit" class="btn btn-primary">Enregistrer</button>
-									<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+								<div class="col-md-12">
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-primary">Enregistrer</button>
+										<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+									</div>
 								</div>
 							</form>
 						</div>
@@ -142,16 +144,18 @@
                                 <label for="emailUser" class="form-label">Courriel</label>
                                 <input type="text" class="form-control is-valid" id="emailUser" name="emailUser" required>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" style="margin-bottom:15px">
                                 <label for="mdpUser" class="form-label">Mot de passe</label>
                                 <input type="password" class="form-control is-valid" id="mdpUser" name="mdpUser" required>
                             </div>
                             <br/>
+							<div class="col-md-12">
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+									<button type="button" class="btn btn-primary">Valider</button>
+								</div>
+							</div>
                         </form>
-					</div>
-					<div class="modal-footer">
-					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-					  <button type="button" class="btn btn-primary">Valider</button>
 					</div>
 				  </div>
 				</div>
@@ -179,12 +183,12 @@
 							<div class="header-search">
 								<form>
 									<select class="input-select">
-										<option value="0">All Categories</option>
-										<option value="1">Category 01</option>
-										<option value="1">Category 02</option>
+										<option value="0">>Catégories</option>
+										<option value="1">Categorie 01</option>
+										<option value="1">Categorie 02</option>
 									</select>
 									<input class="input" placeholder="Search here">
-									<button class="search-btn">Search</button>
+									<button class="search-btn">Rechercher</button>
 								</form>
 							</div>
 						</div>
@@ -197,7 +201,7 @@
 								<div>
 									<a href="#">
 										<i class="fa fa-heart-o"></i>
-										<span>Your Wishlist</span>
+										<span>Favoris</span>
 										<div class="qty">2</div>
 									</a>
 								</div>
@@ -207,7 +211,7 @@
 								<div class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
-										<span>Your Cart</span>
+										<span>Mon Panier</span>
 										<div class="qty">3</div>
 									</a>
 									<div class="cart-dropdown">
@@ -274,13 +278,13 @@
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
-						<li><a href="#">Categories</a></li>
-						<li><a href="#">Laptops</a></li>
-						<li><a href="#">Smartphones</a></li>
-						<li><a href="#">Cameras</a></li>
-						<li><a href="#">Accessories</a></li>
+						<li class="active"><a href="#">Accueil</a></li>
+						<li><a href="#">Aubaines</a></li>
+						<li><a href="#">Catégories</a></li>
+						<li><a href="#">Portables</a></li>
+						<li><a href="#">Téléphone</a></li>
+						<li><a href="#">Caméras</a></li>
+						<li><a href="#">Accessoires</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>
@@ -302,31 +306,31 @@
 								<li>
 									<div>
 										<h3>02</h3>
-										<span>Days</span>
+										<span>Jours</span>
 									</div>
 								</li>
 								<li>
 									<div>
 										<h3>10</h3>
-										<span>Hours</span>
+										<span>Heures</span>
 									</div>
 								</li>
 								<li>
 									<div>
 										<h3>34</h3>
-										<span>Mins</span>
+										<span>Minutes</span>
 									</div>
 								</li>
 								<li>
 									<div>
 										<h3>60</h3>
-										<span>Secs</span>
+										<span>Secondes</span>
 									</div>
 								</li>
 							</ul>
-							<h2 class="text-uppercase">hot deal this week</h2>
-							<p>New Collection Up to 50% OFF</p>
-							<a class="primary-btn cta-btn" href="#">Shop now</a>
+							<h2 class="text-uppercase">Aubaine de la semaine</h2>
+							<p>Jusqu'à 50% de rabais</p>
+							<a class="primary-btn cta-btn" href="#">Magasinez Maintenant</a>
 						</div>
 					</div>
 				</div>
@@ -350,10 +354,10 @@
 							<h3 class="title">Nouveaux Produits</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
+									<li class="active"><a data-toggle="tab" href="#tab1">Portables</a></li>
+									<li><a data-toggle="tab" href="#tab1">Téléphones</a></li>
+									<li><a data-toggle="tab" href="#tab1">Caméras</a></li>
+									<li><a data-toggle="tab" href="#tab1">Accessoires</a></li>
 								</ul>
 							</div>
 						</div>
@@ -540,10 +544,10 @@
 							<h3 class="title">Meilleurs Vendeurs</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab2">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab2">Accessories</a></li>
+									<li class="active"><a data-toggle="tab" href="#tab2">Portables</a></li>
+									<li><a data-toggle="tab" href="#tab2">Téléphones</a></li>
+									<li><a data-toggle="tab" href="#tab2">Caméras</a></li>
+									<li><a data-toggle="tab" href="#tab2">Accessoires</a></li>
 								</ul>
 							</div>
 						</div>
@@ -727,7 +731,7 @@
 					<div class="row">
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">About Us</h3>
+								<h3 class="footer-title">À propos de nous</h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
 								<ul class="footer-links">
 									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
@@ -739,13 +743,13 @@
 
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">Categories</h3>
+								<h3 class="footer-title">Catégories</h3>
 								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Aubaines</a></li>
+									<li><a href="#">Portables</a></li>
+									<li><a href="#">Téléphones</a></li>
+									<li><a href="#">Caméras</a></li>
+									<li><a href="#">Accessoires</a></li>
 								</ul>
 							</div>
 						</div>
@@ -756,11 +760,11 @@
 							<div class="footer">
 								<h3 class="footer-title">Information</h3>
 								<ul class="footer-links">
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-									<li><a href="#">Orders and Returns</a></li>
-									<li><a href="#">Terms & Conditions</a></li>
+									<li><a href="#">Notre équipe</a></li>
+									<li><a href="#">Contact</a></li>
+									<li><a href="#">Politique de confidentialité</a></li>
+									<li><a href="#">Commandes et retours</a></li>
+									<li><a href="#">Termes & Conditions</a></li>
 								</ul>
 							</div>
 						</div>
@@ -769,11 +773,11 @@
 							<div class="footer">
 								<h3 class="footer-title">Service</h3>
 								<ul class="footer-links">
-									<li><a href="#">My Account</a></li>
-									<li><a href="#">View Cart</a></li>
-									<li><a href="#">Wishlist</a></li>
-									<li><a href="#">Track My Order</a></li>
-									<li><a href="#">Help</a></li>
+									<li><a href="#">Mon compte</a></li>
+									<li><a href="#">Mon panier</a></li>
+									<li><a href="#">Favoris</a></li>
+									<li><a href="#">Trouver mon colis</a></li>
+									<li><a href="#">Aide</a></li>
 								</ul>
 							</div>
 						</div>
