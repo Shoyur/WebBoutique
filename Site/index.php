@@ -108,7 +108,7 @@
 									<label for="mdp" class="form-label">Mot de passe</label>
 									<input type="text" class="form-control is-valid" id="mdp" name="mdp" required>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-8" style="margin-bottom:15px">
 									<label for="cmdp" class="form-label">Confirmation du mot de passe</label>
 									<input type="text"  class="form-control is-valid" id="cmdp" name="cmdp" required>
 								</div>
@@ -144,7 +144,7 @@
                                 <label for="emailUser" class="form-label">Courriel</label>
                                 <input type="text" class="form-control is-valid" id="emailUser" name="emailUser" required>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" style="margin-bottom:15px">
                                 <label for="mdpUser" class="form-label">Mot de passe</label>
                                 <input type="password" class="form-control is-valid" id="mdpUser" name="mdpUser" required>
                             </div>
