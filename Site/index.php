@@ -63,7 +63,7 @@
 						</div>
 						<div class="modal-body">
 							<span id="msgErrEnreg"></span>
-							<form class="row g-3 espace" action="serveur/enregistrer.php" method="POST" onSubmit="return validerFormEnreg();">
+							<form class="row g-3 espace" action="serveur/enregMembre.php" method="POST" >
 								<div class="col-md-12">
 									<label for="nom" class="form-label">Nom</label>
 									<input type="text" class="form-control is-valid" id="nom" name="nom" required>
@@ -106,20 +106,20 @@
 
 								<div class="col-md-8">
 									<label for="mdp" class="form-label">Mot de passe</label>
-									<input type="number" min=30 max=240 class="form-control is-valid" id="mdp" name="mdp" required>
+									<input type="text" class="form-control is-valid" id="mdp" name="mdp" required>
 								</div>
 								<div class="col-md-8">
 									<label for="cmdp" class="form-label">Confirmation du mot de passe</label>
-									<input type="number" min=30 max=240 class="form-control is-valid" id="cmdp" name="cmdp" required>
+									<input type="text"  class="form-control is-valid" id="cmdp" name="cmdp" required>
 								</div>
 								<br/>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-primary">Enregistrer</button>
+									<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+								</div>
 							</form>
 						</div>
 
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-							<button type="button" class="btn btn-primary">Enregistrer</button>
-						</div>
 				  	</div>
 				</div>
 			</div>
@@ -144,7 +144,7 @@
                             </div>
                             <div class="col-md-12">
                                 <label for="mdpUser" class="form-label">Mot de passe</label>
-                                <input type="text" class="form-control is-valid" id="mdpUser" name="mdpUser" required>
+                                <input type="password" class="form-control is-valid" id="mdpUser" name="mdpUser" required>
                             </div>
                             <br/>
                         </form>
