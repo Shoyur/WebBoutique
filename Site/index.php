@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -42,7 +46,6 @@
 			<!-- TOP HEADER -->
 			<div id="top-header">
 				<div class="container">
-					
 					<ul class="header-links pull-right">
 						<li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#enregistrerModal">Créer un compte</button></li>
 						<li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connectionModal">Ouvrir une session</button></li>
