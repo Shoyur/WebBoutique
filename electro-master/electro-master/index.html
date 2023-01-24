@@ -66,7 +66,7 @@
 							<form class="row g-3 espace" action="serveur/enregistrer.php" method="POST" onSubmit="return validerFormEnreg();">
 								<div class="col-md-12">
 									<label for="nom" class="form-label">Nom</label>
-									<input type="number" min=1 class="form-control is-valid" id="nom" name="nom" required>
+									<input type="text" class="form-control is-valid" id="nom" name="nom" required>
 								</div>
 								<div class="col-md-12">
 									<label for="prenom" class="form-label">Prénom</label>
@@ -100,8 +100,7 @@
 
 								<div class="col-md-6">
 									<label for="daten">Date de naissance
-										<input type="date">
-
+										<input type="date" id="daten">
 									</label>
 								</div>
 
@@ -141,7 +140,7 @@
                         <form class="row g-3 espace" action="serveur/enregistrer.php" method="POST" onSubmit="return validerFormEnreg();">
                             <div class="col-md-12">
                                 <label for="emailUser" class="form-label">Courriel</label>
-                                <input type="number" min=1 class="form-control is-valid" id="emailUser" name="emailUser" required>
+                                <input type="text" class="form-control is-valid" id="emailUser" name="emailUser" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="mdpUser" class="form-label">Mot de passe</label>
