@@ -79,19 +79,19 @@
 								<div class="col-md-6">
 									<label for="sexe">Sexe</label>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="daten" id="homme">
+										<input class="form-check-input" type="radio" name="sexe" id="homme">
 										<label class="form-check-label" for="homme">
 										  Homme
 										</label>
 									  </div>
 									  <div class="form-check">
-										<input class="form-check-input" type="radio" name="daten" id="femme" checked>
+										<input class="form-check-input" type="radio" name="sexe" id="femme" checked>
 										<label class="form-check-label" for="femme">
 										  Femme
 										</label>
 									  </div>
 									  <div class="form-check">
-										<input class="form-check-input" type="radio" name="daten" id="autre" checked>
+										<input class="form-check-input" type="radio" name="sexe" id="autre" checked>
 										<label class="form-check-label" for="autre">
 										  Autre
 										</label>
@@ -100,7 +100,7 @@
 
 								<div class="col-md-6">
 									<label for="daten">Date de naissance
-										<input type="date" id="daten">
+										<input type="date" name="daten" id="daten">
 									</label>
 								</div>
 

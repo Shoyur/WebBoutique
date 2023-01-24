@@ -24,13 +24,22 @@ $mdp = $_POST['mdp'];
 $cmdp = $_POST['cmdp'];
 
 
-
+echo $daten;
 
 if($mdp == $cmdp){
+    $s = "";
+    if($sexe == "Homme"){
+        $s = "M";
+    }else if($sexe == "Femme"){
+        $s = "F";
+    }else if($sexe == "Autre"){
+        $s = "A";
+    }
+
     // SQL INSERT pour la table membres
     
     $sql = "INSERT INTO membres VALUES
-        ('$nom', '$prenom', '$email', '$sexe', '$daten')";
+        ('$nom', '$prenom', '$email', '$s', '$daten')";
     
     if(mysqli_query($conn, $sql)){
        echo "<h3>data stored in a database successfully."
@@ -67,4 +76,4 @@ if($mdp == $cmdp){
 
 ?>
 
-<a href="../index.html">Retour à la page d'acceuil</a>
+<a href="../index.php">Retour à la page d'acceuil</a>
