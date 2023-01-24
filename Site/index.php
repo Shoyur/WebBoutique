@@ -113,9 +113,11 @@
 									<input type="text"  class="form-control is-valid" id="cmdp" name="cmdp" required>
 								</div>
 								<br/>
-								<div class="modal-footer">
-									<button type="submit" class="btn btn-primary">Enregistrer</button>
-									<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+								<div class="col-md-12">
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-primary">Enregistrer</button>
+										<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+									</div>
 								</div>
 							</form>
 						</div>
@@ -147,11 +149,13 @@
                                 <input type="password" class="form-control is-valid" id="mdpUser" name="mdpUser" required>
                             </div>
                             <br/>
+							<div class="col-md-12">
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+									<button type="button" class="btn btn-primary">Valider</button>
+								</div>
+							</div>
                         </form>
-					</div>
-					<div class="modal-footer">
-					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-					  <button type="button" class="btn btn-primary">Valider</button>
 					</div>
 				  </div>
 				</div>
