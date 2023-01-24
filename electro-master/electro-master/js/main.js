@@ -1,7 +1,5 @@
 (function($) {
 	"use strict"
-	// DatePicker
-	$('.datepicker').datepicker();
 
 	// Mobile Nav toggle
 	$('.menu-toggle > a').on('click', function (e) {
