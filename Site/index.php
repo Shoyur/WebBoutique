@@ -65,7 +65,7 @@
 							<span id="msgErrEnreg"></span>
 							<form class="row g-3 espace" action="serveur/enregMembre.php" method="POST" >
 								<div class="col-md-12">
-									<label for="nom" class="form-label">Nom</label>
+									<label for="nom" class="form-label">Nomm</label>
 									<input type="text" class="form-control is-valid" id="nom" name="nom" required>
 								</div>
 								<div class="col-md-12">
