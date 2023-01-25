@@ -5,44 +5,38 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
 		<title>Electro - HTML Ecommerce Template</title>
-
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-
 		<!-- Bootstrap -->
 		<link type="text/css" rel="stylesheet" href="client/css/bootstrap.min.css"/>
-
 		<!-- Slick -->
 		<link type="text/css" rel="stylesheet" href="client/css/slick.css"/>
 		<link type="text/css" rel="stylesheet" href="client/css/slick-theme.css"/>
-
 		<!-- nouislider -->
 		<link type="text/css" rel="stylesheet" href="client/css/nouislider.min.css"/>
-
 		<!-- Font Awesome Icon -->
 		<link rel="stylesheet" href="client/css/font-awesome.min.css">
-
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="client/css/style.css"/>
 		<link rel="stylesheet" href="client/js/test.js">
-
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
+		<script src="./client/js/global.js"></script>
+		<script src="./client/js/requetes.js"></script>
     </head>
 	<body>
+
 		<!-- HEADER -->
 		<header>
+
 			<!-- TOP HEADER -->
 			<div id="top-header">
-				<div class="container">
-					
+				<div class="container">				
 					<ul class="header-links pull-right">
 						<li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#enregistrerModal">Créer un compte</button></li>
 						<li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connectionModal">Ouvrir une session</button></li>
@@ -62,10 +56,10 @@
 						</button>
 						</div>
 						<div class="modal-body">
-							<span id="msgErrEnreg"></span>
+							<span id="msgErrEnreg" style="color=#8B0000;"></span>
 							<form class="row g-3 espace" action="serveur/enregMembre.php" method="POST" >
 								<div class="col-md-12">
-									<label for="nom" class="form-label">Nomm</label>
+									<label for="nom" class="form-label">Nom</label>
 									<input type="text" class="form-control is-valid" id="nom" name="nom" required>
 								</div>
 								<div class="col-md-12">
@@ -97,13 +91,11 @@
 										</label>
 									  </div>
 								</div>
-
 								<div class="col-md-6">
 									<label for="daten">Date de naissance
 										<input type="date" name="daten" id="daten">
 									</label>
 								</div>
-
 								<div class="col-md-8">
 									<label for="mdp" class="form-label">Mot de passe</label>
 									<input type="text" class="form-control is-valid" id="mdp" name="mdp" required>
@@ -115,13 +107,13 @@
 								<br/>
 								<div class="col-md-12">
 									<div class="modal-footer">
-										<button type="submit" class="btn btn-primary">Enregistrer</button>
+										<button type="button" class="btn btn-success" onClick="validerFormEnregPartOne();">Valider</button>
+										<button type="submit" class="btn btn-primary" id="enreg_btn" disabled>Enregistrer</button>
 										<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 									</div>
 								</div>
 							</form>
 						</div>
-
 				  	</div>
 				</div>
 			</div>
