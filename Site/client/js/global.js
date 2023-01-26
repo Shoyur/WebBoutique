@@ -1,32 +1,24 @@
-let validerFormEnreg = () => {
-    let msgErrEnreg="";
-    let valide = true;
-    let res = document.getElementById('res').value;
-    if(res.length < 5 ){
-        valide = false;
-        msgErrEnreg+="Le nom du réalisateur doit avoir au moins 5 caractères!<br/>";
+let validerFormEnregPartOne = () => {
+    const pass = document.getElementById('mdp').value;
+    const cpass = document.getElementById('cmdp').value;
+    if(pass !== cpass){
+        document.getElementById('msgErrEnreg').innerHTML = "Les mots de passe sont différents!";
+        setInterval(() => {
+            document.getElementById('msgErrEnreg').innerHTML = "";
+        },5000);
+    }else{
+        const email = document.getElementById('email').value;
+        membreExiste(email);
     }
-    if(!valide){
-        document.getElementById('msgErrEnreg').innerHTML=msgErrEnreg;
-        setInterval(()=>{
-            document.getElementById('msgErrEnreg').innerHTML="";
-        }, 5000);
-    }
-    return valide;
 }
 
-let lister = () => {
-    document.getElementById('formLister').submit();
-}
-
-let initialiser = (message) =>{
-    let textToast = document.getElementById("textToast");
-    let toastElList = [].slice.call(document.querySelectorAll('.toast'))
-    let toastList = toastElList.map(function (toastEl) {
-        return new bootstrap.Toast(toastEl)
-    })
-    if(message.length > 0){
-        textToast.innerHTML = message;
-        toastList[0].show();
+let validerFormEnregPartTwo = (reponse) => {
+    if(reponse == 'false'){
+        document.getElementById('enreg_btn').removeAttribute('disabled');
+    }else{
+        document.getElementById('msgErrEnreg').innerHTML = "Un compte associé avec cette adresse courriel existe déjà!";
+        setInterval(() => {
+            document.getElementById('msgErrEnreg').innerHTML = "";
+        },5000);
     }
 }
