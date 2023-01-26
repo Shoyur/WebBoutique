@@ -133,14 +133,14 @@ session_start();
 				<div class="modal-dialog" role="document">
 				  <div class="modal-content">
 					<div class="modal-header">
-					  <h5 class="modal-title" id="connectionModalLabel">Connection</h5>
+					  <h5 class="modal-title" id="connectionModalLabel">Connexion</h5>
 					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					  </button>
 					</div>
 					<div class="modal-body">
-						<span id="msgErrEnreg"></span>
-                        <form class="row g-3 espace" action="serveur/enregistrer.php" method="POST" onSubmit="return validerFormEnreg();">
+						<span id="msgErrConn"></span>
+                        <form class="row g-3 espace" action="serveur/connecter.php" method="POST">
                             <div class="col-md-12">
                                 <label for="emailUser" class="form-label">Courriel</label>
                                 <input type="text" class="form-control is-valid" id="emailUser" name="emailUser" required>
@@ -154,7 +154,7 @@ session_start();
 					</div>
 					<div class="modal-footer">
 					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-					  <button type="button" class="btn btn-primary">Valider</button>
+					  <button type="submit" class="btn btn-primary">Valider</button>
 					</div>
 				  </div>
 				</div>
