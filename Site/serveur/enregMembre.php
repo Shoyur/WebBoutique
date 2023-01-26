@@ -11,17 +11,6 @@ $mdp = $_POST['mdp'];
 $cmdp = $_POST['cmdp'];
 
 
-
-
-// $s = "";
-// if($sexe == "Homme"){
-//     $s = "M";
-// }else if($sexe == "Femme"){
-//     $s = "F";
-// }else if($sexe == "Autre"){
-//     $s = "A";
-// }
-
 // SQL INSERT pour la table membres
 
 $sql = "INSERT INTO membres VALUES

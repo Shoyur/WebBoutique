@@ -29,7 +29,7 @@
 		<script src="./client/js/global.js"></script>
 		<script src="./client/js/requetes.js"></script>
     </head>
-	<body>
+	<body onLoad="initialiser();">
 
 		<!-- HEADER -->
 		<header>
@@ -364,8 +364,8 @@
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
 										<!-- product -->
-										<div class="product">
-											<div class="product-img">
+										<div id="produit1" class="product">
+											<!-- <div class="product-img">
 												<img src="client/images/product01.png" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
@@ -391,7 +391,7 @@
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
+											</div> -->
 										</div>
 										<!-- /product -->
 
