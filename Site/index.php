@@ -26,10 +26,10 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		<script src="./client/js/global.js"></script>
+		<script type="text/javascript" src="client/js/global.js"></script>
 		<script src="./client/js/requetes.js"></script>
     </head>
-	<body onLoad="initialiser();">
+	<body >
 
 		<!-- HEADER -->
 		<header>
@@ -396,8 +396,8 @@
 										<!-- /product -->
 
 										<!-- product -->
-										<div class="product">
-											<div class="product-img">
+										<div id="produit2" class="product">
+											<!-- <div class="product-img">
 												<img src="client/images/product02.png" alt="">
 												<div class="product-label">
 													<span class="new">NEW</span>
@@ -422,13 +422,13 @@
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
+											</div> -->
 										</div>
 										<!-- /product -->
 
 										<!-- product -->
-										<div class="product">
-											<div class="product-img">
+										<div id="produit3" class="product">
+											<!-- <div class="product-img">
 												<img src="client/images/product03.png" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
@@ -448,7 +448,7 @@
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
+											</div> -->
 										</div>
 										<!-- /product -->
 
@@ -802,6 +802,7 @@
 		<!-- /FOOTER -->
 
 		<!-- jQuery Plugins -->
+		<!-- <script src="client/js/global.js"></script> -->
 		<script src="client/js/jquery.min.js"></script>
 		<script src="client/js/bootstrap.min.js"></script>
 		<script src="client/js/slick.min.js"></script>
