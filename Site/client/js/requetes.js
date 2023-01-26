@@ -14,19 +14,19 @@ async function membreExiste(email) {
 }
 
 
-async function getProduits() {
-    $.ajax({
-        url: "serveur/getProduits.php",
-        type: "GET",
-        data: {},
-        dataType: 'json',
-        success: (reponse) => {
-            console.log(reponse);
-            initialiser(reponse);
-        },
-        fail: (e) => {
-            alert(`Problème: ${e.message()}`);
-        }
-    });
-}
+// async function getProduits() {
+//     $.ajax({
+//         url: "serveur/getProduits.php",
+//         type: "GET",
+//         data: {},
+//         dataType: 'json',
+//         success: (reponse) => {
+//             console.log(reponse);
+//             initialiser(reponse);
+//         },
+//         fail: (e) => {
+//             alert(`Problème: ${e.message()}`);
+//         }
+//     });
+// }
 

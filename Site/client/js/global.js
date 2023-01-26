@@ -23,29 +23,32 @@ let validerFormEnregPartTwo = (reponse) => {
     }
 }
 
+window.addEventListener("load", function(){
+    showProduct();
+});
 
 
+let showProduct = async () => {
 
+    let reponse = await fetch('serveur/getProduits.php');
 
-
-
-
-
-let initialiser = (reponse) => {
-    console.log("la réponse "+reponse);
-    for(let i = 0; i < reponse.length; i++){
+    let responseText = await reponse.text();
+    console.log(responseText);
+    let data = await JSON.parse(responseText);
+  
+    for(let i = 0; i < data.length; i++){
         let produit = `
             <div class="product-img">
-                <img src="${reponse[i].chemin_img}" alt="">
+                <img src="${data[i].chemin_img.substring(5)}" alt="">
                 <div class="product-label">
                     <span class="sale">-30%</span>
                     <span class="new">NEW</span>
                 </div>
             </div>
             <div class="product-body">
-                <p class="product-category">${reponse[i].categorie}</p>
-                <h3 class="product-name"><a href="#">${reponse[i].nom_prod.substring(0,15)}</a></h3>
-                <h4 class="product-price">$${reponse[i].prix} <del class="product-old-price">$990.00</del></h4>
+                <p class="product-category">${data[i].categorie}</p>
+                <h3 class="product-name"><a href="#">${data[i].nom_prod.substring(0,15)}</a></h3>
+                <h4 class="product-price">$${data[i].prix} <del class="product-old-price">$990.00</del></h4>
                 <div class="product-rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -64,8 +67,8 @@ let initialiser = (reponse) => {
             </div>`;
             let idIndexHTML = "produit"+(i+1);
             
-            console.log(idIndexHTML);
-            document.getElementById("produit1").innerHTML = produit;
+            
+            document.getElementById(idIndexHTML).innerHTML = produit;
     }
 };
  
