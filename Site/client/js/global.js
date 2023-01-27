@@ -27,7 +27,6 @@ window.addEventListener("load", function () {
     showProduct();
 });
 
-
 let showProduct = async () => {
     let reponse = await fetch('serveur/getProduits.php');
     let responseText = await reponse.text();

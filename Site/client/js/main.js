@@ -21,10 +21,11 @@
 
 		$this.slick({
 			slidesToShow: 4,
-			slidesToScroll: 1,
+			slidesToScroll: 4,
 			autoplay: true,
+			autoplaySpeed: 5000,
 			infinite: true,
-			speed: 300,
+			speed: 400,
 			dots: false,
 			arrows: true,
 			appendArrows: $nav ? $nav : false,
@@ -75,8 +76,8 @@
 
 	// Product imgs Slick
   $('#product-imgs').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     arrows: true,
     centerMode: true,
     focusOnSelect: true,
