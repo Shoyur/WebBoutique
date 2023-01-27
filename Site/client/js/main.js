@@ -21,11 +21,11 @@
 
 		$this.slick({
 			slidesToShow: 4,
-			slidesToScroll: 1,
-			// Arret du carroussel
-			autoplay: false,
+			slidesToScroll: 4,
+			autoplay: true,
+			autoplaySpeed: 5000,
 			infinite: true,
-			speed: 300,
+			speed: 400,
 			dots: false,
 			arrows: true,
 			appendArrows: $nav ? $nav : false,
@@ -75,12 +75,12 @@
 	});
 
 	// Product imgs Slick
-	$('#product-imgs').slick({
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		arrows: true,
-		centerMode: true,
-		focusOnSelect: true,
+  $('#product-imgs').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: true,
+    centerMode: true,
+    focusOnSelect: true,
 		centerPadding: 0,
 		vertical: true,
 		asNavFor: '#product-main-img',
