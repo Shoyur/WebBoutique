@@ -560,7 +560,6 @@ session_start();
 											</div> -->
 										</div>
 										<!-- /product6 -->
-<
 										<!-- product7 -->
 										<div id="produit7" class="product">
 											<!-- <div class="product-img">
