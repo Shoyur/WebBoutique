@@ -1,16 +1,3 @@
-<?php
-session_start();
-// Pas connecté
-if (!isset($_SESSION['courriel'])) {
-    header('Location: ../../index.php?msg=Vous+devez+vous+contacter!');
-    exit;
-}
-$msg = "";
-// if(isset($_GET['msg'])){
-//     $msg = $_GET['msg'];
-// }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
