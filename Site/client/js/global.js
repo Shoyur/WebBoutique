@@ -29,13 +29,10 @@ window.addEventListener("load", function(){
 
 
 let showProduct = async () => {
-
     let reponse = await fetch('serveur/getProduits.php');
-
     let responseText = await reponse.text();
     console.log(responseText);
-    let data = await JSON.parse(responseText);
-  
+    let data = await JSON.parse(responseText); 
     for(let i = 0; i < data.length; i++){
         let produit = `
             <div class="product-img">
@@ -65,9 +62,7 @@ let showProduct = async () => {
             <div class="add-to-cart">
                 <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
             </div>`;
-            let idIndexHTML = "produit"+(i+1);
-            
-            
+            let idIndexHTML = "produit"+(i+1);           
             document.getElementById(idIndexHTML).innerHTML = produit;
     }
 };
