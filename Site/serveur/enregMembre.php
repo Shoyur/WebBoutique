@@ -1,5 +1,6 @@
 <?php
 
+
 $servername = "sql9.freesqldatabase.com";
 $username = "sql9558434";
 $password = "bQV64kWUMF";
@@ -45,7 +46,7 @@ if($mdp == $cmdp){
     
     // SQL INSERT pour la table connexion
     $sql = "INSERT INTO connexion VALUES
-        ('$email', '$mdp', 'M', 'I')";
+        ('$email', '$mdp', 'M', 'A')";
     
     if(mysqli_query($conn, $sql)){
         echo "<h3>data stored in a database successfully."
@@ -67,4 +68,4 @@ if($mdp == $cmdp){
 
 ?>
 
-<a href="../index.html">Retour à la page d'acceuil</a>
+<a href="../index.php">Retour à la page d'acceuil</a>

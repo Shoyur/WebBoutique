@@ -30,7 +30,10 @@ session_start();
 
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="client/css/style.css"/>
-		<link rel="stylesheet" href="client/js/test.js">
+		<!-- <link rel="stylesheet" href="client/js/test.js"> -->
+
+		<!-- JS de Mike -->
+		<script src="client/js/connecter.js"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,7 +57,7 @@ session_start();
 			</div>
 			<!-- /TOP HEADER -->
 
-			<!-- /MODAL CREER UN COMPTE -->
+			<!-- MODAL CREER UN COMPTE -->
 			<div class="modal fade" id="enregistrerModal" tabindex="-1" role="dialog" aria-labelledby="enregistrerModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 				  	<div class="modal-content">
@@ -128,7 +131,7 @@ session_start();
 			</div>
 			<!-- /MODAL CREER UN COMPTE -->
 
-			<!-- /MODAL OUVRIR UNE SESSION -->
+			<!-- MODAL OUVRIR UNE SESSION -->
 			<div class="modal fade" id="connectionModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 				  <div class="modal-content">
@@ -139,22 +142,23 @@ session_start();
 					  </button>
 					</div>
 					<div class="modal-body">
-						<span id="msgErrConn"></span>
-                        <form class="row g-3 espace" action="serveur/connecter.php" method="POST">
+						<span id="msgErrConn">!!!</span>
+                        <form class="row g-3 espace">
+                        <!-- <form class="row g-3 espace" action="serveur/connecter.php" method="POST"> -->
                             <div class="col-md-12">
                                 <label for="emailUser" class="form-label">Courriel</label>
-                                <input type="text" class="form-control is-valid" id="emailUser" name="emailUser" required>
+                                <input type="text" class="form-control is-valid" id="emailConn" name="emailConn" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="mdpUser" class="form-label">Mot de passe</label>
-                                <input type="password" class="form-control is-valid" id="mdpUser" name="mdpUser" required>
+                                <input type="password" class="form-control is-valid" id="mdpConn" name="mdpConn" required>
                             </div>
                             <br/>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary">Fermer</button>
+								<button type="submit" class="btn btn-primary" onclick="connecter();">Connecter</button>
+							</div>
                         </form>
-					</div>
-					<div class="modal-footer">
-					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-					  <button type="submit" class="btn btn-primary">Valider</button>
 					</div>
 				  </div>
 				</div>
@@ -814,6 +818,6 @@ session_start();
 		<script src="client/js/slick.min.js"></script>
 		<script src="client/js/nouislider.min.js"></script>
 		<script src="client/js/jquery.zoom.min.js"></script>
-		<script src="client/js/main.js"></script>
+		<!-- <script src="client/js/main.js"></script> -->
 	</body>
 </html>
