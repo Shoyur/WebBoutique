@@ -1,0 +1,2 @@
+php -S localhost:8000                                   => ouvrir index.php dans serveur local + port et obtenir info sur requetes
+php -S localhost:8000 -d error_reporting=E_ALL          => ouvrir index.php dans serveur local + obtenir infos sur toutes les erreurs si existante y compris WARNING (debug)
