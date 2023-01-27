@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	if (!isset($_SESSION['statut_m']) || $_SESSION['statut_m'] != 'A') {
+		echo '<h2 style="color:red;">!!! VOUS DEVEZ ÊTRE AUTHENTIFIÉ COMME ADMINISTRATEUR POUR ACCÉDER À CETTE PAGE !!!</h2>';
+		exit();
+
+	};
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
