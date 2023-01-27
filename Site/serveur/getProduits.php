@@ -7,7 +7,20 @@
   $data = array();
   while($row = mysqli_fetch_assoc($result)){
     $data[] = $row;
+    
   }
-  echo json_encode($data);
+  if(empty($data)){
+    echo json_encode(array("error" => "No data found"));
+    exit();
+}
+$json = json_encode($data, JSON_INVALID_UTF8_IGNORE);
+if(json_last_error()){
+    echo json_encode(array("error" => json_last_error_msg()));
+    exit();
+}
+echo $json;
+
+
+
 
 ?>
