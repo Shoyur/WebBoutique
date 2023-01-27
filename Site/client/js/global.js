@@ -1,29 +1,29 @@
 let validerFormEnregPartOne = () => {
     const pass = document.getElementById('mdp').value;
     const cpass = document.getElementById('cmdp').value;
-    if(pass !== cpass){
+    if (pass !== cpass) {
         document.getElementById('msgErrEnreg').innerHTML = "Les mots de passe sont différents!";
         setInterval(() => {
             document.getElementById('msgErrEnreg').innerHTML = "";
-        },5000);
-    }else{
+        }, 5000);
+    } else {
         const email = document.getElementById('email').value;
         membreExiste(email);
     }
 }
 
 let validerFormEnregPartTwo = (reponse) => {
-    if(reponse == 'false'){
+    if (reponse == 'false') {
         document.getElementById('enreg_btn').removeAttribute('disabled');
-    }else{
+    } else {
         document.getElementById('msgErrEnreg').innerHTML = "Un compte associé avec cette adresse courriel existe déjà!";
         setInterval(() => {
             document.getElementById('msgErrEnreg').innerHTML = "";
-        },5000);
+        }, 5000);
     }
 }
 
-window.addEventListener("load", function(){
+window.addEventListener("load", function () {
     showProduct();
 });
 
@@ -32,8 +32,8 @@ let showProduct = async () => {
     let reponse = await fetch('serveur/getProduits.php');
     let responseText = await reponse.text();
     console.log(responseText);
-    let data = await JSON.parse(responseText); 
-    for(let i = 0; i < data.length; i++){
+    let data = await JSON.parse(responseText);
+    for (let i = 0; i < data.length; i++) {
         let produit = `
             <div class="product-img">
                 <img src="${data[i].chemin_img.substring(5)}" alt="">
@@ -44,7 +44,7 @@ let showProduct = async () => {
             </div>
             <div class="product-body">
                 <p class="product-category">${data[i].categorie}</p>
-                <h3 class="product-name"><a href="#">${data[i].nom_prod.substring(0,15)}</a></h3>
+                <h3 class="product-name"><a href="#">${data[i].nom_prod.substring(0, 15)}</a></h3>
                 <h4 class="product-price">$${data[i].prix} <del class="product-old-price">$990.00</del></h4>
                 <div class="product-rating">
                     <i class="fa fa-star"></i>
@@ -62,11 +62,11 @@ let showProduct = async () => {
             <div class="add-to-cart">
                 <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
             </div>`;
-            let idIndexHTML = "produit"+(i+1);           
-            document.getElementById(idIndexHTML).innerHTML = produit;
+        let idIndexHTML = "produit" + (i + 1);
+        document.getElementById(idIndexHTML).innerHTML = produit;
     }
 };
- 
+
 
 
 

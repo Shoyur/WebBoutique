@@ -139,23 +139,23 @@ session_start();
 					  </button>
 					</div>
 					<div class="modal-body">
-						<span id="msgErrConn">!!!</span>
+						<span id="msgErrConn"></span>
                         <form class="row g-3 espace">
                         <!-- <form class="row g-3 espace" action="serveur/connecter.php" method="POST"> -->
-                            <div class="col-md-12">
+						<div class="col-md-12">
                                 <label for="emailUser" class="form-label">Courriel</label>
                                 <input type="text" class="form-control is-valid" id="emailConn" name="emailConn" required>
                             </div>
-                            <div class="col-md-12" style="margin-bottom:15px">
+                            <div class="col-md-12">
                                 <label for="mdpUser" class="form-label">Mot de passe</label>
                                 <input type="password" class="form-control is-valid" id="mdpConn" name="mdpConn" required>
                             </div>
                             <br/>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary">Fermer</button>
+								<button type="submit" class="btn btn-primary" onclick="connecter();">Connecter</button>
+							</div>
                         </form>
-					</div>
-					<div class="modal-footer">
-					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-					  <button type="button" class="btn btn-primary">Valider</button>
 					</div>
 				  </div>
 				</div>

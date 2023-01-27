@@ -43,18 +43,7 @@
             . mysqli_error($conn);
     }
 
-    // SQL INSERT pour la table connexion
-    $sql = "INSERT INTO connexion VALUES
-        ('$email', '$mdp', 'M', 'I')";
-
-    if(mysqli_query($conn, $sql)){
-        echo "<h3>data stored in a database successfully."
-            . " Please browse your localhost php my admin"
-            . " to view the updated data</h3>";
-        } else{
-        echo "ERROR: Hush! Sorry $sql. "
-            . mysqli_error($conn);
-        }
+    
         
     // Close connection
     mysqli_close($conn);
