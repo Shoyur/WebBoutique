@@ -74,7 +74,7 @@
 								</div>
 								<div class="col-md-12">
 									<label for="email" class="form-label">Courriel</label>
-									<input type="text" class="form-control is-valid" id="email" name="email" required>
+									<input type="email" class="form-control is-valid" id="email" name="email" required>
 								</div>
 								<div class="col-md-6">
 									<label for="sexe">Sexe</label>
