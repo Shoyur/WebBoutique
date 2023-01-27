@@ -16,6 +16,22 @@
     $sql = "INSERT INTO membres VALUES
         ('$nom', '$prenom', '$email', '$sexe', '$daten')";
 
+    
+    if(mysqli_query($conn, $sql)){
+       echo "<h3>data stored in a database successfully."
+           . " Please browse your localhost php my admin"
+           . " to view the updated data</h3>";
+    
+       echo nl2br("Vous pouvez maintenant vous connectez en utilisant ".$email." comme identifiant.");
+    } else{
+       echo "ERROR: Hush! Sorry $sql. "
+           . mysqli_error($conn);
+    }
+    
+    // SQL INSERT pour la table connexion
+    $sql = "INSERT INTO connexion VALUES
+        ('$email', '$mdp', 'M', 'A')";
+    
     if(mysqli_query($conn, $sql)){
         echo "<h3>data stored in a database successfully."
             . " Please browse your localhost php my admin"
