@@ -26,10 +26,10 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		<script src="./client/js/global.js"></script>
+		<script type="text/javascript" src="client/js/global.js"></script>
 		<script src="./client/js/requetes.js"></script>
     </head>
-	<body>
+	<body >
 
 		<!-- HEADER -->
 		<header>
@@ -73,19 +73,19 @@
 								<div class="col-md-6">
 									<label for="sexe">Sexe</label>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="sexe" id="homme">
+										<input class="form-check-input" type="radio" name="sexe" id="homme" value="H">
 										<label class="form-check-label" for="homme">
 										  Homme
 										</label>
 									  </div>
 									  <div class="form-check">
-										<input class="form-check-input" type="radio" name="sexe" id="femme" checked>
+										<input class="form-check-input" type="radio" name="sexe" id="femme" value="F" checked>
 										<label class="form-check-label" for="femme">
 										  Femme
 										</label>
 									  </div>
 									  <div class="form-check">
-										<input class="form-check-input" type="radio" name="sexe" id="autre" checked>
+										<input class="form-check-input" type="radio" name="sexe" id="autre" value="A" checked>
 										<label class="form-check-label" for="autre">
 										  Autre
 										</label>
@@ -160,6 +160,7 @@
 				<div class="container">
 					<!-- row -->
 					<div class="row">
+
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
@@ -189,6 +190,7 @@
 						<!-- ACCOUNT -->
 						<div class="col-md-3 clearfix">
 							<div class="header-ctn">
+
 								<!-- Wishlist -->
 								<div>
 									<a href="#">
@@ -218,7 +220,6 @@
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
 											</div>
-
 											<div class="product-widget">
 												<div class="product-img">
 													<img src="client/images/product02.png" alt="">
@@ -242,25 +243,29 @@
 								</div>
 								<!-- /Cart -->
 
-								<!-- Menu Toogle -->
+								<!-- Menu Toggle -->
 								<div class="menu-toggle">
 									<a href="#">
 										<i class="fa fa-bars"></i>
 										<span>Menu</span>
 									</a>
 								</div>
-								<!-- /Menu Toogle -->
+								<!-- /Menu Toggle -->
+
 							</div>
 						</div>
 						<!-- /ACCOUNT -->
+
 					</div>
 					<!-- row -->
 				</div>
 				<!-- container -->
 			</div>
 			<!-- /MAIN HEADER -->
+
 		</header>
 		<!-- /HEADER -->
+
 
 		<!-- NAVIGATION -->
 		<nav id="navigation">
@@ -274,9 +279,8 @@
 						<li><a href="#">Aubaines</a></li>
 						<li><a href="#">Catégories</a></li>
 						<li><a href="#">Portables</a></li>
-						<li><a href="#">Téléphone</a></li>
-						<li><a href="#">Caméras</a></li>
-						<li><a href="#">Accessoires</a></li>
+						<li><a href="#">Téléphones</a></li>
+						<li><a href="#">Tours</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>
@@ -285,6 +289,7 @@
 			<!-- /container -->
 		</nav>
 		<!-- /NAVIGATION -->
+
 
 		<!-- HOT DEAL SECTION -->
 		<div id="hot-deal" class="section">
@@ -340,7 +345,7 @@
 				<!-- row -->
 				<div class="row">
 
-					<!-- section title -->
+					<!-- SECTION TITLE -->
 					<div class="col-md-12">
 						<div class="section-title">
 							<h3 class="title">Nouveaux Produits</h3>
@@ -348,24 +353,24 @@
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab1">Portables</a></li>
 									<li><a data-toggle="tab" href="#tab1">Téléphones</a></li>
-									<li><a data-toggle="tab" href="#tab1">Caméras</a></li>
-									<li><a data-toggle="tab" href="#tab1">Accessoires</a></li>
+									<li><a data-toggle="tab" href="#tab1">Tours</a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
-					<!-- /section title -->
+					<!-- /SECTION TITLE -->
 
-					<!-- Products tab & slick -->
+					<!-- SECTION CAROUSSEL NOUVEAUX PRODUITS -->
 					<div class="col-md-12">
 						<div class="row">
 							<div class="products-tabs">
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
+
+										<!-- product1 -->
+										<div id="produit1" class="product">
+											<!-- <div class="product-img">
 												<img src="client/images/product01.png" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
@@ -391,13 +396,13 @@
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
+											</div> -->
 										</div>
-										<!-- /product -->
+										<!-- /product1 -->
 
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
+										<!-- product2 -->
+										<div id="produit2" class="product">
+											<!-- <div class="product-img">
 												<img src="client/images/product02.png" alt="">
 												<div class="product-label">
 													<span class="new">NEW</span>
@@ -422,13 +427,13 @@
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
+											</div> -->
 										</div>
-										<!-- /product -->
+										<!-- /product2 -->
 
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
+										<!-- product3 -->
+										<div id="produit3" class="product">
+											<!-- <div class="product-img">
 												<img src="client/images/product03.png" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
@@ -448,13 +453,13 @@
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
+											</div> -->
 										</div>
-										<!-- /product -->
+										<!-- /product3 -->
 
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
+										<!-- product4 -->
+										<div id="produit4" class="product">
+											<!-- <div class="product-img">
 												<img src="client/images/product04.png" alt="">
 											</div>
 											<div class="product-body">
@@ -476,14 +481,14 @@
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
+											</div> -->
 										</div>
-										<!-- /product -->
+										<!-- /product4 -->
 
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="client/images/product05.png" alt="">
+										<!-- product5 -->
+										<div id="produit5" class="product">
+											<!-- <div class="product-img">
+												<img src="client/images/product5.png" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
@@ -504,9 +509,10 @@
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
+											</div> -->
 										</div>
-										<!-- /product -->
+										<!-- /product5 -->
+
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
 								</div>
@@ -514,23 +520,24 @@
 							</div>
 						</div>
 					</div>
-					<!-- Products tab & slick -->
+					<!-- /SECTION CAROUSSEL NOUVEAUX PRODUITS -->
+
 				</div>
 				<!-- /row -->
 			</div>
 			<!-- /container -->
 		</div>
-		<!-- /SECTION -->
+		<!-- /SECTION NOUVEAUX PRODUITS  -->
 
 		
-		<!-- SECTION  MEILLEURS VENDEURS-->
+		<!-- SECTION PRODUITS POPULAIRES-->
 		<div class="section">
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
 				<div class="row">
 
-					<!-- section title -->
+					<!-- SECTION TITLE -->
 					<div class="col-md-12">
 						<div class="section-title">
 							<h3 class="title">Meilleurs Vendeurs</h3>
@@ -544,16 +551,17 @@
 							</div>
 						</div>
 					</div>
-					<!-- /section title -->
+					<!-- /SECTION TITLE -->
 
-					<!-- Products tab & slick -->
+					<!-- SECTION CAROUSSEL PRODUITS POPULAIRES -->
 					<div class="col-md-12">
 						<div class="row">
 							<div class="products-tabs">
 								<!-- tab -->
 								<div id="tab2" class="tab-pane fade in active">
 									<div class="products-slick" data-nav="#slick-nav-2">
-										<!-- product -->
+
+										<!-- product1 -->
 										<div class="product">
 											<div class="product-img">
 												<img src="client/images/product06.png" alt="">
@@ -583,9 +591,9 @@
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
-										<!-- /product -->
+										<!-- /product1 -->
 
-										<!-- product -->
+										<!-- product2 -->
 										<div class="product">
 											<div class="product-img">
 												<img src="client/images/product07.png" alt="">
@@ -614,9 +622,9 @@
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
-										<!-- /product -->
+										<!-- /product2 -->
 
-										<!-- product -->
+										<!-- product3 -->
 										<div class="product">
 											<div class="product-img">
 												<img src="client/images/product08.png" alt="">
@@ -640,9 +648,9 @@
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
-										<!-- /product -->
+										<!-- /product3 -->
 
-										<!-- product -->
+										<!-- product4 -->
 										<div class="product">
 											<div class="product-img">
 												<img src="client/images/product09.png" alt="">
@@ -668,9 +676,9 @@
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
-										<!-- /product -->
+										<!-- /product4 -->
 
-										<!-- product -->
+										<!-- product5 -->
 										<div class="product">
 											<div class="product-img">
 												<img src="client/images/product01.png" alt="">
@@ -696,7 +704,7 @@
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
-										<!-- /product -->
+										<!-- /product5 -->
 									</div>
 									<div id="slick-nav-2" class="products-slick-nav"></div>
 								</div>
@@ -704,18 +712,19 @@
 							</div>
 						</div>
 					</div>
-					<!-- /Products tab & slick -->
+					<!-- /SECTION CAROUSSEL PRODUITS POPULAIRES -->
+
 				</div>
 				<!-- /row -->
 			</div>
 			<!-- /container -->
 		</div>
-		<!-- /SECTION -->
+		<!-- /SECTION PRODUITS POPULAIRES -->
 
 		
 		<!-- FOOTER -->
 		<footer id="footer">
-			<!-- top footer -->
+			<!-- TOP FOOTER -->
 			<div class="section">
 				<!-- container -->
 				<div class="container">
@@ -732,7 +741,6 @@
 								</ul>
 							</div>
 						</div>
-
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Catégories</h3>
@@ -745,9 +753,7 @@
 								</ul>
 							</div>
 						</div>
-
 						<div class="clearfix visible-xs"></div>
-
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Information</h3>
@@ -760,7 +766,6 @@
 								</ul>
 							</div>
 						</div>
-
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Service</h3>
@@ -778,9 +783,9 @@
 				</div>
 				<!-- /container -->
 			</div>
-			<!-- /top footer -->
+			<!-- /TOP FOOTER -->
 
-			<!-- bottom footer -->
+			<!-- BOTTOM FOOTER -->
 			<div id="bottom-footer" class="section">
 				<div class="container">
 					<!-- row -->
@@ -797,7 +802,7 @@
 				</div>
 				<!-- /container -->
 			</div>
-			<!-- /bottom footer -->
+			<!-- /BOTTOM FOOTER -->
 		</footer>
 		<!-- /FOOTER -->
 
@@ -808,5 +813,6 @@
 		<script src="client/js/nouislider.min.js"></script>
 		<script src="client/js/jquery.zoom.min.js"></script>
 		<script src="client/js/main.js"></script>
+
 	</body>
 </html>
