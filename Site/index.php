@@ -42,27 +42,6 @@ session_start();
 		<!-- HEADER -->
 		<header>
 
-			<!-- TOP HEADER -->
-			<div id="top-header">
-				<div class="container">
-					
-					<ul class="header-links pull-right">
-						<li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#enregistrerModal">Créer un compte</button></li>
-						<li>
-							<?php
-							if (isset($_SESSION['statut_m']) && $_SESSION['statut_m'] == "M") {
-								echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connectionModal">Connecté!</button>';
-							}
-							else {
-								echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connectionModal">Ouvrir une session</button>';
-							}
-							?>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<!-- /TOP HEADER -->
-
 			<!-- MODAL CREER UN COMPTE -->
 			<div class="modal fade" id="enregistrerModal" tabindex="-1" role="dialog" aria-labelledby="enregistrerModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
@@ -160,6 +139,11 @@ session_start();
 							<div class="modal-footer">
 								<br>
 								<button type="button" class="btn btn-primary" onclick="connecter();">Connecter</button>
+								<br>
+								<br>
+								<button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#enregistrerModal">
+									Cliquez ici pour créer un nouveau compte.
+								</button>
 							</div>
                         </form>
 					</div>
@@ -170,11 +154,8 @@ session_start();
 
 			<!-- MAIN HEADER -->
 			<div id="header">
-				<!-- container -->
 				<div class="container">
-					<!-- row -->
 					<div class="row">
-
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
@@ -189,13 +170,8 @@ session_start();
 						<div class="col-md-6">
 							<div class="header-search">
 								<form>
-									<select class="input-select">
-										<option value="0">>Catégories</option>
-										<option value="1">Categorie 01</option>
-										<option value="1">Categorie 02</option>
-									</select>
-									<input class="input" placeholder="Search here">
-									<button class="search-btn">Rechercher</button>
+									<input class="input" placeholder="Recherchez ici">
+									<button class="search-btn"><i class="fa fa-search"></i></button>
 								</form>
 							</div>
 						</div>
@@ -204,22 +180,38 @@ session_start();
 						<!-- ACCOUNT -->
 						<div class="col-md-3 clearfix">
 							<div class="header-ctn">
-
-								<!-- Wishlist -->
 								<div>
-									<a href="#">
-										<i class="fa fa-heart-o"></i>
-										<span>Favoris</span>
-										<div class="qty">2</div>
-									</a>
+									<?php
+										// unset($_SESSION['statut_m']);
+										if (isset($_SESSION['statut_m']) && $_SESSION['statut_m'] == "M") {
+											$prenom = trim($_SESSION['prenom']);
+											echo '
+											<a href="#" data-toggle="dropdown" data-hover="dropdown">
+												<i class="fa fa-user-circle-o">&nbsp;&nbsp;'.trim($prenom).'&nbsp;<span class="caret"></span></i>
+											</a>
+											<ul class="dropdown-menu">
+												<li><a href="#">Liste de souhaits</a></li>
+												<li><a href="#">Historique d’achats</a></li>
+												<li><a href="#">Détails membre</a></li>
+												<li><a href="serveur/deconnecter.php">Déconnecter</a></li>
+											</ul>
+											';
+										}
+										else {
+											echo '
+											<a href="#" data-toggle="modal" data-target="#connectionModal">
+												<i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;S’identifier
+											</a>
+											';
+										}
+									?>
 								</div>
-								<!-- /Wishlist -->
 
 								<!-- Cart -->
 								<div class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-										<i class="fa fa-shopping-cart"></i>
-										<span>Mon Panier</span>
+										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										<!-- <span>Mon Panier</span> -->
 										<div class="qty">3</div>
 									</a>
 									<div class="cart-dropdown">
