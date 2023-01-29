@@ -1,11 +1,10 @@
 
 function connecter() {
-    // alert(window.location.pathname);
     console.log("Début fonction connecter() de connecter.js");
-    const v1 = document.getElementById('emailConn').value;
-    const v2 = document.getElementById('mdpConn').value
-    console.log(v1 + " + "+ v2);
-    if (v1 == null || v1 == "" || v2 == null || v2 == "") { 
+    const email = document.getElementById('emailConn').value;
+    const mdp = document.getElementById('mdpConn').value
+    console.log("email=", email, " mdp=", mdp);
+    if (email == null || email == "" || mdp == null || mdp == "") { 
         document.getElementById("msgErrConn").innerText = "Les champs 'Courriel' et 'Mot de passe' doivent être remplis.\n";
         return; 
     }
@@ -13,32 +12,32 @@ function connecter() {
         url: "serveur/connecter.php",
         type: "POST",
         data: {
-            "email": v1,
-            "mdp": v2
+            "email": email,
+            "mdp": mdp
         },
         async: false,
         dataType: 'text',
         success: (reponse) => {
             switch (reponse) {
                 case 'E': {
-                    console.log("Erreur : membre inexistant !!!");
+                    console.log("'E': membre inexistant...");
                     document.getElementById("msgErrConn").innerText = "Membre inexistant..."; break; }
                 case 'M': { 
-                    console.log("Oui un membre !!!");
+                    console.log("'M'embre.");
                     location.reload(); break; }
                 case 'A': { 
-                    console.log("Un ADMIN !!!!!!!!!!!!");
+                    console.log("'A'dmin.");
                     window.location.href = "serveur/admin.php"; break; }
                 case 'I': { 
-                    console.log("BOOOOUUUHHHH inactif !");
+                    console.log("Membre existant mais 'I'nactif. Contactez l`administrateur.");
                     document.getElementById("msgErrConn").innerText = "Membre existant mais inactif. Contactez l`administrateur."; break; }
                 default : { 
-                    console.log("switch default (???)");
-                    break; }
+                   console.log("connecter.js ajax reponse est autre chose que E-M-A-I");
+                   break; }
             }
         },
         fail: (e) => {
-            alert(`Problème: ${e.message()}`);
+            console.log(`Problème (ajax fail): ${e.message()}`);
         }
     });
 }
