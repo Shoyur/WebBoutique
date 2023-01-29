@@ -4,29 +4,28 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<title>Electro - HTML Ecommerce Template</title>
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="client/css/bootstrap.min.css"/>
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" href="client/css/slick.css"/>
+		<link type="text/css" rel="stylesheet" href="client/css/slick-theme.css"/>
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" href="client/css/nouislider.min.css"/>
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="client/css/font-awesome.min.css">
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="client/css/style.css"/>
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Electro - HTML Ecommerce Template</title>
-	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="client/css/bootstrap.min.css" />
-	<!-- Slick -->
-	<link type="text/css" rel="stylesheet" href="client/css/slick.css" />
-	<link type="text/css" rel="stylesheet" href="client/css/slick-theme.css" />
-	<!-- nouislider -->
-	<link type="text/css" rel="stylesheet" href="client/css/nouislider.min.css" />
-	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="client/css/font-awesome.min.css">
-	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="client/css/style.css" />
-
-	<!-- JS de Mike -->
-	<script src="client/js/connecter.js"></script>
+		<!-- JS de Mike -->
+		<script src="client/js/connecter.js"></script>
 
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -35,28 +34,13 @@ session_start();
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-	<script type="text/javascript" src="client/js/global.js"></script>
-	<script src="./client/js/requetes.js"></script>
-</head>
+		<script type="text/javascript" src="client/js/global.js"></script>
+		<script src="./client/js/requetes.js"></script>
+    </head>
+	<body >
 
-<body>
-
-	<!-- HEADER -->
-	<header>
-
-		<!-- TOP HEADER -->
-		<div id="top-header">
-			<div class="container">
-
-				<ul class="header-links pull-right">
-					<li><button type="button" class="btn btn-primary" data-toggle="modal"
-							data-target="#enregistrerModal">Créer un compte</button></li>
-					<li><button type="button" class="btn btn-primary" data-toggle="modal"
-							data-target="#connectionModal">Ouvrir une session</button></li>
-				</ul>
-			</div>
-		</div>
-		<!-- /TOP HEADER -->
+		<!-- HEADER -->
+		<header>
 
 		<!-- MODAL CREER UN COMPTE -->
 		<div class="modal fade" id="enregistrerModal" tabindex="-1" role="dialog"
@@ -68,295 +52,298 @@ session_start();
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-					</div>
-					<div class="modal-body">
-						<span id="msgErrEnreg" style="color=#8B0000;"></span>
-						<form class="row g-3 espace" action="serveur/enregMembre.php" method="POST">
-							<div class="col-md-12">
-								<label for="nom" class="form-label">Nom</label>
-								<input type="text" class="form-control is-valid" id="nom" name="nom" required>
-							</div>
-							<div class="col-md-12">
-								<label for="prenom" class="form-label">Prénom</label>
-								<input type="text" class="form-control is-valid" id="prenom" name="prenom" required>
-							</div>
-							<div class="col-md-12">
-								<label for="email" class="form-label">Courriel</label>
-								<input type="email" class="form-control is-valid" id="email" name="email" required>
-							</div>
-							<div class="col-md-6">
-								<label for="sexe">Sexe</label>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="sexe" id="homme" value="H">
-									<label class="form-check-label" for="homme">
-										Homme
+						</div>
+						<div class="modal-body">
+							<span id="msgErrEnreg" style="color:#8B0000;"></span>
+							<form class="row g-3 espace" action="serveur/enregMembre.php" method="POST" >
+								<div class="col-md-12">
+									<label for="nom" class="form-label">Nom</label>
+									<input type="text" class="form-control is-valid" id="nom" name="nom" required>
+								</div>
+								<div class="col-md-12">
+									<label for="prenom" class="form-label">Prénom</label>
+									<input type="text" class="form-control is-valid" id="prenom" name="prenom" required>
+								</div>
+								<div class="col-md-12">
+									<label for="email" class="form-label">Courriel</label>
+									<input type="email" class="form-control is-valid" id="email" name="email" required>
+								</div>
+								<div class="col-md-6">
+									<label for="sexe">Sexe</label>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="sexe" id="homme" value="H">
+										<label class="form-check-label" for="homme">
+										  Homme
+										</label>
+									  </div>
+									  <div class="form-check">
+										<input class="form-check-input" type="radio" name="sexe" id="femme" value="F" checked>
+										<label class="form-check-label" for="femme">
+										  Femme
+										</label>
+									  </div>
+									  <div class="form-check">
+										<input class="form-check-input" type="radio" name="sexe" id="autre" value="A" checked>
+										<label class="form-check-label" for="autre">
+										  Autre
+										</label>
+									  </div>
+								</div>
+								<div class="col-md-6">
+									<label for="daten">Date de naissance
+										<input type="date" name="daten" id="daten">
 									</label>
 								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="sexe" id="femme" value="F"
-										checked>
-									<label class="form-check-label" for="femme">
-										Femme
-									</label>
+								<div class="col-md-8">
+									<label for="mdp" class="form-label">Mot de passe</label>
+									<input type="text" class="form-control is-valid" id="mdp" name="mdp" required>
 								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="sexe" id="autre" value="A"
-										checked>
-									<label class="form-check-label" for="autre">
-										Autre
-									</label>
+								<div class="col-md-8" style="margin-bottom:15px">
+									<label for="cmdp" class="form-label">Confirmation du mot de passe</label>
+									<input type="text"  class="form-control is-valid" id="cmdp" name="cmdp" required>
 								</div>
-							</div>
-							<div class="col-md-6">
-								<label for="daten">Date de naissance
-									<input type="date" name="daten" id="daten">
-								</label>
-							</div>
-							<div class="col-md-8">
-								<label for="mdp" class="form-label">Mot de passe</label>
-								<input type="text" class="form-control is-valid" id="mdp" name="mdp" required>
-							</div>
-							<div class="col-md-8" style="margin-bottom:15px">
-								<label for="cmdp" class="form-label">Confirmation du mot de passe</label>
-								<input type="text" class="form-control is-valid" id="cmdp" name="cmdp" required>
-							</div>
-							<br />
-							<div class="col-md-12">
-								<div class="modal-footer">
-									<button type="button" class="btn btn-success"
-										onClick="validerFormEnregPartOne();">Valider</button>
-									<button type="submit" class="btn btn-primary" id="enreg_btn"
-										disabled>Enregistrer</button>
-									<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+								<br/>
+								<div class="col-md-12">
+									<div class="modal-footer">
+										<button type="button" class="btn btn-success" onClick="validerFormEnregPartOne();">Valider</button>
+										<button type="submit" class="btn btn-primary" id="enreg_btn" disabled>Enregistrer</button>
+										<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+									</div>
 								</div>
-							</div>
-						</form>
-					</div>
+							</form>
+						</div>
+				  	</div>
 				</div>
 			</div>
-		</div>
-		<!-- /MODAL CREER UN COMPTE -->
+			<!-- /MODAL CREER UN COMPTE -->
 
-		<!-- MODAL OUVRIR UNE SESSION -->
-		<div class="modal fade" id="connectionModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel"
-			aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
+			<!-- MODAL OUVRIR UNE SESSION [[[      [[[      CONNECTER      ]]]       ]]] -->
+			<div class="modal fade" id="connectionModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+				  <div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="connectionModalLabel">Connexion</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
+					  <h5 class="modal-title" id="connectionModalLabel">Connexion</h5>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					</div>
 					<div class="modal-body">
-						<span id="msgErrConn"></span>
-						<!-- <form class="row g-3 espace"> -->
-						<form class="row g-3 espace" action="serveur/connecter.php" method="POST">
-							<div class="col-md-12">
-								<label for="emailConn" class="form-label">Courriel</label>
-								<input type="text" class="form-control is-valid" id="emailConn" name="emailConn"
-									required>
-							</div>
-							<div class="col-md-12">
-								<label for="mdpConn" class="form-label">Mot de passe</label>
-								<input type="password" class="form-control is-valid" id="mdpConn" name="mdpConn"
-									required>
-							</div>
-							<br />
+						<span id="msgErrConn" style="color:#8B0000;"></span>
+                        <form class="row g-3 espace">
+						<div class="col-md-12">
+                                <label for="emailUser" class="form-label">Courriel</label>
+                                <input type="text" class="form-control is-valid" id="emailConn" name="emailConn" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="mdpUser" class="form-label">Mot de passe</label>
+                                <input type="password" class="form-control is-valid" id="mdpConn" name="mdpConn" required>
+                            </div>
+							
 							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary">Fermer</button>
-								<button type="submit" class="btn btn-primary" >Connecter</button>
+								<br>
+								<button type="button" class="btn btn-primary" onclick="connecter();">Connecter</button>
+								<br>
+								<br>
+								<button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#enregistrerModal">
+									Cliquez ici pour créer un nouveau compte.
+								</button>
 							</div>
 						</form>
 					</div>
+				  </div>
 				</div>
-			</div>
-		</div>
-		<!-- /MODAL OUVRIR UNE SESSION -->
+			  </div>
+			<!-- /MODAL OUVRIR UNE SESSION [[[      [[[      CONNECTER      ]]]       ]]] -->
 
-		<!-- MAIN HEADER -->
-		<div id="header">
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<div class="container">
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="#" class="logo">
+									<img src="client/images/logo.png" alt="">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+
+						<!-- SEARCH BAR -->
+						<div class="col-md-6">
+							<div class="header-search">
+								<form>
+									<input class="input" placeholder="Recherchez ici">
+									<button class="search-btn"><i class="fa fa-search"></i></button>
+								</form>
+							</div>
+						</div>
+						<!-- /SEARCH BAR -->
+
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+								<div>
+									<?php
+										// unset($_SESSION['statut_m']);
+										if (isset($_SESSION['statut_m']) && $_SESSION['statut_m'] == "M") {
+											$prenom = trim($_SESSION['prenom']);
+											echo '
+											<a href="#" data-toggle="dropdown" data-hover="dropdown">
+												<i class="fa fa-user-circle-o">&nbsp;&nbsp;'.trim($prenom).'&nbsp;<span class="caret"></span></i>
+											</a>
+											<ul class="dropdown-menu">
+												<li><a href="#">Liste de souhaits</a></li>
+												<li><a href="#">Historique d’achats</a></li>
+												<li><a href="#">Détails membre</a></li>
+												<li><a href="serveur/deconnecter.php">Déconnecter</a></li>
+											</ul>
+											';
+										}
+										else {
+											echo '
+											<a href="#" data-toggle="modal" data-target="#connectionModal">
+												<i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;S’identifier
+											</a>
+											';
+										}
+									?>
+								</div>
+
+								<!-- Cart -->
+								<div class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										<!-- <span>Mon Panier</span> -->
+										<div class="qty">3</div>
+									</a>
+									<div class="cart-dropdown">
+										<div class="cart-list">
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="client/images/product01.png" alt="">
+												</div>
+												<div class="product-body">
+													<h3 class="product-name"><a href="#">product name goes here</a></h3>
+													<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+												</div>
+												<button class="delete"><i class="fa fa-close"></i></button>
+											</div>
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="client/images/product02.png" alt="">
+												</div>
+												<div class="product-body">
+													<h3 class="product-name"><a href="#">product name goes here</a></h3>
+													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
+												</div>
+												<button class="delete"><i class="fa fa-close"></i></button>
+											</div>
+										</div>
+										<div class="cart-summary">
+											<small>3 Item(s) selected</small>
+											<h5>SUBTOTAL: $2940.00</h5>
+										</div>
+										<div class="cart-btns">
+											<a href="#">View Cart</a>
+											<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
+									</div>
+								</div>
+								<!-- /Cart -->
+
+								<!-- Menu Toggle -->
+								<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div>
+								<!-- /Menu Toggle -->
+
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+
+		</header>
+		<!-- /HEADER -->
+
+
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li class="active"><a href="#">Accueil</a></li>
+						<li><a href="#">Aubaines</a></li>
+						<li><a href="#">Catégories</a></li>
+						<li><a href="#">Portables</a></li>
+						<li><a href="#">Téléphones</a></li>
+						<li><a href="#">Tours</a></li>
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+
+
+		<!-- HOT DEAL SECTION -->
+		<div id="hot-deal" class="section">
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-
-					<!-- LOGO -->
-					<div class="col-md-3">
-						<div class="header-logo">
-							<a href="#" class="logo">
-								<img src="client/images/logo.png" alt="">
-							</a>
-						</div>
-					</div>
-					<!-- /LOGO -->
-
-					<!-- SEARCH BAR -->
-					<div class="col-md-6">
-						<div class="header-search">
-							<form>
-								<select class="input-select">
-									<option value="0">>Catégories</option>
-									<option value="1">Categorie 01</option>
-									<option value="1">Categorie 02</option>
-								</select>
-								<input class="input" placeholder="Search here">
-								<button class="search-btn">Rechercher</button>
-							</form>
-						</div>
-					</div>
-					<!-- /SEARCH BAR -->
-
-					<!-- ACCOUNT -->
-					<div class="col-md-3 clearfix">
-						<div class="header-ctn">
-
-							<!-- Wishlist -->
-							<div>
-								<a href="#">
-									<i class="fa fa-heart-o"></i>
-									<span>Favoris</span>
-									<div class="qty">2</div>
-								</a>
-							</div>
-							<!-- /Wishlist -->
-
-							<!-- Cart -->
-							<div class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-									<i class="fa fa-shopping-cart"></i>
-									<span>Mon Panier</span>
-									<div class="qty">3</div>
-								</a>
-								<div class="cart-dropdown">
-									<div class="cart-list">
-										<div class="product-widget">
-											<div class="product-img">
-												<img src="client/images/product01.png" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-											</div>
-											<button class="delete"><i class="fa fa-close"></i></button>
-										</div>
-										<div class="product-widget">
-											<div class="product-img">
-												<img src="client/images/product02.png" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-											</div>
-											<button class="delete"><i class="fa fa-close"></i></button>
-										</div>
+					<div class="col-md-12">
+						<div class="hot-deal">
+							<ul class="hot-deal-countdown">
+								<li>
+									<div>
+										<h3>02</h3>
+										<span>Jours</span>
 									</div>
-									<div class="cart-summary">
-										<small>3 Item(s) selected</small>
-										<h5>SUBTOTAL: $2940.00</h5>
+								</li>
+								<li>
+									<div>
+										<h3>10</h3>
+										<span>Heures</span>
 									</div>
-									<div class="cart-btns">
-										<a href="#">View Cart</a>
-										<a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+								</li>
+								<li>
+									<div>
+										<h3>34</h3>
+										<span>Minutes</span>
 									</div>
-								</div>
-							</div>
-							<!-- /Cart -->
-
-							<!-- Menu Toggle -->
-							<div class="menu-toggle">
-								<a href="#">
-									<i class="fa fa-bars"></i>
-									<span>Menu</span>
-								</a>
-							</div>
-							<!-- /Menu Toggle -->
-
+								</li>
+								<li>
+									<div>
+										<h3>60</h3>
+										<span>Secondes</span>
+									</div>
+								</li>
+							</ul>
+							<h2 class="text-uppercase">Aubaine de la semaine</h2>
+							<p>Jusqu'à 50% de rabais</p>
+							<a class="primary-btn cta-btn" href="#">Magasinez Maintenant</a>
 						</div>
-					</div>
-					<!-- /ACCOUNT -->
-
-				</div>
-				<!-- row -->
-			</div>
-			<!-- container -->
-		</div>
-		<!-- /MAIN HEADER -->
-
-	</header>
-	<!-- /HEADER -->
-
-
-	<!-- NAVIGATION -->
-	<nav id="navigation">
-		<!-- container -->
-		<div class="container">
-			<!-- responsive-nav -->
-			<div id="responsive-nav">
-				<!-- NAV -->
-				<ul class="main-nav nav navbar-nav">
-					<li class="active"><a href="#">Accueil</a></li>
-					<li><a href="#">Aubaines</a></li>
-					<li><a href="#">Catégories</a></li>
-					<li><a href="#">Portables</a></li>
-					<li><a href="#">Téléphones</a></li>
-					<li><a href="#">Tours</a></li>
-				</ul>
-				<!-- /NAV -->
-			</div>
-			<!-- /responsive-nav -->
-		</div>
-		<!-- /container -->
-	</nav>
-	<!-- /NAVIGATION -->
-
-
-	<!-- HOT DEAL SECTION -->
-	<div id="hot-deal" class="section">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="hot-deal">
-						<ul class="hot-deal-countdown">
-							<li>
-								<div>
-									<h3>02</h3>
-									<span>Jours</span>
-								</div>
-							</li>
-							<li>
-								<div>
-									<h3>10</h3>
-									<span>Heures</span>
-								</div>
-							</li>
-							<li>
-								<div>
-									<h3>34</h3>
-									<span>Minutes</span>
-								</div>
-							</li>
-							<li>
-								<div>
-									<h3>60</h3>
-									<span>Secondes</span>
-								</div>
-							</li>
-						</ul>
-						<h2 class="text-uppercase">Aubaine de la semaine</h2>
-						<p>Jusqu'à 50% de rabais</p>
-						<a class="primary-btn cta-btn" href="#">Magasinez Maintenant</a>
 					</div>
 				</div>
+				<!-- /row -->
 			</div>
-			<!-- /row -->
+			<!-- /container -->
 		</div>
-		<!-- /container -->
-	</div>
-	<!-- /HOT DEAL SECTION -->
-
+		<!-- /HOT DEAL SECTION -->
+		
 
 		<!-- SECTION PRODUITS POPULAIRES -->
 		<div class="section">
@@ -709,24 +696,25 @@ session_start();
 							template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
 								href="https://colorlib.com" target="_blank">Colorlib</a>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						</span>
+							</span>
+						</div>
 					</div>
+						<!-- /row -->
 				</div>
-				<!-- /row -->
+				<!-- /container -->
 			</div>
-			<!-- /container -->
-		</div>
-		<!-- /BOTTOM FOOTER -->
-	</footer>
-	<!-- /FOOTER -->
+			<!-- /BOTTOM FOOTER -->
+		</footer>
+		<!-- /FOOTER -->
 
-	<!-- jQuery Plugins -->
-	<script src="client/js/jquery.min.js"></script>
-	<script src="client/js/bootstrap.min.js"></script>
-	<script src="client/js/slick.min.js"></script>
-	<script src="client/js/nouislider.min.js"></script>
-	<script src="client/js/jquery.zoom.min.js"></script>
-	<script src="client/js/main.js"></script>
-</body>
+		<!-- jQuery Plugins -->
+		<script src="client/js/jquery.min.js"></script>
+		<script src="client/js/bootstrap.min.js"></script>
+		<script src="client/js/slick.min.js"></script>
+		<script src="client/js/nouislider.min.js"></script>
+		<script src="client/js/jquery.zoom.min.js"></script>
+		<script src="client/js/main.js"></script>
+	</body>
+</html>
 
 </html>

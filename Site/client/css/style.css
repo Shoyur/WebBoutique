@@ -502,22 +502,23 @@ textarea.input {
 
 .header-search form .input-select {
   margin-right: -4px;
-  border-radius: 40px 0px 0px 40px;
+  border-radius: 30px 0px 0px 30px;
 }
 
 .header-search form .input {
-  width: calc(100% - 260px);
+  width: calc(100% - 160px);
   margin-right: -4px;
+  border-radius: 30px 0px 0px 30px;
 }
 
 .header-search form .search-btn {
   height: 40px;
-  width: 100px;
+  width: 60px;
   background: #D10024;
   color: #FFF;
   font-weight: 700;
   border: none;
-  border-radius: 0px 40px 40px 0px;
+  border-radius: 0px 30px 30px 0px;
 }
 
 /*----------------------------*\
@@ -527,6 +528,7 @@ textarea.input {
 .header-ctn {
   float: right;
   padding: 15px 0px;
+  margin-top: 10px; /* mike : pour ajouter un espace libre */
 }
 
 .header-ctn>div {
@@ -546,8 +548,12 @@ textarea.input {
 }
 
 .header-ctn>div>a>i {
-  display: block;
-  font-size: 18px;
+  display: inline; /* mike : 'block' mettais le text en dessous... */
+  font-size: 30px; /* mike : au lieu de 18px */
+}
+
+.header-ctn>div>a>i:hover, .header-ctn>div>a:hover { /* mike : pour que ça change de blanc à rouge */
+  color: #D10024;
 }
 
 .header-ctn>div>a>span {
@@ -556,14 +562,14 @@ textarea.input {
 
 .header-ctn>div>a>.qty {
   position: absolute;
-  right: 15px;
-  top: -10px;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
+  right: 10px; /* mike : les 5 valeurs ajustés pour voir plus clair */
+  top: -15px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
   text-align: center;
   border-radius: 50%;
-  font-size: 10px;
+  font-size: 16px; /* mike : au lieu de 10px */
   color: #FFF;
   background-color: #D10024;
 }
@@ -914,6 +920,7 @@ textarea.input {
 }
 
 .product .product-img>img {
+
 
   width: 100%;
 }
@@ -2266,5 +2273,11 @@ textarea.input {
   .store-pagination {
     float: none;
     margin-top: 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) { /* mike : test */
+  .dropdown:hover .dropdown-menu {
+    display: block;
   }
 }
