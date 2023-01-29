@@ -21,7 +21,7 @@ session_start();
 		<link type="text/css" rel="stylesheet" href="client/css/nouislider.min.css"/>
 		<!-- Font Awesome Icon -->
 		<link rel="stylesheet" href="client/css/font-awesome.min.css">
-		<!-- Custom stlylesheet -->
+		<!-- Custom stylesheet -->
 		<link type="text/css" rel="stylesheet" href="client/css/style.css"/>
 
 		<!-- JS de Mike -->
@@ -42,16 +42,15 @@ session_start();
 		<!-- HEADER -->
 		<header>
 
-		<!-- MODAL CREER UN COMPTE -->
-		<div class="modal fade" id="enregistrerModal" tabindex="-1" role="dialog"
-			aria-labelledby="enregistrerModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="enregistrerModalLabel">Devenir Membre</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
+			<!-- MODAL CREER UN COMPTE -->
+			<div class="modal fade" id="enregistrerModal" tabindex="-1" role="dialog" aria-labelledby="enregistrerModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="enregistrerModalLabel">Devenir Membre</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
 						</div>
 						<div class="modal-body">
 							<span id="msgErrEnreg" style="color:#8B0000;"></span>
@@ -72,22 +71,16 @@ session_start();
 									<label for="sexe">Sexe</label>
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="sexe" id="homme" value="H">
-										<label class="form-check-label" for="homme">
-										  Homme
-										</label>
-									  </div>
-									  <div class="form-check">
+										<label class="form-check-label" for="homme">Homme</label>
+									</div>
+									<div class="form-check">
 										<input class="form-check-input" type="radio" name="sexe" id="femme" value="F" checked>
-										<label class="form-check-label" for="femme">
-										  Femme
-										</label>
-									  </div>
-									  <div class="form-check">
+										<label class="form-check-label" for="femme">Femme</label>
+									</div>
+									<div class="form-check">
 										<input class="form-check-input" type="radio" name="sexe" id="autre" value="A" checked>
-										<label class="form-check-label" for="autre">
-										  Autre
-										</label>
-									  </div>
+										<label class="form-check-label" for="autre">Autre</label>
+									</div>
 								</div>
 								<div class="col-md-6">
 									<label for="daten">Date de naissance
@@ -105,14 +98,14 @@ session_start();
 								<br/>
 								<div class="col-md-12">
 									<div class="modal-footer">
-										<button type="button" class="btn btn-success" onClick="validerFormEnregPartOne();">Valider</button>
+										<button type="button" class="btn btn-success" onclick="validerFormEnregPartOne();">Valider</button>
 										<button type="submit" class="btn btn-primary" id="enreg_btn" disabled>Enregistrer</button>
 										<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 									</div>
 								</div>
 							</form>
 						</div>
-				  	</div>
+					</div>
 				</div>
 			</div>
 			<!-- /MODAL CREER UN COMPTE -->
@@ -120,37 +113,39 @@ session_start();
 			<!-- MODAL OUVRIR UNE SESSION [[[      [[[      CONNECTER      ]]]       ]]] -->
 			<div class="modal fade" id="connectionModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
-				  <div class="modal-content">
-					<div class="modal-header">
-					  <h5 class="modal-title" id="connectionModalLabel">Connexion</h5>
-					  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="connectionModalLabel">Connexion</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<span id="msgErrConn" style="color:#8B0000;"></span>
+							<form class="row g-3 espace">
+								<div class="col-md-12">
+									<label for="emailUser" class="form-label">Courriel</label>
+									<input type="text" class="form-control is-valid" id="emailConn" name="emailConn" required>
+								</div>
+								<div class="col-md-12">
+									<label for="mdpUser" class="form-label">Mot de passe</label>
+									<input type="password" class="form-control is-valid" id="mdpConn" name="mdpConn" required>
+								</div>	
+								<br/>	
+								<div class="col-md-12">					
+									<div class="modal-footer">
+										<button type="button" class="btn btn-primary" onclick="connecter();">Connecter</button>
+										<button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#enregistrerModal">
+											Créer un compte
+										</button>
+										<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
-					<div class="modal-body">
-						<span id="msgErrConn" style="color:#8B0000;"></span>
-                        <form class="row g-3 espace">
-						<div class="col-md-12">
-                                <label for="emailUser" class="form-label">Courriel</label>
-                                <input type="text" class="form-control is-valid" id="emailConn" name="emailConn" required>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="mdpUser" class="form-label">Mot de passe</label>
-                                <input type="password" class="form-control is-valid" id="mdpConn" name="mdpConn" required>
-                            </div>
-							
-							<div class="modal-footer">
-								<br>
-								<button type="button" class="btn btn-primary" onclick="connecter();">Connecter</button>
-								<br>
-								<br>
-								<button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#enregistrerModal">
-									Cliquez ici pour créer un nouveau compte.
-								</button>
-							</div>
-						</form>
-					</div>
-				  </div>
 				</div>
-			  </div>
+			</div>
 			<!-- /MODAL OUVRIR UNE SESSION [[[      [[[      CONNECTER      ]]]       ]]] -->
 
 			<!-- MAIN HEADER -->
@@ -164,7 +159,9 @@ session_start();
 									<img src="client/images/logo90.png" alt="">
 								</a>
 							</div>
-							<span class="header-span">Les Quatres Mousquitaires de l'Informatique</span>
+							<div class="header-span">
+								<span>Les Quatres Mousquitaires de l'Informatique</span>
+							</div>
 						</div>
 						<!-- /LOGO -->
 
@@ -211,9 +208,8 @@ session_start();
 
 								<!-- Cart -->
 								<div class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<!-- <span>Mon Panier</span> -->
+									<a href="#" data-toggle="dropdown">
+										<i class="fa fa-shopping-cart"></i>
 										<div class="qty">3</div>
 									</a>
 									<div class="cart-dropdown">
@@ -628,43 +624,33 @@ session_start();
 				<div class="container">
 					<!-- row -->
 					<div class="row">
-						<div class="col-md-3 col-xs-6">
+						<div class="col-md-4 col-xs-12">
 							<div class="footer">
 								<h3 class="footer-title">À propos de nous</h3>
-								<p>Nous sommes les seuls Mousquitaires que vous aurez besoins pour trouvé tout ce que vous cherches en termes de technologie dernier crie.</p>
+								<div class="footer-description">
+									<p>Nous sommes les seuls Mousquitaires avec qui vous ferez affaire pour trouver ce que vous cherchez en terme de technologie informatique dernier cri!</p>
+								</div>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>420 Stonecold Road</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>2030 Boulevard Pie-IX</a></li>
 									<li><a href="#"><i class="fa fa-phone"></i>1-514-420-6969</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>contactez.nous@LesQuatresMousquitairesElectronique.com</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>contactez.nous@LQM.com</a></li>
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-3 col-xs-6">
+						<div class="col-md-4 col-xs-12">
 							<div class="footer">
 								<h3 class="footer-title">Catégories</h3>
-								<ul class="footer-links">
+								<ul class="footer-links">								
 									<li><a href="#">Aubaines</a></li>
 									<li><a href="#">Portables</a></li>
 									<li><a href="#">Téléphones</a></li>
-									<li><a href="#">Caméras</a></li>
-									<li><a href="#">Accessoires</a></li>
+									<li><a href="#">Tours</a></li>
 								</ul>
 							</div>
 						</div>
-						<div class="clearfix visible-xs"></div>
-						<div class="col-md-3 col-xs-6">
+						<div class="col-md-4 col-xs-12">
 							<div class="footer">
-								<h3 class="footer-title">Information</h3>
-								<ul class="footer-links">
-									<li><a href="#">Contact</a></li>
-									<li><a href="#">Politique de confidentialité</a></li>
-									<li><a href="#">Termes & Conditions</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Service</h3>
+								<h3 class="footer-title">Services</h3>
 								<ul class="footer-links">
 									<li><a href="#">Mon compte</a></li>
 									<li><a href="#">Mon panier</a></li>

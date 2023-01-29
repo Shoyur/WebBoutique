@@ -489,7 +489,9 @@ textarea.input {
 }
 
 .header-span {
-  color: white !important;
+  margin-top: 10px;
+  color: white;
+  font-size: 18px;
 }
 
 /*----------------------------*\
@@ -497,11 +499,12 @@ textarea.input {
 \*----------------------------*/
 
 .header-search {
-  padding: 15px 0px;
+  padding: 25px 0px;
 }
 
 .header-search form {
   position: relative;
+  margin-left: 130px;
 }
 
 .header-search form .input-select {
@@ -2127,6 +2130,11 @@ textarea.input {
   color: #15161D;
   font-size: 36px;
   display: block;
+}
+
+.footer-description {
+  max-width: 250px;
+  min-height: auto;
 }
 
 /*=========================================================

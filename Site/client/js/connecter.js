@@ -1,4 +1,3 @@
-
 function connecter() {
     // alert(window.location.pathname);
     console.log("Début fonction connecter() de connecter.js");
@@ -9,38 +8,5 @@ function connecter() {
         document.getElementById("msgErrConn").innerText = "Les champs 'Courriel' et 'Mot de passe' doivent être remplis.\n";
         return; 
     }
-    
-    $.ajax({
-        url: "serveur/connecter.php",
-        type: "POST",
-        data: {
-            "email": v1,
-            "mdp": v2
-        },
-        async: false,
-        dataType: 'text',
-        success: (reponse) => {
-            console.log(reponse);
-            switch (reponse) {
-                case 'E': {
-                    console.log("Erreur : membre inexistant !!!");
-                    document.getElementById("msgErrConn").innerText = "Membre inexistant..."; break; }
-                case 'M': { 
-                    console.log("Oui un membre !!!");
-                    location.reload(); break; }
-                case 'A':  {
-                    console.log("Un ADMIN !!!!!!!!!!!!");
-                    window.location.href = "serveur/admin.php"; break; }
-                case 'I': { 
-                    console.log("BOOOOUUUHHHH inactif !");
-                    document.getElementById("msgErrConn").innerText = "Membre existant mais inactif. Contactez l`administrateur."; break; }
-                default : { 
-                    console.log("switch default (???)");
-                    break; }
-            }
-        },
-        fail: (e) => {
-            alert(`Problème: ${e.message()}`);
-        }
-    });
+    membreSeConnecte(v1, v2); // requete ajax
 }
