@@ -466,6 +466,10 @@ textarea.input {
   display: block;
 }
 
+.header-span {
+  color: white !important;
+}
+
 /*----------------------------*\
 	Search
 \*----------------------------*/

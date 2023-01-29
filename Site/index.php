@@ -169,9 +169,10 @@ session_start();
 						<div class="col-md-3">
 							<div class="header-logo">
 								<a href="#" class="logo">
-									<img src="client/images/logo.png" alt="">
+									<img src="client/images/logo90.png" alt="">
 								</a>
 							</div>
+							<span class="header-span">Les Quatres Mousquitaires de l'Informatique</span>
 						</div>
 						<!-- /LOGO -->
 
