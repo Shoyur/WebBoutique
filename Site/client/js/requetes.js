@@ -14,6 +14,7 @@ async function membreExiste(email) {
 }
 
 
+
 // async function getProduits() {
 //     $.ajax({
 //         url: "serveur/getProduits.php",

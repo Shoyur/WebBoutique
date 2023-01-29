@@ -22,46 +22,39 @@ session_start();
 		<!-- Font Awesome Icon -->
 		<link rel="stylesheet" href="client/css/font-awesome.min.css">
 		<!-- Custom stlylesheet -->
-		<link rel="stylesheet" href="client/css/style.css"/>
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
+		<link type="text/css" rel="stylesheet" href="client/css/style.css"/>
+
+		<!-- JS de Mike -->
+		<script src="client/js/connecter.js"></script>
+
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		<script type="text/javascript" src="client/js/global.js"></script>
 		<script src="./client/js/requetes.js"></script>
-		<script src="client/js/connecter.js"></script>
     </head>
 	<body >
 
 		<!-- HEADER -->
 		<header>
 
-			<!-- TOP HEADER -->
-			<div id="top-header">
-				<div class="container">
-					
-					<ul class="header-links pull-right">
-						<li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#enregistrerModal">Créer un compte</button></li>
-						<li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connectionModal">Ouvrir une session</button></li>
-					</ul>
-				</div>
-			</div>
-			<!-- /TOP HEADER -->
-
-			<!-- MODAL CREER UN COMPTE -->
-			<div class="modal fade" id="enregistrerModal" tabindex="-1" role="dialog" aria-labelledby="enregistrerModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-				  	<div class="modal-content">
-						<div class="modal-header">
+		<!-- MODAL CREER UN COMPTE -->
+		<div class="modal fade" id="enregistrerModal" tabindex="-1" role="dialog"
+			aria-labelledby="enregistrerModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
 						<h5 class="modal-title" id="enregistrerModalLabel">Devenir Membre</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 						</div>
 						<div class="modal-body">
-							<span id="msgErrEnreg" style="color=#8B0000;"></span>
+							<span id="msgErrEnreg" style="color:#8B0000;"></span>
 							<form class="row g-3 espace" action="serveur/enregMembre.php" method="POST" >
 								<div class="col-md-12">
 									<label for="nom" class="form-label">Nom</label>
@@ -124,20 +117,17 @@ session_start();
 			</div>
 			<!-- /MODAL CREER UN COMPTE -->
 
-			<!-- MODAL OUVRIR UNE SESSION -->
+			<!-- MODAL OUVRIR UNE SESSION [[[      [[[      CONNECTER      ]]]       ]]] -->
 			<div class="modal fade" id="connectionModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 				  <div class="modal-content">
 					<div class="modal-header">
 					  <h5 class="modal-title" id="connectionModalLabel">Connexion</h5>
-					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					  </button>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					</div>
 					<div class="modal-body">
-						<span id="msgErrConn"></span>
+						<span id="msgErrConn" style="color:#8B0000;"></span>
                         <form class="row g-3 espace">
-                        <!-- <form class="row g-3 espace" action="serveur/connecter.php" method="POST"> -->
 						<div class="col-md-12">
                                 <label for="emailUser" class="form-label">Courriel</label>
                                 <input type="text" class="form-control is-valid" id="emailConn" name="emailConn" required>
@@ -146,25 +136,27 @@ session_start();
                                 <label for="mdpUser" class="form-label">Mot de passe</label>
                                 <input type="password" class="form-control is-valid" id="mdpConn" name="mdpConn" required>
                             </div>
-                            <br/>
+							
 							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary">Fermer</button>
-								<button type="submit" class="btn btn-primary" onclick="connecter();">Connecter</button>
+								<br>
+								<button type="button" class="btn btn-primary" onclick="connecter();">Connecter</button>
+								<br>
+								<br>
+								<button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#enregistrerModal">
+									Cliquez ici pour créer un nouveau compte.
+								</button>
 							</div>
-                        </form>
+						</form>
 					</div>
 				  </div>
 				</div>
 			  </div>
-			<!-- /MODAL OUVRIR UNE SESSION -->
+			<!-- /MODAL OUVRIR UNE SESSION [[[      [[[      CONNECTER      ]]]       ]]] -->
 
 			<!-- MAIN HEADER -->
 			<div id="header">
-				<!-- container -->
 				<div class="container">
-					<!-- row -->
 					<div class="row">
-
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
@@ -180,13 +172,8 @@ session_start();
 						<div class="col-md-6">
 							<div class="header-search">
 								<form>
-									<select class="input-select">
-										<option value="0">>Catégories</option>
-										<option value="1">Categorie 01</option>
-										<option value="1">Categorie 02</option>
-									</select>
-									<input class="input" placeholder="Search here">
-									<button class="search-btn">Rechercher</button>
+									<input class="input" placeholder="Recherchez ici">
+									<button class="search-btn"><i class="fa fa-search"></i></button>
 								</form>
 							</div>
 						</div>
@@ -195,22 +182,38 @@ session_start();
 						<!-- ACCOUNT -->
 						<div class="col-md-3 clearfix">
 							<div class="header-ctn">
-
-								<!-- Wishlist -->
 								<div>
-									<a href="#">
-										<i class="fa fa-heart-o"></i>
-										<span>Favoris</span>
-										<div class="qty">2</div>
-									</a>
+									<?php
+										// unset($_SESSION['statut_m']);
+										if (isset($_SESSION['statut_m']) && $_SESSION['statut_m'] == "M") {
+											$prenom = trim($_SESSION['prenom']);
+											echo '
+											<a href="#" data-toggle="dropdown" data-hover="dropdown">
+												<i class="fa fa-user-circle-o">&nbsp;&nbsp;'.trim($prenom).'&nbsp;<span class="caret"></span></i>
+											</a>
+											<ul class="dropdown-menu">
+												<li><a href="#">Liste de souhaits</a></li>
+												<li><a href="#">Historique d’achats</a></li>
+												<li><a href="#">Détails membre</a></li>
+												<li><a href="serveur/deconnecter.php">Déconnecter</a></li>
+											</ul>
+											';
+										}
+										else {
+											echo '
+											<a href="#" data-toggle="modal" data-target="#connectionModal">
+												<i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;S’identifier
+											</a>
+											';
+										}
+									?>
 								</div>
-								<!-- /Wishlist -->
 
 								<!-- Cart -->
 								<div class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-										<i class="fa fa-shopping-cart"></i>
-										<span>Mon Panier</span>
+										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										<!-- <span>Mon Panier</span> -->
 										<div class="qty">3</div>
 									</a>
 									<div class="cart-dropdown">
@@ -365,17 +368,17 @@ session_start();
 					</div>
 					<!-- /SECTION TITLE -->
 
-					<!-- SECTION CAROUSSEL NOUVEAUX PRODUITS -->
-					<div class="col-md-12">
-						<div class="row">
-							<div class="products-tabs">
-								<!-- tab -->
-								<div id="tab1" class="tab-pane active">
-									<div class="products-slick" data-nav="#slick-nav-1">
+				<!-- SECTION CAROUSSEL NOUVEAUX PRODUITS -->
+				<div class="col-md-12">
+					<div class="row">
+						<div class="products-tabs">
+							<!-- tab -->
+							<div id="tab1" class="tab-pane active">
+								<div class="products-slick" data-nav="#slick-nav-1">
 
-										<!-- product1 -->
-										<div id="produit1" class="product">
-											<!-- <div class="product-img">
+									<!-- product1 -->
+									<div id="produit1" class="product">
+										<!-- <div class="product-img">
 												<img src="client/images/product01.png" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
@@ -402,12 +405,12 @@ session_start();
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div> -->
-										</div>
-										<!-- /product1 -->
+									</div>
+									<!-- /product1 -->
 
-										<!-- product2 -->
-										<div id="produit2" class="product">
-											<!-- <div class="product-img">
+									<!-- product2 -->
+									<div id="produit2" class="product">
+										<!-- <div class="product-img">
 												<img src="client/images/product02.png" alt="">
 												<div class="product-label">
 													<span class="new">NEW</span>
@@ -433,12 +436,12 @@ session_start();
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div> -->
-										</div>
-										<!-- /product2 -->
+									</div>
+									<!-- /product2 -->
 
-										<!-- product3 -->
-										<div id="produit3" class="product">
-											<!-- <div class="product-img">
+									<!-- product3 -->
+									<div id="produit3" class="product">
+										<!-- <div class="product-img">
 												<img src="client/images/product03.png" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
@@ -459,12 +462,12 @@ session_start();
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div> -->
-										</div>
-										<!-- /product3 -->
+									</div>
+									<!-- /product3 -->
 
-										<!-- product4 -->
-										<div id="produit4" class="product">
-											<!-- <div class="product-img">
+									<!-- product4 -->
+									<div id="produit4" class="product">
+										<!-- <div class="product-img">
 												<img src="client/images/product04.png" alt="">
 											</div>
 											<div class="product-body">
@@ -487,12 +490,12 @@ session_start();
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div> -->
-										</div>
-										<!-- /product4 -->
+									</div>
+									<!-- /product4 -->
 
-										<!-- product5 -->
-										<div id="produit5" class="product">
-											<!-- <div class="product-img">
+									<!-- product5 -->
+									<div id="produit5" class="product">
+										<!-- <div class="product-img">
 												<img src="client/images/product5.png" alt="">
 											</div>
 											<div class="product-body">
@@ -515,8 +518,8 @@ session_start();
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div> -->
-										</div>
-										<!-- /product5 -->
+									</div>
+									<!-- /product5 -->
 
 										<!-- product6 -->
 										<div id="produit6" class="product">
@@ -545,7 +548,6 @@ session_start();
 											</div> -->
 										</div>
 										<!-- /product6 -->
-<
 										<!-- product7 -->
 										<div id="produit7" class="product">
 											<!-- <div class="product-img">
@@ -629,11 +631,11 @@ session_start();
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">À propos de nous</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+								<p>Nous sommes les seuls Mousquitaires que vous aurez besoins pour trouvé tout ce que vous cherches en termes de technologie dernier crie.</p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>420 Stonecold Road</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>1-514-420-6969</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>contactez.nous@LesQuatresMousquitairesElectronique.com</a></li>
 								</ul>
 							</div>
 						</div>
@@ -654,10 +656,8 @@ session_start();
 							<div class="footer">
 								<h3 class="footer-title">Information</h3>
 								<ul class="footer-links">
-									<li><a href="#">Notre équipe</a></li>
 									<li><a href="#">Contact</a></li>
 									<li><a href="#">Politique de confidentialité</a></li>
-									<li><a href="#">Commandes et retours</a></li>
 									<li><a href="#">Termes & Conditions</a></li>
 								</ul>
 							</div>
@@ -668,9 +668,6 @@ session_start();
 								<ul class="footer-links">
 									<li><a href="#">Mon compte</a></li>
 									<li><a href="#">Mon panier</a></li>
-									<li><a href="#">Favoris</a></li>
-									<li><a href="#">Trouver mon colis</a></li>
-									<li><a href="#">Aide</a></li>
 								</ul>
 							</div>
 						</div>
@@ -681,15 +678,18 @@ session_start();
 			</div>
 			<!-- /TOP FOOTER -->
 
-			<!-- BOTTOM FOOTER -->
-			<div id="bottom-footer" class="section">
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<span class="copyright">
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+		<!-- BOTTOM FOOTER -->
+		<div id="bottom-footer" class="section">
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<span class="copyright">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;
+							<script>document.write(new Date().getFullYear());</script> All rights reserved | This
+							template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+								href="https://colorlib.com" target="_blank">Colorlib</a>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</span>
 						</div>
@@ -710,4 +710,6 @@ session_start();
 		<script src="client/js/jquery.zoom.min.js"></script>
 		<script src="client/js/main.js"></script>
 	</body>
+</html>
+
 </html>
