@@ -9,6 +9,7 @@ function connecter() {
         document.getElementById("msgErrConn").innerText = "Les champs 'Courriel' et 'Mot de passe' doivent être remplis.\n";
         return; 
     }
+    
     $.ajax({
         url: "serveur/connecter.php",
         type: "POST",
@@ -19,6 +20,7 @@ function connecter() {
         async: false,
         dataType: 'text',
         success: (reponse) => {
+            console.log(reponse);
             switch (reponse) {
                 case 'E': {
                     console.log("Erreur : membre inexistant !!!");
@@ -26,7 +28,7 @@ function connecter() {
                 case 'M': { 
                     console.log("Oui un membre !!!");
                     location.reload(); break; }
-                case 'A': { 
+                case 'A':  {
                     console.log("Un ADMIN !!!!!!!!!!!!");
                     window.location.href = "serveur/admin.php"; break; }
                 case 'I': { 

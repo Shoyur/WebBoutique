@@ -15,8 +15,8 @@ session_start();
 require_once("includes/configdb.inc.php");
 
 
-$email = trim($_POST['emailConn']);
-$mdp = trim($_POST['mdpConn']);
+$email = trim($_POST['email']);
+$mdp = trim($_POST['mdp']);
 write_to_console($email);
 write_to_console($mdp);
 $requete = "SELECT * FROM connexion WHERE email = ? AND mdp = ?";

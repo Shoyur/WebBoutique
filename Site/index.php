@@ -548,7 +548,6 @@ session_start();
 											</div> -->
 										</div>
 										<!-- /product6 -->
-<
 										<!-- product7 -->
 										<div id="produit7" class="product">
 											<!-- <div class="product-img">
@@ -632,11 +631,11 @@ session_start();
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">À propos de nous</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+								<p>Nous sommes les seuls Mousquitaires que vous aurez besoins pour trouvé tout ce que vous cherches en termes de technologie dernier crie.</p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>420 Stonecold Road</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>1-514-420-6969</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>contactez.nous@LesQuatresMousquitairesElectronique.com</a></li>
 								</ul>
 							</div>
 						</div>
@@ -657,10 +656,8 @@ session_start();
 							<div class="footer">
 								<h3 class="footer-title">Information</h3>
 								<ul class="footer-links">
-									<li><a href="#">Notre équipe</a></li>
 									<li><a href="#">Contact</a></li>
 									<li><a href="#">Politique de confidentialité</a></li>
-									<li><a href="#">Commandes et retours</a></li>
 									<li><a href="#">Termes & Conditions</a></li>
 								</ul>
 							</div>
@@ -671,9 +668,6 @@ session_start();
 								<ul class="footer-links">
 									<li><a href="#">Mon compte</a></li>
 									<li><a href="#">Mon panier</a></li>
-									<li><a href="#">Favoris</a></li>
-									<li><a href="#">Trouver mon colis</a></li>
-									<li><a href="#">Aide</a></li>
 								</ul>
 							</div>
 						</div>
