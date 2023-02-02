@@ -98,9 +98,9 @@ function mapToStringUpdates($object)
 
     foreach ($object as $modifications) {
         $modifColumn = $modifications[0];
-        // Si la valeur est un string, on ajoute des guillemets pour faire fonctionner la requete -----
+        // Si la valeur est un string, on ajoute des guillemets (pour faire fonctionner la requete) sinon on laisse comme ça----- //
         $modifNewValue = is_String($modifications[1]) ? "'$modifications[1]'" : $modifications[1];
-        // --------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------- //
         $updateRequest .= $modifColumn . " = " . $modifNewValue . ", ";
     }
 
