@@ -3,7 +3,7 @@
 
 
 
-//READ ALL
+//READ ALL ------------------------------------------------------------------------------------------------------
 function listerProduits()
 {
 
@@ -24,6 +24,7 @@ function listerProduits()
 
 }
 
+// CREATE --------------------------------------------------------------------------------------------------------
 function ajouterProduits()
 {
     // VARIABLES TEST QUI SERONT REMPLACÉ PAR $_POST
@@ -52,6 +53,7 @@ function ajouterProduits()
 
 }
 
+// DELETE -------------------------------------------------------------------------------------------------------
 function supprimerProduits()
 {
     // VARIABLE TEST QUI SERONT REMPLACÉ PAR $_POST -- A MODIFIÉ POUR CHAQUE TEST
@@ -70,6 +72,7 @@ function supprimerProduits()
 
 }
 
+// UPDATE ------------------------------------------------------------------------------------------------------
 function updateProduits()
 {
     // VARIABLES TEST QUI SERONT REMPLACÉ PAR $_POST
@@ -92,6 +95,7 @@ function updateProduits()
 
 }
 
+// AUTRES ------------------------------------------------------------------------------------------------------------
 function mapToStringUpdates($object)
 {
     $updateRequest = "";
@@ -109,10 +113,15 @@ function mapToStringUpdates($object)
     return $updateRequest;
 }
 
+
+
 //UNCOMMENT POUR TESTER FONCTION
 // listerProduits();
 // ajouterProduits();
 // supprimerProduits();
 // updateProduits();
 
+// ------------  AVEC COMMANDE PHP SEULEMENT ------------
+// - cd serveur/model/produit
+// - php produitModel.php
 ?>
