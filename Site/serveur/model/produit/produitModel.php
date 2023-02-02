@@ -11,7 +11,6 @@ function listerProduits()
 
     $requete = "SELECT * FROM produits";
     $stmt = $conn->prepare($requete);
-    // $stmt->bind_param("ss", $email, $mdp);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -28,7 +27,7 @@ function listerProduits()
 function ajouterProduits()
 {
     // VARIABLES TEST QUI SERONT REMPLACÉ PAR $_POST
-    $idProd = date("Ymdhis");
+    $idProd = date("Ymdhis"); // retourne un string format (year-month-day-hour-minutes-secondes) sans les tirets
     $cheminImg = "Site/client/images/produit1.png";
     $nomProd = "nom1";
     $categ = "categ1";
@@ -77,7 +76,7 @@ function updateProduits()
 {
     // VARIABLES TEST QUI SERONT REMPLACÉ PAR $_POST
     $id = "20230202064550";
-    $object = [["nom_prod", "Blablabla"], ["prix", 275.95], ["qte_vendue", 3]];
+    $object = [["nom_prod", "Blablabla"], ["prix", 275.95], ["qte_vendue", 3]]; //sera créer via le formulaire et envoyer par le controlleur
 
     require_once("../../includes/configdb.inc.php");
 
