@@ -13,36 +13,37 @@
 
     // SQL INSERT pour la table membres
 
-    $sql = "INSERT INTO membres VALUES
-        ('$nom', '$prenom', '$email', '$sexe', '$daten')";
 
-    
-    if(mysqli_query($conn, $sql)){
-       echo "<h3>data stored in a database successfully."
-           . " Please browse your localhost php my admin"
-           . " to view the updated data</h3>";
-    
-       echo nl2br("Vous pouvez maintenant vous connectez en utilisant ".$email." comme identifiant.");
+    $sql = "INSERT INTO membres (nom, prenom, email, sexe, daten) VALUES (?, ?, ?, ?, ?)";
+
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "sssss", $nom, $prenom, $email, $sexe, $daten);
+
+    if (mysqli_stmt_execute($stmt)){
+    // echo "<h3>data stored in a database successfully."
+    //     . " Please browse your localhost php my admin"
+    //     . " to view the updated data</h3>";
+
+    // echo nl2br("Vous pouvez maintenant vous connectez en utilisant ".$email." comme identifiant.");
     } else{
-       echo "ERROR: Hush! Sorry $sql. "
-           . mysqli_error($conn);
+    echo "ERROR: Hush! Sorry $sql. "
+        . mysqli_error($conn);
     }
+ 
     
     // SQL INSERT pour la table connexion
-    $sql = "INSERT INTO connexion VALUES
-        ('$email', '$mdp', 'M', 'A')";
+
+    $sql = "INSERT INTO connexion VALUES (?, ?, 'M', 'A')";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $email, $mdp);
     
-    if(mysqli_query($conn, $sql)){
-        echo "<h3>data stored in a database successfully."
-            . " Please browse your localhost php my admin"
-            . " to view the updated data</h3>";
-
+    if (mysqli_stmt_execute($stmt)) {
+        echo "Enregistrement en tant que membre réussi.";
         echo nl2br("Vous pouvez maintenant vous connectez en utilisant ".$email." comme identifiant.");
-    } else{
-        echo "ERROR: Hush! Sorry $sql. "
-            . mysqli_error($conn);
+    } else {
+        echo "ERROR: Hush! Sorry $sql. " . mysqli_stmt_error($stmt);
     }
-
+    
     
         
     // Close connection
