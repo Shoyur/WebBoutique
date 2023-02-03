@@ -179,14 +179,14 @@ session_start();
 						<!-- ACCOUNT -->
 						<div class="col-md-3 clearfix">
 							<div class="header-ctn">
-								<div>
+								<div class="divUser">
 									<?php
 										// unset($_SESSION['statut_m']);
 										if (isset($_SESSION['statut_m']) && $_SESSION['statut_m'] == "M") {
 											$prenom = trim($_SESSION['prenom']);
 											echo '
 											<a href="#" data-toggle="dropdown" data-hover="dropdown">
-												<i class="fa fa-user-circle-o">&nbsp;&nbsp;'.trim($prenom).'&nbsp;<span class="caret"></span></i>
+												<i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;'.trim($prenom).'&nbsp;<span class="caret"></span>
 											</a>
 											<ul class="dropdown-menu">
 												<li><a href="#">Liste de souhaits</a></li>

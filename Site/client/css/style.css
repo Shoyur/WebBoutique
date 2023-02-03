@@ -536,6 +536,7 @@ textarea.input {
   float: right;
   padding: 15px 0px;
   margin-top: 10px; /* mike : pour ajouter un espace libre */
+  white-space: nowrap !important; /* mike : pour que le carret reste sur une seule ligne, ...les autres liens aussi */
 }
 
 .header-ctn>div {
@@ -544,6 +545,16 @@ textarea.input {
 
 .header-ctn>div+div {
   margin-left: 15px;
+}
+
+.header-ctn>.divUser>a { /* mike : .divUser ajusté avec le prénom */
+  display: block;
+  position: relative;
+  width: 80px;
+  text-align: center;
+  font-size: 16px; /* mike : en espérant que ça scale sur la version mobile avec des plus longs prénoms */
+  color: #FFF;
+  margin-right: 40px;
 }
 
 .header-ctn>div>a {

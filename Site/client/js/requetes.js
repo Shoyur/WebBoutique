@@ -13,34 +13,37 @@ async function membreExiste(email) {
     });
 }
 
-async function membreSeConnecte(v1, v2) {
+async function membreSeConnecte(email, mdp) {
     $.ajax({
         url: "serveur/connecter.php",
         type: "POST",
-        data: {"email": v1, "mdp": v2},
+        data: {
+            "email": email,
+            "mdp": mdp
+        },
         async: false,
         dataType: 'text',
         success: (reponse) => {
             switch (reponse) {
                 case 'E': {
-                    console.log("Erreur : membre inexistant !!!");
+                    console.log("'E': membre inexistant...");
                     document.getElementById("msgErrConn").innerText = "Membre inexistant..."; break; }
                 case 'M': { 
-                    console.log("Oui un membre !!!");
+                    console.log("'M'embre.");
                     location.reload(); break; }
-                case 'A':  {
-                    console.log("Un ADMIN !!!!!!!!!!!!");
+                case 'A': { 
+                    console.log("'A'dmin.");
                     window.location.href = "serveur/admin.php"; break; }
                 case 'I': { 
-                    console.log("BOOOOUUUHHHH inactif !");
+                    console.log("Membre existant mais 'I'nactif. Contactez l`administrateur.");
                     document.getElementById("msgErrConn").innerText = "Membre existant mais inactif. Contactez l`administrateur."; break; }
                 default : { 
-                    console.log("switch default (???)");
-                    break; }
+                   console.log("connecter.js ajax reponse est autre chose que E-M-A-I");
+                   break; }
             }
         },
         fail: (e) => {
-            alert(`Problème: ${e.message()}`);
+            console.log(`Problème (ajax fail): ${e.message()}`);
         }
     });
 }
