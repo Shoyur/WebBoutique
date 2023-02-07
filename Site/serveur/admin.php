@@ -16,6 +16,9 @@
 	<title>Administration</title>
 </head>
 <body>
+	<br>
 	<h2 class="">Future page pour administrer les produits du site...</h2>
+	<br>
+	<a href="deconnecter.php">Déconnecter et retour à l'acceuil</a>
 </body>
 </html>

@@ -18,3 +18,4 @@ if ($conn === false) {
         . mysqli_connect_error());
 }
 
+?>
