@@ -1,37 +1,11 @@
-let validerFormEnregPartOne = () => {
-    const pass = document.getElementById('mdp').value;
-    const cpass = document.getElementById('cmdp').value;
-    if (pass !== cpass) {
-        document.getElementById('msgErrEnreg').innerHTML = "Les mots de passe sont différents!";
-        setInterval(() => {
-            document.getElementById('msgErrEnreg').innerHTML = "";
-        }, 5000);
-    } else {
-        const email = document.getElementById('email').value;
-        membreExiste(email);
-    }
-}
-
-let validerFormEnregPartTwo = (reponse) => {
-    if (reponse == 'false') {
-        document.getElementById('enreg_btn').removeAttribute('disabled');
-    } else {
-        document.getElementById('msgErrEnreg').innerHTML = "Un compte associé avec cette adresse courriel existe déjà!";
-        setInterval(() => {
-            document.getElementById('msgErrEnreg').innerHTML = "";
-        }, 5000);
-    }
-}
-
 window.addEventListener("load", function () {
     showProduct();
 });
 
-
 let showProduct = async () => {
     let reponse = await fetch('serveur/getProduits.php');
     let responseText = await reponse.text();
-    console.log(responseText);
+    // console.log(responseText);
     let data = await JSON.parse(responseText);
     for (let i = 0; i < data.length; i++) {
         let produit = `
@@ -67,20 +41,40 @@ let showProduct = async () => {
     }
 };
 
+let validerFormEnregPartOne = () => {
+    const pass = document.getElementById('mdp').value;
+    const cpass = document.getElementById('cmdp').value;
+    if (pass !== cpass) {
+        document.getElementById('msgErrEnreg').innerHTML = "Les mots de passe sont différents!";
+        setInterval(() => {
+            document.getElementById('msgErrEnreg').innerHTML = "";
+        }, 5000);
+    } else {
+        const email = document.getElementById('email').value;
+        membreExiste(email); // requete ajax
+    }
+}
+
+let validerFormEnregPartTwo = (reponse) => {
+    if (reponse == 'false') {
+        document.getElementById('enreg_btn').removeAttribute('disabled');
+    } else {
+        document.getElementById('msgErrEnreg').innerHTML = "Un compte associé avec cette adresse courriel existe déjà!";
+        setInterval(() => {
+            document.getElementById('msgErrEnreg').innerHTML = "";
+        }, 5000);
+    }
+}
+
 $('.dropdown-toggle').click(function(e) {
     if ($(document).width() > 768) {
-      e.preventDefault();
-  
-      var url = $(this).attr('href');
-  
-         
+      e.preventDefault(); 
+      var url = $(this).attr('href');    
       if (url !== '#') {
-      
         window.location.href = url;
       }
-  
     }
-  });
+});
 
 
 
