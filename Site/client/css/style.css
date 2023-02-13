@@ -93,6 +93,11 @@ ol {
   list-style: none
 }
 
+.imgTable{
+  height: 70px;
+  width: 70px;
+}
+
 /*----------------------------*\
 	Buttons
 \*----------------------------*/

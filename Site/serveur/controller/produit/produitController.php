@@ -25,7 +25,9 @@ function lister()
             $reponse['listeProduits'][] = $ligne;
         }
 
-        echo $reponse;
+
+        // header("Content-Type: application/json");
+        // echo json_encode($reponse);
 
 
 
@@ -135,6 +137,21 @@ function mapToStringUpdates($object)
 
 
 
+function utf8ize($d) // fonction pour mettre tous les caractères en UTF8
+
+{
+    if (is_array($d)) {
+        foreach ($d as $k => $v) {
+            $d[$k] = utf8ize($v);
+        }
+    } else if (is_string($d)) {
+        return utf8_encode($d);
+    }
+    return $d;
+}
+
+
+
 //UNCOMMENT POUR TESTER FONCTION
 // listerProduits();
 // ajouterProduits();
@@ -154,7 +171,8 @@ switch ($action) {
         lister();
         break;
 }
-
+header("Content-Type: application/json");
+echo json_encode(utf8ize($reponse));
 exit();
 
 

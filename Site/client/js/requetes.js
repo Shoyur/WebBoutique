@@ -56,10 +56,9 @@ let reqLister = (action) => {
 		data : {"action":action},
         dataType: "text",
         success: (reponse)  => {
-            alert(JSON.stringify(reponse));
-            if(reponse['OK'] === true){
-                console.log("reponse reussi");
-                //alert(JSON.stringify(reponse.listeProduits));
+            reponse = JSON.parse(reponse);
+            console.log(reponse);
+            if(reponse.OK){
                 creerVue('lister', reponse.listeProduits);
             }else{
                 console.log("reponse echoué");
@@ -78,7 +77,6 @@ let requeteFilmServeur = (action) => {
             // reqEnregistrer(action);
         break;
         case "lister":
-            console.log("requeteFilmServeur");
             reqLister(action);
         break;
     }
