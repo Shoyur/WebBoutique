@@ -47,23 +47,6 @@ if (!isset($_SESSION['statut_m']) || $_SESSION['statut_m'] != 'A') {
 </head>
 
 <body onLoad="requeteFilmServeur('lister');">
-
-	<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Administration</title>
-</head>
-<body>
-	<br>
-	<h2 class="">Future page pour administrer les produits du site...</h2>
-	<br>
-	<a href="deconnecter.php">Déconnecter et retour à l'acceuil</a>
-</body>
-</html> -->
-
 	<!-- MAIN HEADER -->
 	<div id="header">
 		<div class="container">
@@ -116,24 +99,19 @@ if (!isset($_SESSION['statut_m']) || $_SESSION['statut_m'] != 'A') {
 
 	<!-- NAVIGATION -->
 	<nav id="navigation">
-		<!-- container -->
 		<div class="container">
-			<!-- responsive-nav -->
 			<div id="responsive-nav">
-				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
 					<li class="active"><a href="#">Gestion des produits</a></li>
 					<li><a href="#">Gestion des membres</a></li>
 				</ul>
-				<!-- /NAV -->
 			</div>
-			<!-- /responsive-nav -->
 		</div>
-		<!-- /container -->
 	</nav>
 	<!-- /NAVIGATION -->
 
-	<!-- Affichage -->
+
+	<!-- BOUTON AJOUTER -->
 	<div class="container" style="margin-top:50px;">
 		<a href="#" data-toggle="modal" data-target="#ajoutModal">
 			<button type="button" class="btn btn-dark">Ajouter un produit</button>
@@ -212,6 +190,7 @@ if (!isset($_SESSION['statut_m']) || $_SESSION['statut_m'] != 'A') {
 		</div>
 	</div>
 
+	<!-- AFFICHAGE CONTENU AJAX -->
 	<div class="container affichageAdmin" id="affichageAdmin" style="margin-top:5px;">
 
 	</div>
