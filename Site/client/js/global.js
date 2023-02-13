@@ -67,11 +67,13 @@ let validerFormEnregPartTwo = (reponse) => {
     }
 }
 
+
+// Contrôleur vue panneau admin (page produits)
 let creerVue = (action, donnees) => {
-    // Contrôleur vue
     switch(action){
-        case "enregistrer":
-            //
+        case "enregistrerProduit":
+            // pas besoin d'une méthode la page se recharge et 
+            // donc ré-appelle automatiquement listerProduits().
         break;
         case "modifier":
             //
@@ -79,15 +81,15 @@ let creerVue = (action, donnees) => {
         case "enlever" :
             // afficherMessage(donnees);
         break;
-        case "lister":
-            lister(donnees);
+        case "listerProduits":
+            listerProduits(donnees);
             preparerFiltre();
         break;
     }
 }
 
-let tableauCateg = new Set();
-let lister = (listeProduits) => {
+let tableauCategProduits = new Set();
+let listerProduits = (listeProduits) => {
     let contenu = `
         <div class='row'>
             <table class="table" id='table_produits'>
@@ -108,8 +110,8 @@ let lister = (listeProduits) => {
                 <tbody>
     `;
     for(let unProduit of listeProduits){
-        contenu += creerRangee(unProduit);
-        tableauCateg.add(unProduit.categorie);
+        contenu += creerRangeeProduit(unProduit);
+        tableauCategProduits.add(unProduit.categorie);
     }
     contenu += `
                 </tbody>
@@ -119,7 +121,7 @@ let lister = (listeProduits) => {
     document.getElementById('affichageAdmin').innerHTML += contenu;
 }
 
-let creerRangee = (unProduit) => {
+let creerRangeeProduit = (unProduit) => {
     return `
         <tr>
             <td><img src="../${unProduit.chemin_img}" class="imgTable" alt="Image du produit"></td>
@@ -143,14 +145,12 @@ let preparerFiltre = () => {
     let priceMax = document.getElementById("price-max");
     let productTable = document.getElementById('table_produits');
     let productRows = productTable.getElementsByTagName('tr');
-    //
     categorySelect.innerHTML = `<option value="Tout">Tout</option>`;
-    tableauCateg.forEach( (elem1, elem2, tableauCateg) => {
+    tableauCategProduits.forEach( (elem1, elem2, tableauCategProduits) => {
         categorySelect.innerHTML += `
             <option value='${elem1}'>${elem2}</option>
         `;
     })
-    //
     filterForm.addEventListener("submit", function(event) {
         event.preventDefault();
         const selectedCategory = categorySelect.value;

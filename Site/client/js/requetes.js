@@ -50,17 +50,17 @@ async function membreSeConnecte(email, mdp) {
     });
 }
 
-let reqLister = (action) => {	
+let reqListerProduits = (action) => {	
 	$.ajax({
-		type : "POST",
-		url : "controller/produit/produitController.php",
-		data : {"action":action},
+		type: "POST",
+		url: "controller/produit/produitController.php",
+		data: {"action":action},
         dataType: "text",
         success: (reponse) => {
             reponse = JSON.parse(reponse);
             if(reponse.OK){
                 listeProduits = reponse.listeProduits;
-                creerVue('lister', listeProduits);
+                creerVue(action, listeProduits);
             }else{
                 alert("Problème pour récupérer les produits");
             }
@@ -71,15 +71,42 @@ let reqLister = (action) => {
     })
 }
 
+let reqEnregistrerProduit = (action) => {	
+    let formProduit = new FormData(document.getElementById('formEnregistrerProduit'));
+	formProduit.append("action",action);
+	$.ajax({
+		type: "POST",
+		url: "controller/produit/produitController.php",
+		data: formProduit,
+        dataType: "text",
+        async: false,
+		cache: false,
+		contentType: false,
+		processData: false
+    }).done((reponse) => {
+        reponse = JSON.parse(reponse);
+        if(reponse.OK){
+            //
+        }else{
+            alert("Problème pour enregistrer le produit");
+        }
+    }).fail((e) => {
+    	alert("Erreur: " + e.message());
+  	})
+}
+
 
 // Contrôleur de requêtes
-let requeteFilmServeur = (action) => {
+let requeteAdminServeur = (action) => {
     switch(action){
-        case "enregistrer":
-            // reqEnregistrer(action);
+        case "enregistrerProduit":
+            reqEnregistrerProduit(action);
         break;
-        case "lister":
-            reqLister(action);
+        case "listerProduits":
+            reqListerProduits(action);
+        break;
+        case "listerActivations":
+            //reqLister(action);
         break;
     }
 }
