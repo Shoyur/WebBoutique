@@ -1,3 +1,5 @@
+let listeProduits;
+
 async function membreExiste(email) {
     $.ajax({
         url: "serveur/existeMembre.php",
@@ -48,36 +50,39 @@ async function membreSeConnecte(email, mdp) {
     });
 }
 
-let reqLister = (action) => {
-	
+let reqLister = (action) => {	
 	$.ajax({
 		type : "POST",
 		url : "controller/produit/produitController.php",
 		data : {"action":action},
         dataType: "text",
-        success: (reponse)  => {
+        success: (reponse) => {
             reponse = JSON.parse(reponse);
-            console.log(reponse);
             if(reponse.OK){
-                creerVue('lister', reponse.listeProduits);
+                listeProduits = reponse.listeProduits;
+                creerVue('lister', listeProduits);
             }else{
-                console.log("reponse echoué");
-                alert("Problème pour lister dans requetes");
+                alert("Problème pour récupérer les produits");
             }
         }, 
-        fail : (e)  => {
-    	alert( "error reqLister" + e.message());
-  	}
-})}
+        fail: (e) => {
+    	    alert("Erreur: " + e.message());
+  	    }
+    })
+}
+
 
 // Contrôleur de requêtes
-let requeteFilmServeur = (action) => {
+let requeteAdminServeur = (action) => {
     switch(action){
         case "enregistrer":
             // reqEnregistrer(action);
-        break;
+            break;
         case "lister":
             reqLister(action);
-        break;
+            break;
+        case "listerActivations":
+            reqLister(action);
+            break;
     }
 }
