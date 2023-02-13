@@ -112,3 +112,5 @@
 </body>
 
 </html>
+
+<?php echo '<script type="text/javascript">requeteAdminServeur("lister");</script>'; ?>

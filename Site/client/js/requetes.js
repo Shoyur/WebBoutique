@@ -73,13 +73,16 @@ let reqLister = (action) => {
 
 
 // Contrôleur de requêtes
-let requeteFilmServeur = (action) => {
+let requeteAdminServeur = (action) => {
     switch(action){
         case "enregistrer":
             // reqEnregistrer(action);
-        break;
+            break;
         case "lister":
             reqLister(action);
-        break;
+            break;
+        case "listerActivations":
+            reqLister(action);
+            break;
     }
 }

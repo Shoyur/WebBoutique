@@ -38,7 +38,7 @@ if (!isset($_SESSION['statut_m']) || $_SESSION['statut_m'] != 'A') {
 	<script type="text/javascript" src="../client/js/global.js"></script>
 	<script src="../client/js/requetes.js"></script>
 </head>
-<body onLoad="requeteFilmServeur('lister');">
+<body>
 
 	<!-- MAIN HEADER -->
 	<div id="header">
