@@ -35,7 +35,7 @@ function ajouterProduits()
 {
     // VARIABLES TEST QUI SERONT REMPLACÉ PAR $_POST
     $idProd = date("Ymdhis"); // retourne un string format (year-month-day-hour-minutes-secondes) sans les tirets
-    $cheminImg = "Site/client/images/produit1.png";
+    $cheminImg = "client/images/produit1.png";
     $nomProd = "nom1";
     $categ = "categ1";
     $modele = "modele1";
