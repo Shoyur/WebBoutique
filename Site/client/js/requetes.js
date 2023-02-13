@@ -1,3 +1,5 @@
+let listeProduits;
+
 async function membreExiste(email) {
     $.ajax({
         url: "serveur/existeMembre.php",
@@ -48,19 +50,36 @@ async function membreSeConnecte(email, mdp) {
     });
 }
 
-// async function getProduits() {
-//     $.ajax({
-//         url: "serveur/getProduits.php",
-//         type: "GET",
-//         data: {},
-//         dataType: 'json',
-//         success: (reponse) => {
-//             console.log(reponse);
-//             initialiser(reponse);
-//         },
-//         fail: (e) => {
-//             alert(`Problème: ${e.message()}`);
-//         }
-//     });
-// }
+let reqLister = (action) => {	
+	$.ajax({
+		type : "POST",
+		url : "controller/produit/produitController.php",
+		data : {"action":action},
+        dataType: "text",
+        success: (reponse) => {
+            reponse = JSON.parse(reponse);
+            if(reponse.OK){
+                listeProduits = reponse.listeProduits;
+                creerVue('lister', listeProduits);
+            }else{
+                alert("Problème pour récupérer les produits");
+            }
+        }, 
+        fail: (e) => {
+    	    alert("Erreur: " + e.message());
+  	    }
+    })
+}
 
+
+// Contrôleur de requêtes
+let requeteFilmServeur = (action) => {
+    switch(action){
+        case "enregistrer":
+            // reqEnregistrer(action);
+        break;
+        case "lister":
+            reqLister(action);
+        break;
+    }
+}
