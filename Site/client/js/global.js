@@ -130,8 +130,8 @@ let creerRangee = (unProduit) => {
             <td>${unProduit.prix}</td>
             <td>${unProduit.qte_totale}</td>
             <td>${unProduit.qte_vendue}</td>
-            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}">Modifier</button></td>
-            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}">Supprimer</button></td>
+            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}" onClick="reqSupprimer('modifier', this.id);">Modifier</button></td>
+            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}" onClick="reqSupprimer('supprimer', this.id);">Supprimer</button></td>
         </tr>
     `;
 }

@@ -60,21 +60,28 @@ function ajouterProduits()
 }
 
 // -------- DELETE -------------------------------------------------------------------------------------------------------
-function supprimerProduits()
+function supprimerProduits($id)
 {
-    // VARIABLE TEST QUI SERONT REMPLACÉ PAR $_POST -- A MODIFIÉ POUR CHAQUE TEST
-    $id = "20230202062534";
+
+    global $reponse;
 
     require_once("../../includes/configdb.inc.php");
 
-    $requete = "DELETE FROM produits WHERE id_prod=?";
-    $stmt = $conn->prepare($requete);
-    $stmt->bind_param("s", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    var_dump($result);
+    try {
+        $requete = "DELETE FROM produits WHERE id_prod=?";
+        $stmt = $conn->prepare($requete);
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $reponse['OK'] = true;
+        $reponse['result'] = $result;
 
-    mysqli_close($conn);
+    } catch (Exception $e) {
+        $reponse['OK'] = false;
+        $reponse['message'] = "Probleme pour lister dans controller!";
+    } finally {
+        mysqli_close($conn);
+    }
 
 }
 
@@ -149,6 +156,7 @@ function utf8ize($d) // fonction pour mettre tous les caractères en UTF8
 // - php produitModel.php
 
 $action = $_POST['action'];
+
 switch ($action) {
     case 'enregistrer':
         // enregistrer();
@@ -156,6 +164,11 @@ switch ($action) {
     case 'lister':
         lister();
         break;
+    case 'supprimer':
+        $id = $_POST['id'];
+        supprimerProduits($id);
+        break;
+
 }
 header("Content-Type: application/json");
 echo json_encode(utf8ize($reponse));
