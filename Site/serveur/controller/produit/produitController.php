@@ -13,8 +13,6 @@ function lister()
     require_once("../../includes/configdb.inc.php");
 
     try {
-
-
         $requete = "SELECT * FROM produits";
         $stmt = $conn->prepare($requete);
         $stmt->execute();
@@ -24,24 +22,12 @@ function lister()
         while ($ligne = mysqli_fetch_array($result)) {
             $reponse['listeProduits'][] = $ligne;
         }
-
-
-        // header("Content-Type: application/json");
-        // echo json_encode($reponse);
-
-
-
     } catch (Exception $e) {
         $reponse['OK'] = false;
         $reponse['message'] = "Probleme pour lister dans controller!";
     } finally {
         mysqli_close($conn);
     }
-
-
-
-
-
 }
 
 // -------- CREATE --------------------------------------------------------------------------------------------------------
