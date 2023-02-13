@@ -48,19 +48,36 @@ async function membreSeConnecte(email, mdp) {
     });
 }
 
-// async function getProduits() {
-//     $.ajax({
-//         url: "serveur/getProduits.php",
-//         type: "GET",
-//         data: {},
-//         dataType: 'json',
-//         success: (reponse) => {
-//             console.log(reponse);
-//             initialiser(reponse);
-//         },
-//         fail: (e) => {
-//             alert(`Problème: ${e.message()}`);
-//         }
-//     });
-// }
+let reqLister = (action) => {
+	
+	$.ajax({
+		type : "POST",
+		url : "controller/produit/produitController.php",
+		data : {"action":action},
+        dataType: "text",
+        success: (reponse)  => {
+            reponse = JSON.parse(reponse);
+            console.log(reponse);
+            if(reponse.OK){
+                creerVue('lister', reponse.listeProduits);
+            }else{
+                console.log("reponse echoué");
+                alert("Problème pour lister dans requetes");
+            }
+        }, 
+        fail : (e)  => {
+    	alert( "error reqLister" + e.message());
+  	}
+})}
 
+// Contrôleur de requêtes
+let requeteFilmServeur = (action) => {
+    switch(action){
+        case "enregistrer":
+            // reqEnregistrer(action);
+        break;
+        case "lister":
+            reqLister(action);
+        break;
+    }
+}
