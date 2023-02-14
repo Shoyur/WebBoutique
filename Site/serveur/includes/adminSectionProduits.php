@@ -40,8 +40,10 @@
 						</div>
 						<div class="row">
 							<div class="col-md-6">
-								<label for="categorie" class="form-label">Catégorie</label>
-								<input type="text" class="form-control is-valid" id="categorie" name="categorie" required>
+								<label for="categorie-select">Catégorie</label>
+								<select type="text" class="form-control is-valid" id="categorie-select" name="categorie-select" required>
+									<!-- Remplissage dynamique lors de l'appel à la méthode lister du CRUD pour les produits -->
+								</select>
 							</div>
 							<div class="col-md-6">
 								<label for="modele" class="form-label">Modèle</label>

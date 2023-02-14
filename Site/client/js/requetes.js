@@ -73,6 +73,7 @@ let reqListerProduits = (action) => {
 
 let reqEnregistrerProduit = (action) => {	
     let formProduit = new FormData(document.getElementById('formEnregistrerProduit'));
+    formProduit.append("categorie",formProduit.get('categorie-select'));
 	formProduit.append("action",action);
 	$.ajax({
 		type: "POST",

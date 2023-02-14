@@ -141,6 +141,7 @@ let creerRangeeProduit = (unProduit) => {
 let preparerFiltre = () => {
     let filterForm = document.getElementById('filter-form');
     let categorySelect = document.getElementById('category-select');
+    let categorySelectModalAjout = document.getElementById('categorie-select');
     let priceMin = document.getElementById("price-min");
     let priceMax = document.getElementById("price-max");
     let productTable = document.getElementById('table_produits');
@@ -150,6 +151,11 @@ let preparerFiltre = () => {
         categorySelect.innerHTML += `
             <option value='${elem1}'>${elem2}</option>
         `;
+        if(elem1 != 'Tout'){
+            categorySelectModalAjout.innerHTML += `
+                <option value='${elem1}'>${elem2}</option>
+            `;
+        }
     })
     filterForm.addEventListener("submit", function(event) {
         event.preventDefault();
