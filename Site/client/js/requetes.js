@@ -1,3 +1,5 @@
+let listeProduits;
+
 async function membreExiste(email) {
     $.ajax({
         url: "serveur/existeMembre.php",
@@ -48,19 +50,63 @@ async function membreSeConnecte(email, mdp) {
     });
 }
 
-// async function getProduits() {
-//     $.ajax({
-//         url: "serveur/getProduits.php",
-//         type: "GET",
-//         data: {},
-//         dataType: 'json',
-//         success: (reponse) => {
-//             console.log(reponse);
-//             initialiser(reponse);
-//         },
-//         fail: (e) => {
-//             alert(`Problème: ${e.message()}`);
-//         }
-//     });
-// }
+let reqListerProduits = (action) => {	
+	$.ajax({
+		type: "POST",
+		url: "controller/produit/produitController.php",
+		data: {"action":action},
+        dataType: "text",
+        success: (reponse) => {
+            reponse = JSON.parse(reponse);
+            if(reponse.OK){
+                listeProduits = reponse.listeProduits;
+                creerVue(action, listeProduits);
+            }else{
+                alert("Problème pour récupérer les produits");
+            }
+        }, 
+        fail: (e) => {
+    	    alert("Erreur: " + e.message());
+  	    }
+    })
+}
 
+let reqEnregistrerProduit = (action) => {	
+    let formProduit = new FormData(document.getElementById('formEnregistrerProduit'));
+	formProduit.append("action",action);
+	$.ajax({
+		type: "POST",
+		url: "controller/produit/produitController.php",
+		data: formProduit,
+        dataType: "text",
+        async: false,
+		cache: false,
+		contentType: false,
+		processData: false
+    }).done((reponse) => {
+        reponse = JSON.parse(reponse);
+        if(reponse.OK){
+            //
+        }else{
+            alert("Problème pour enregistrer le produit");
+        }
+    }).fail((e) => {
+    	alert("Erreur: " + e.message());
+  	})
+}
+
+
+// Contrôleur de requêtes
+let requeteAdminServeur = (action) => {
+    switch(action){
+        case "enregistrerProduit":
+            reqEnregistrerProduit(action);
+        break;
+        case "listerProduits":
+            reqListerProduits(action);
+        break;
+        case "listerActivations":
+            //reqLister(action);
+        break;
+    }
+}

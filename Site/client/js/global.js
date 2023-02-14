@@ -10,7 +10,7 @@ let showProduct = async () => {
     for (let i = 0; i < data.length; i++) {
         let produit = `
             <div class="product-img">
-                <img src="${data[i].chemin_img.substring(5)}" alt="">
+                <img src="${data[i].chemin_img}" alt="">
                 <div class="product-label">
                     <span class="sale">-30%</span>
                     <span class="new">NEW</span>
@@ -35,7 +35,8 @@ let showProduct = async () => {
             </div>
             <div class="add-to-cart">
                 <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-            </div>`;
+            </div>
+        `;
         let idIndexHTML = "produit" + (i + 1);
         document.getElementById(idIndexHTML).innerHTML = produit;
     }
@@ -64,6 +65,115 @@ let validerFormEnregPartTwo = (reponse) => {
             document.getElementById('msgErrEnreg').innerHTML = "";
         }, 5000);
     }
+}
+
+
+// Contrôleur vue panneau admin (page produits)
+let creerVue = (action, donnees) => {
+    switch(action){
+        case "enregistrerProduit":
+            // pas besoin d'une méthode la page se recharge et 
+            // donc ré-appelle automatiquement listerProduits().
+        break;
+        case "modifier":
+            //
+        break;
+        case "enlever" :
+            // afficherMessage(donnees);
+        break;
+        case "listerProduits":
+            listerProduits(donnees);
+            preparerFiltre();
+        break;
+    }
+}
+
+let tableauCategProduits = new Set();
+let listerProduits = (listeProduits) => {
+    let contenu = `
+        <div class='row'>
+            <table class="table" id='table_produits'>
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Photo</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Catégorie</th>
+                        <th scope="col">Modèle</th>
+                        <th scope="col">Fabricant</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Qté total</th>
+                        <th scope="col">Qté vendue</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+    for(let unProduit of listeProduits){
+        contenu += creerRangeeProduit(unProduit);
+        tableauCategProduits.add(unProduit.categorie);
+    }
+    contenu += `
+                </tbody>
+            </table>
+        </div>
+    `;
+    document.getElementById('affichageAdmin').innerHTML += contenu;
+}
+
+let creerRangeeProduit = (unProduit) => {
+    return `
+        <tr>
+            <td><img src="../${unProduit.chemin_img}" class="imgTable" alt="Image du produit"></td>
+            <td>${unProduit.nom_prod}</td>
+            <td>${unProduit.categorie}</td>
+            <td>${unProduit.modele}</td>
+            <td>${unProduit.fabriquant}</td>
+            <td>${unProduit.prix}</td>
+            <td>${unProduit.qte_totale}</td>
+            <td>${unProduit.qte_vendue}</td>
+            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}">Modifier</button></td>
+            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}">Supprimer</button></td>
+        </tr>
+    `;
+}
+
+let preparerFiltre = () => {
+    let filterForm = document.getElementById('filter-form');
+    let categorySelect = document.getElementById('category-select');
+    let priceMin = document.getElementById("price-min");
+    let priceMax = document.getElementById("price-max");
+    let productTable = document.getElementById('table_produits');
+    let productRows = productTable.getElementsByTagName('tr');
+    categorySelect.innerHTML = `<option value="Tout">Tout</option>`;
+    tableauCategProduits.forEach( (elem1, elem2, tableauCategProduits) => {
+        categorySelect.innerHTML += `
+            <option value='${elem1}'>${elem2}</option>
+        `;
+    })
+    filterForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const selectedCategory = categorySelect.value;
+        const minPrice = parseFloat(priceMin.value) || 0;
+        const maxPrice = parseFloat(priceMax.value) || Number.POSITIVE_INFINITY;
+        for(let i = 1; i < productRows.length; i++){
+            const productRow = productRows[i];
+            const productCells = productRow.getElementsByTagName("td");
+            const productCategory = productCells[2].innerText;
+            const productPrice = parseFloat(productCells[5].innerText);
+            if(selectedCategory === 'Tout'){
+                productRow.style.display = "";
+            }else if(productCategory === selectedCategory || selectedCategory === ""){
+                if(productPrice >= minPrice && productPrice <= maxPrice){
+                    productRow.style.display = "";
+                }else{
+                    productRow.style.display = "none";
+                }
+            }else{
+                productRow.style.display = "none";
+            }
+        }
+    })
 }
 
 $('.dropdown-toggle').click(function(e) {
