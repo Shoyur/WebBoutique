@@ -152,8 +152,8 @@ function utf8ize($d) // fonction pour mettre tous les caractères en UTF8
 // updateProduits();
 
 // ------------  AVEC COMMANDE PHP SEULEMENT ------------
-// - cd serveur/model/produit
-// - php produitModel.php
+// - cd serveur/controller/produit
+// - php produitController.php
 
 $action = $_POST['action'];
 

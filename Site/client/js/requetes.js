@@ -81,14 +81,13 @@ let reqSupprimer = (action, id) => {
         },
         dataType: "text",
         success: (reponse) => {
-            alert(reponse);
-            // reponse = JSON.parse(reponse);
-            // if(reponse.OK){
-            //     listeProduits = reponse.listeProduits;
-            //     creerVue('lister', listeProduits);
-            // }else{
-            //     alert("Problème pour récupérer les produits");
-            // }
+            reponse = JSON.parse(reponse);
+            if(reponse.OK){
+                alert("Le produit a bien été supprimé");
+                location.reload(); // a modifier 
+            }else{
+                alert("Problème pour supprimer le produit");
+            }
         }, 
         fail: (e) => {
     	    alert("Erreur: " + e.message());
