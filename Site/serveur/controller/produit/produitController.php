@@ -74,7 +74,6 @@ function supprimerProduits($id)
         $stmt->execute();
         $result = $stmt->get_result();
         $reponse['OK'] = true;
-        $reponse['result'] = $result;
 
     } catch (Exception $e) {
         $reponse['OK'] = false;
