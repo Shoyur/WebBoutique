@@ -130,10 +130,79 @@ let creerRangee = (unProduit) => {
             <td>${unProduit.prix}</td>
             <td>${unProduit.qte_totale}</td>
             <td>${unProduit.qte_vendue}</td>
-            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}" onClick="reqSupprimer('modifier', this.id);">Modifier</button></td>
+            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}" onClick="modfifierForm(this.id);">Modifier</button></td>
             <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}" onClick="reqSupprimer('supprimer', this.id);">Supprimer</button></td>
         </tr>
     `;
+}
+
+let modfifierForm = (id) => {
+    let contenu = `
+    <!-- Modal Modifier-->
+    <div class="modal fade" id="modifierModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="connectionModalLabel">Mofier un produit</h5>
+                <h6 class="modal-title" id="connectionModalLabel">Entrez les informations à modifier si applicable et appuyez sur valider</h6>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<span id="msgErrConn" style="color:#8B0000;"></span>
+				<form class="espace" id="formEnregistrer" method="POST">
+					<div class="row">
+						<div class="col-md-12">
+							<label for="nom_prod" class="form-label">Nom</label>
+							<input type="text" class="form-control is-valid" id="nom_prod" name="nom_prod" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="categorie" class="form-label">Catégorie</label>
+							<input type="text" class="form-control is-valid" id="categorie" name="categorie" required>
+						</div>
+						<div class="col-md-6">
+							<label for="modele" class="form-label">Modèle</label>
+							<input type="text" class="form-control is-valid" id="modele" name="modele" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="fabriquant" class="form-label">Fabriquant</label>
+							<input type="text" class="form-control is-valid" id="fabriquant" name="fabriquant" required>
+						</div>
+						<div class="col-md-6">
+							<label for="prix" class="form-label">Prix</label>
+							<input type="text" class="form-control is-valid" id="prix" name="prix" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="qte_totale" class="form-label">Quantité totale</label>
+							<input type="text" class="form-control is-valid" id="qte_totale" name="qte_totale" required>
+						</div>
+						<div class="col-md-6">
+							<label for="qte_vendu" class="form-label">Photo</label>
+							<input type="file" class="form-control is-valid" id="qte_vendu" name="qte_vendu">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<button class="btn btn-primary" id="${id}"
+								onClick="reqModifier('modifier', this.id);">Valider mes modifications</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+    `
+    document.getElementById('affichageAdmin').innerHTML += contenu;
+    $('#modifierModal').modal('show'); // affiche manuellement le modal
 }
 
 let preparerFiltre = () => {

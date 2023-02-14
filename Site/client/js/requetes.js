@@ -97,30 +97,32 @@ let reqSupprimer = (action, id) => {
 }
 
 let reqModifier = (action, id) => {	
-    
-	$.ajax({
-		type : "POST",
-		url : "controller/produit/produitController.php",
-		data : {
-            "action":action,
-            "id":id
-        },
-        dataType: "text",
-        success: (reponse) => {
-            alert(reponse);
-            // reponse = JSON.parse(reponse);
-            // if(reponse.OK){
-            //     listeProduits = reponse.listeProduits;
-            //     creerVue('lister', listeProduits);
-            // }else{
-            //     alert("Problème pour récupérer les produits");
-            // }
-        }, 
-        fail: (e) => {
-    	    alert("Erreur: " + e.message());
-  	    }
-    })
+    alert( action + " " + id);
+	// $.ajax({
+	// 	type : "POST",
+	// 	url : "controller/produit/produitController.php",
+	// 	data : {
+    //         "action":action,
+    //         "id":id
+    //     },
+    //     dataType: "text",
+    //     success: (reponse) => {
+    //         alert(reponse);
+    //         // reponse = JSON.parse(reponse);
+    //         // if(reponse.OK){
+    //         //     listeProduits = reponse.listeProduits;
+    //         //     creerVue('lister', listeProduits);
+    //         // }else{
+    //         //     alert("Problème pour récupérer les produits");
+    //         // }
+    //     }, 
+    //     fail: (e) => {
+    // 	    alert("Erreur: " + e.message());
+  	//     }
+    // })
 }
+
+
 
 
 // Contrôleur de requêtes
