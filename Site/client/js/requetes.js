@@ -26,19 +26,14 @@ async function membreSeConnecte(email, mdp) {
         success: (reponse) => {
             switch (reponse) {
                 case 'E': {
-                    console.log("'E': membre inexistant...");
                     document.getElementById("msgErrConn").innerText = "Membre inexistant..."; break; }
                 case 'M': { 
-                    console.log("'M'embre.");
                     location.reload(); break; }
                 case 'A': { 
-                    console.log("'A'dmin.");
                     window.location.href = "serveur/admin.php"; break; }
                 case 'I': { 
-                    console.log("Membre existant mais 'I'nactif. Contactez l`administrateur.");
                     document.getElementById("msgErrConn").innerText = "Membre existant mais inactif. Contactez l`administrateur."; break; }
                 default : { 
-                   console.log("connecter.js ajax reponse est autre chose que E-M-A-I");
                    break; }
             }
         },
@@ -48,7 +43,7 @@ async function membreSeConnecte(email, mdp) {
     });
 }
 
-let reqLister = (action) => {
+let reqListerProduits = (action) => {
     let listeProduits;
 	$.ajax({
 		type : "POST",
@@ -120,9 +115,9 @@ let reqListerActivations = () => {
         success: (reponse) => {
             reponse = JSON.parse(reponse);
             if (reponse.OK) { creerVueActivations(reponse.listeActivations); }
-            else { console.log("Problème à récupérer les activations (membres).\nDans " + reponse.message); }
+            else { alert("Problème à récupérer les activations (membres).\nDans " + reponse.message); }
         }, 
-        fail: (e) => { console.log("Erreur: " + e.message()); }
+        fail: (e) => { alert("Erreur: " + e.message()); }
     })
 }
 
@@ -139,8 +134,8 @@ let reqModifierActivation = (email, valeur) => {
         success: (reponse) => {
             reponse = JSON.parse(reponse);
             if (reponse.OK) { console.log(reponse.message); }
-            else { console.log("Problème avec une activation (membre).\nDans " + reponse.message); }
+            else { alert("Problème avec une activation (membre).\nDans " + reponse.message); }
         }, 
-        fail: (e) => { console.log("Erreur: " + e.message()); }
+        fail: (e) => { alert("Erreur: " + e.message()); }
     })
 }

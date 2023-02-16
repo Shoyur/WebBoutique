@@ -8,51 +8,38 @@ if (!isset($_SESSION['statut_m']) || $_SESSION['statut_m'] != 'A') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Electro - HTML Ecommerce Template</title>
-	<!-- Google font -->
+	<title>Les Quatres Mousquitaires de l'Informatique</title>
+	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-	<!-- Bootstrap -->
+	<!-- Bootstrap 3 -->
 	<link type="text/css" rel="stylesheet" href="../client/css/bootstrap.min.css" />
 	<!-- Slick -->
 	<link type="text/css" rel="stylesheet" href="../client/css/slick.css" />
 	<link type="text/css" rel="stylesheet" href="../client/css/slick-theme.css" />
-	<!-- nouislider -->
+	<!-- NoUIslider -->
 	<link type="text/css" rel="stylesheet" href="../client/css/nouislider.min.css" />
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="../client/css/font-awesome.min.css">
-	<!-- Custom stylesheet -->
+	<!-- Custom Stylesheet -->
 	<link type="text/css" rel="stylesheet" href="../client/css/style.css" />
-	<!-- JS de Mike -->
+	<!-- Custom Scripts -->
 	<script src="../client/js/connecter.js"></script>
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 	<script type="text/javascript" src="../client/js/global.js"></script>
 	<script type="text/javascript" src="../client/js/requetes.js"></script>
-
-
-	<!-- TEST -->
-	<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
-
-
-
-
 </head>
+
 <body>
 
 	<!-- MAIN HEADER -->
 	<div id="header">
+		<!-- CONTAINER -->
 		<div class="container">
+			<!-- ROW -->
 			<div class="row">
 				<!-- LOGO -->
 				<div class="col-md-3">
@@ -66,35 +53,37 @@ if (!isset($_SESSION['statut_m']) || $_SESSION['statut_m'] != 'A') {
 					</div>
 				</div>
 				<!-- /LOGO -->
-				<!-- ACCOUNT -->
+				<!-- ACCOUNT OPTION -->
 				<div class=" col-md-9 clearfix">
 					<div class="header-ctn">
 						<div class="divUser">
 							<a href="deconnecter.php"><i class="fa fa-user-circle-o"></i> Déconnexion</a>
 						</div>
-						<!-- MENU TOGGLE -->
+						<!-- MENU TOGGLE 
 						<div class="menu-toggle">
 							<a href="#">
 								<i class="fa fa-bars"></i>
 								<span>Menu</span>
 							</a>
 						</div>
-						<!-- /MENU TOGGLE -->
+						/MENU TOGGLE -->
 					</div>
 				</div>
-				<!-- /ACCOUNT -->
+				<!-- /ACCOUNT OPTION -->
 			</div>
+			<!-- /ROW -->
 		</div>
+		<!-- /CONTAINER -->
 	</div>
 	<!-- /MAIN HEADER -->
 
 	<?php 
-		if (isset($_GET['page']) && $_GET['page'] == 2) {
-			// si anchor call /admin.php?page=2
-			include "includes/adminSectionActivations.php"; 
-		}
-		else {
-			// else, anchor call /admin.php?page=1, ou aucun paramètre
-			include "includes/adminSectionProduits.php"; 
-		}
+	if (isset($_GET['page']) && $_GET['page'] == 2) {
+		// si anchor call /admin.php?page=2
+		include "includes/adminSectionActivations.php"; 
+	}
+	else {
+		// else, anchor call /admin.php?page=1, ou aucun paramètre
+		include "includes/adminSectionProduits.php"; 
+	}
 	?>

@@ -9,32 +9,22 @@ session_start();
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Electro - HTML Ecommerce Template</title>
-	<!-- Google font -->
+	<title>Les Quatres Mousquitaires de l'Informatique</title>
+	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-	<!-- Bootstrap -->
+	<!-- Bootstrap 3 -->
 	<link type="text/css" rel="stylesheet" href="client/css/bootstrap.min.css" />
 	<!-- Slick -->
 	<link type="text/css" rel="stylesheet" href="client/css/slick.css" />
 	<link type="text/css" rel="stylesheet" href="client/css/slick-theme.css" />
-	<!-- nouislider -->
+	<!-- NoUIslider -->
 	<link type="text/css" rel="stylesheet" href="client/css/nouislider.min.css" />
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="client/css/font-awesome.min.css">
-	<!-- Custom stylesheet -->
+	<!-- Custom Stylesheet -->
 	<link type="text/css" rel="stylesheet" href="client/css/style.css" />
-
-	<!-- JS de Mike -->
+	<!-- Custom Scripts -->
 	<script src="client/js/connecter.js"></script>
-
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 	<script type="text/javascript" src="client/js/global.js"></script>
 	<script src="./client/js/requetes.js"></script>
 </head>
@@ -43,7 +33,6 @@ session_start();
 
 	<!-- HEADER -->
 	<header>
-
 		<!-- MODAL CREER UN COMPTE -->
 		<div class="modal fade" id="enregistrerModal" tabindex="-1" role="dialog"
 			aria-labelledby="enregistrerModalLabel" aria-hidden="true">
@@ -114,8 +103,7 @@ session_start();
 			</div>
 		</div>
 		<!-- /MODAL CREER UN COMPTE -->
-
-		<!-- MODAL OUVRIR UNE SESSION [[[      [[[      CONNECTER      ]]]       ]]] -->
+		<!-- MODAL OUVRIR UNE SESSION -->
 		<div class="modal fade" id="connectionModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog" role="document">
@@ -156,11 +144,12 @@ session_start();
 				</div>
 			</div>
 		</div>
-		<!-- /MODAL OUVRIR UNE SESSION [[[      [[[      CONNECTER      ]]]       ]]] -->
-
+		<!-- /MODAL OUVRIR UNE SESSION -->
 		<!-- MAIN HEADER -->
 		<div id="header">
+			<!-- CONTAINER -->
 			<div class="container">
+				<!-- ROW -->
 				<div class="row">
 					<!-- LOGO -->
 					<div class="col-md-3">
@@ -174,7 +163,6 @@ session_start();
 						</div>
 					</div>
 					<!-- /LOGO -->
-
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
@@ -185,37 +173,36 @@ session_start();
 						</div>
 					</div>
 					<!-- /SEARCH BAR -->
-
 					<!-- ACCOUNT -->
 					<div class="col-md-3 clearfix">
 						<div class="header-ctn">
+							<!-- ACCOUNT OPTIONS -->
 							<div class="divUser">
 								<?php
-								// unset($_SESSION['statut_m']);
 								if (isset($_SESSION['statut_m']) && $_SESSION['statut_m'] == "M") {
 									$prenom = trim($_SESSION['prenom']);
 									echo '
-											<a href="#" data-toggle="dropdown" data-hover="dropdown">
-												<i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;' . trim($prenom) . '&nbsp;<span class="caret"></span>
-											</a>
-											<ul class="dropdown-menu">
-												<li><a href="#">Liste de souhaits</a></li>
-												<li><a href="#">Historique d’achats</a></li>
-												<li><a href="#">Détails membre</a></li>
-												<li><a href="serveur/deconnecter.php">Déconnecter</a></li>
-											</ul>
-											';
+										<a href="#" data-toggle="dropdown" data-hover="dropdown">
+											<i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;' . trim($prenom) . '&nbsp;<span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Liste de souhaits</a></li>
+											<li><a href="#">Historique d’achats</a></li>
+											<li><a href="#">Détails membre</a></li>
+											<li><a href="serveur/deconnecter.php">Déconnecter</a></li>
+										</ul>
+									';
 								} else {
 									echo '
-											<a href="#" data-toggle="modal" data-target="#connectionModal">
-												<i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;S’identifier
-											</a>
-											';
+										<a href="#" data-toggle="modal" data-target="#connectionModal">
+											<i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;S’identifier
+										</a>
+									';
 								}
 								?>
 							</div>
-
-							<!-- Cart -->
+							<!-- /ACCOUNT OPTIONS -->
+							<!-- ACCOUNT CART -->
 							<div class="dropdown">
 								<a href="#" data-toggle="dropdown">
 									<i class="fa fa-shopping-cart"></i>
@@ -254,37 +241,32 @@ session_start();
 									</div>
 								</div>
 							</div>
-							<!-- /Cart -->
-
-							<!-- Menu Toggle -->
+							<!-- /ACCOUNT CART -->
+							<!-- MENU TOGGLE 
 							<div class="menu-toggle">
 								<a href="#">
 									<i class="fa fa-bars"></i>
 									<span>Menu</span>
 								</a>
 							</div>
-							<!-- /Menu Toggle -->
-
+						    /MENU TOGGLE -->
 						</div>
 					</div>
 					<!-- /ACCOUNT -->
-
 				</div>
-				<!-- row -->
+				<!-- /ROW -->
 			</div>
-			<!-- container -->
+			<!-- /CONTAINER -->
 		</div>
 		<!-- /MAIN HEADER -->
-
 	</header>
 	<!-- /HEADER -->
 
-
 	<!-- NAVIGATION -->
 	<nav id="navigation">
-		<!-- container -->
+		<!-- CONTAINER -->
 		<div class="container">
-			<!-- responsive-nav -->
+			<!-- RESPONSIVE NAV -->
 			<div id="responsive-nav">
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
@@ -297,18 +279,17 @@ session_start();
 				</ul>
 				<!-- /NAV -->
 			</div>
-			<!-- /responsive-nav -->
+			<!-- /RESPONSIVE NAV -->
 		</div>
-		<!-- /container -->
+		<!-- /CONTAINER -->
 	</nav>
 	<!-- /NAVIGATION -->
 
-
 	<!-- HOT DEAL SECTION -->
 	<div id="hot-deal" class="section">
-		<!-- container -->
+		<!-- CONTAINER -->
 		<div class="container">
-			<!-- row -->
+			<!-- ROW -->
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hot-deal">
@@ -344,20 +325,18 @@ session_start();
 					</div>
 				</div>
 			</div>
-			<!-- /row -->
+			<!-- /ROW -->
 		</div>
-		<!-- /container -->
+		<!-- /CONTAINER -->
 	</div>
 	<!-- /HOT DEAL SECTION -->
 
-
 	<!-- SECTION PRODUITS POPULAIRES -->
 	<div class="section">
-		<!-- container -->
+		<!-- CONTAINER -->
 		<div class="container">
-			<!-- row -->
+			<!-- ROW -->
 			<div class="row">
-
 				<!-- SECTION TITLE -->
 				<div class="col-md-12">
 					<div class="section-title">
@@ -372,256 +351,57 @@ session_start();
 					</div>
 				</div>
 				<!-- /SECTION TITLE -->
-
-				<!-- SECTION CAROUSSEL NOUVEAUX PRODUITS -->
+				<!-- SECTION CAROUSSEL -->
 				<div class="col-md-12">
+					<!-- ROW -->
 					<div class="row">
+						<!-- TABS CONTAINER -->
 						<div class="products-tabs">
-							<!-- tab -->
+							<!-- TAB -->
 							<div id="tab1" class="tab-pane active">
+								<!-- SLICK CONTAINER -->
 								<div class="products-slick" data-nav="#slick-nav-1">
-
-									<!-- product1 -->
-									<div id="produit1" class="product">
-										<!-- <div class="product-img">
-												<img src="client/images/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div> -->
-									</div>
-									<!-- /product1 -->
-
-									<!-- product2 -->
-									<div id="produit2" class="product">
-										<!-- <div class="product-img">
-												<img src="client/images/product02.png" alt="">
-												<div class="product-label">
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div> -->
-									</div>
-									<!-- /product2 -->
-
-									<!-- product3 -->
-									<div id="produit3" class="product">
-										<!-- <div class="product-img">
-												<img src="client/images/product03.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div> -->
-									</div>
-									<!-- /product3 -->
-
-									<!-- product4 -->
-									<div id="produit4" class="product">
-										<!-- <div class="product-img">
-												<img src="client/images/product04.png" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div> -->
-									</div>
-									<!-- /product4 -->
-
-									<!-- product5 -->
-									<div id="produit5" class="product">
-										<!-- <div class="product-img">
-												<img src="client/images/product5.png" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div> -->
-									</div>
-									<!-- /product5 -->
-
-									<!-- product6 -->
-									<div id="produit6" class="product">
-										<!-- <div class="product-img">
-												<img src="client/images/product5.png" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div> -->
-									</div>
-									<!-- /product6 -->
-									<!-- product7 -->
-									<div id="produit7" class="product">
-										<!-- <div class="product-img">
-												<img src="client/images/product5.png" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div> -->
-									</div>
-									<!-- /product7 -->
-
-									<!-- product8 -->
-									<div id="produit8" class="product">
-										<!-- <div class="product-img">
-												<img src="client/images/product5.png" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div> -->
-									</div>
-									<!-- /product8 -->
-
+									<!-- PRODUCT 1 -->
+									<div id="produit1" class="product"></div>
+									<!-- /PRODUCT 1 -->
+									<!-- PRODUCT 2 -->
+									<div id="produit2" class="product"></div>
+									<!-- /PRODUCT 2 -->
+									<!-- PRODUCT 3 -->
+									<div id="produit3" class="product"></div>
+									<!-- /PRODUCT 3 -->
+									<!-- PRODUCT 4-->
+									<div id="produit4" class="product"></div>
+									<!-- /PRODUCT 4 -->
+									<!-- PRODUCT 5 -->
+									<div id="produit5" class="product"></div>
+									<!-- /PRODUCT 5 -->
+									<!-- PRODUCT 6 -->
+									<div id="produit6" class="product"></div>
+									<!-- /PRODUCT 6 -->
+									<!-- PRODUCT 7 -->
+									<div id="produit7" class="product"></div>
+									<!-- /PRODUCT 7 -->
+									<!-- PRODUCT 8 -->
+									<div id="produit8" class="product"></div>
+									<!-- /PRODUCT 8 -->
 								</div>
+								<!-- /SLICK CONTAINER -->
+								<!-- SLICK NAV CONTAINER -->
 								<div id="slick-nav-1" class="products-slick-nav"></div>
+								<!-- /SLICK NAV CONTAINER -->
 							</div>
-							<!-- /tab -->
+							<!-- /TAB -->
 						</div>
+						<!-- /TAB CONTAINER -->
 					</div>
+					<!-- /ROW -->
 				</div>
-				<!-- /SECTION CAROUSSEL NOUVEAUX PRODUITS -->
-
+				<!-- /SECTION CAROUSSEL -->
 			</div>
-			<!-- /row -->
+			<!-- /ROW -->
 		</div>
-		<!-- /container -->
+		<!-- /CONTAINER -->
 	</div>
 	<!-- /SECTION PRODUITS POPULAIRES -->
 
@@ -629,9 +409,9 @@ session_start();
 	<footer id="footer">
 		<!-- TOP FOOTER -->
 		<div class="section">
-			<!-- container -->
+			<!-- CONTAINER -->
 			<div class="container">
-				<!-- row -->
+				<!-- ROW -->
 				<div class="row">
 					<div class="col-md-4 col-xs-12">
 						<div class="footer">
@@ -668,16 +448,15 @@ session_start();
 						</div>
 					</div>
 				</div>
-				<!-- /row -->
+				<!-- /ROW -->
 			</div>
-			<!-- /container -->
+			<!-- /CONTAINER -->
 		</div>
 		<!-- /TOP FOOTER -->
-
 		<!-- BOTTOM FOOTER -->
 		<div id="bottom-footer" class="section">
 			<div class="container">
-				<!-- row -->
+				<!-- ROW -->
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<span class="copyright">
@@ -690,23 +469,23 @@ session_start();
 						</span>
 					</div>
 				</div>
-				<!-- /row -->
+				<!-- /ROW -->
 			</div>
-			<!-- /container -->
+			<!-- /CONTAINER -->
 		</div>
 		<!-- /BOTTOM FOOTER -->
 	</footer>
 	<!-- /FOOTER -->
 
-	<!-- jQuery Plugins -->
+	<!-- JQUERY PLUGINS -->
 	<script src="client/js/jquery.min.js"></script>
 	<script src="client/js/bootstrap.min.js"></script>
 	<script src="client/js/slick.min.js"></script>
 	<script src="client/js/nouislider.min.js"></script>
 	<script src="client/js/jquery.zoom.min.js"></script>
 	<script src="client/js/main.js"></script>
-</body>
+	<!-- /JQUERY PLUGINS -->
 
-</html>
+</body>
 
 </html>

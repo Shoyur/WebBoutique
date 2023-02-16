@@ -3,9 +3,8 @@ window.addEventListener("load", function () {
 });
 
 let showProduct = async () => {
-    let reponse = await fetch('./getProduits.php');
+    let reponse = await fetch('serveur/getProduits.php');
     let responseText = await reponse.text();
-    // console.log(responseText);
     let data = await JSON.parse(responseText);
     for (let i = 0; i < data.length; i++) {
         let produit = `
@@ -38,8 +37,7 @@ let showProduct = async () => {
             </div>
         `;
         let idIndexHTML = "produit" + (i + 1);
-        // Ce ID n'Existe pas........
-        // document.getElementById(idIndexHTML).innerHTML = produit;
+        document.getElementById(idIndexHTML).innerHTML = produit;
     }
 };
 

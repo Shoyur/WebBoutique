@@ -99,7 +99,7 @@
 
 	<!-- AFFICHAGE CONTENU AJAX -->
 	<div class="container affichageAdmin" id="affichageAdmin" style="margin-top:5px;">
-		<!-- -->
+		<!-- VUE PRINCIPALE -->
 	</div>
 	<!-- /AFFICHAGE CONTENU AJAX -->
 
