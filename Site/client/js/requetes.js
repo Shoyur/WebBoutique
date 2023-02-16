@@ -1,5 +1,3 @@
-let listeProduits;
-
 async function membreExiste(email) {
     $.ajax({
         url: "serveur/existeMembre.php",
@@ -50,11 +48,12 @@ async function membreSeConnecte(email, mdp) {
     });
 }
 
-let reqLister = (action) => {	
+let reqLister = (action) => {
+    let listeProduits;
 	$.ajax({
 		type : "POST",
 		url : "controller/produit/produitController.php",
-		data : {"action":action},
+		data : {"action": action},
         dataType: "text",
         success: (reponse) => {
             reponse = JSON.parse(reponse);
@@ -81,8 +80,39 @@ let requeteAdminServeur = (action) => {
         case "lister":
             reqLister(action);
             break;
-        case "listerActivations":
-            reqLister(action);
-            break;
     }
+}
+
+let reqListerActivations = () => {
+	$.ajax({
+		type : "POST",
+		url : "controller/activations/activationsController.php",
+        data : {"action": "lister"},
+        dataType: "text",
+        success: (reponse) => {
+            reponse = JSON.parse(reponse);
+            if (reponse.OK) { creerVueActivations(reponse.listeActivations); }
+            else { console.log("Problème à récupérer les activations (membres).\nDans " + reponse.message); }
+        }, 
+        fail: (e) => { console.log("Erreur: " + e.message()); }
+    })
+}
+
+let reqModifierActivation = (email, valeur) => {
+	$.ajax({
+		type : "POST",
+		url : "controller/activations/activationsController.php",
+        data : {
+            "action": "modifier",
+            "email": email,
+            "valeur": valeur,
+        },
+        // dataType: "text",
+        success: (reponse) => {
+            reponse = JSON.parse(reponse);
+            if (reponse.OK) { console.log(reponse.message); }
+            else { console.log("Problème avec une activation (membre).\nDans " + reponse.message); }
+        }, 
+        fail: (e) => { console.log("Erreur: " + e.message()); }
+    })
 }
