@@ -73,17 +73,15 @@ session_start();
 							<div class="col-md-6">
 								<label for="sexe">Sexe</label>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="sexe" id="homme" value="H">
+									<input class="form-check-input" type="radio" name="sexe" id="homme" value="H" checked>
 									<label class="form-check-label" for="homme">Homme</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="sexe" id="femme" value="F"
-										checked>
+									<input class="form-check-input" type="radio" name="sexe" id="femme" value="F">
 									<label class="form-check-label" for="femme">Femme</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="sexe" id="autre" value="A"
-										checked>
+									<input class="form-check-input" type="radio" name="sexe" id="autre" value="A">
 									<label class="form-check-label" for="autre">Autre</label>
 								</div>
 							</div>

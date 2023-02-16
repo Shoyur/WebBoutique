@@ -3,7 +3,7 @@ window.addEventListener("load", function () {
 });
 
 let showProduct = async () => {
-    let reponse = await fetch('serveur/getProduits.php');
+    let reponse = await fetch('./getProduits.php');
     let responseText = await reponse.text();
     // console.log(responseText);
     let data = await JSON.parse(responseText);
@@ -38,7 +38,8 @@ let showProduct = async () => {
             </div>
         `;
         let idIndexHTML = "produit" + (i + 1);
-        document.getElementById(idIndexHTML).innerHTML = produit;
+        // Ce ID n'Existe pas........
+        // document.getElementById(idIndexHTML).innerHTML = produit;
     }
 };
 
@@ -182,18 +183,98 @@ let preparerFiltre = () => {
     })
 }
 
-$('.dropdown-toggle').click(function(e) {
-    if ($(document).width() > 768) {
-      e.preventDefault(); 
-      var url = $(this).attr('href');    
-      if (url !== '#') {
-        window.location.href = url;
-      }
+
+// Crée une erreur au browser
+// $('.dropdown-toggle').click(function(e) {
+//     if ($(document).width() > 768) {
+//       e.preventDefault(); 
+//       var url = $(this).attr('href');    
+//       if (url !== '#') {
+//         window.location.href = url;
+//       }
+//     }
+// });
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////// *** CODE MIKE *** ///////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function creerVueActivations(listeActivations) {
+    let contenu = `
+    <div class='row'>
+        <table class="table" id='table_produits'>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Courriel</th>
+                    <th scope="col">Sexe</th>
+                    <th scope="col">Naissance</th>
+                    <th scope="col">Rôle</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    for(let unMembre of listeActivations){
+        contenu += creerRangeeMembre(unMembre);
     }
-});
+    contenu += `
+                </tbody>
+            </table>
+        </div>
+    `;
+    document.getElementById('affichageAdmin').innerHTML += contenu;
+}
 
+function creerRangeeMembre(unMembre) {
+    texte = "";
+    texte+= `
+        <tr>
+            <td>${unMembre.nom}</td>
+            <td>${unMembre.prenom}</td>
+            <td>${unMembre.email}</td>
+            <td>${unMembre.sexe}</td>
+            <td>${unMembre.daten}</td>
+            <td>${unMembre.role_m}</td>
+            <td>`;
+    if (unMembre.role_m == "M") {
+        texte += `<label class="switch">
+                    <input type="checkbox" `;
+        if (unMembre.statut_m == "A") {
+            texte += `checked `
+        }
+        texte += `id="${unMembre.email}" `
+        texte += ` onclick="activationToggle(this.id);">
+                               <span class="slider round"></span>
+                               </label>
+            </td>`
+    }
+    texte += `</tr>`;
+    return texte;
+}
 
+function activationToggle(id) {
+    // alert(id + " sera maintenant " + document.getElementById(id).checked);
+    reqModifierActivation(id, document.getElementById(id).checked ? "A" : "I");
+}
 
+// ************* mettre un update sur clic du toggle
+// ************* ajouter au READ de BD, un JOIN? pour que toutes les infos reviennent...
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
