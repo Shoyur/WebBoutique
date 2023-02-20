@@ -95,6 +95,34 @@ let reqEnregistrerProduit = (action) => {
   	})
 }
 
+let reqRechercher = (action) => {	
+    let prodRechercher = document.getElementById("prodRechercher").value;
+    let formProduit = new FormData();
+    formProduit.append("prodRechercher", prodRechercher);
+	formProduit.append("action", action);
+	$.ajax({
+		type: "POST",
+		url: "controller/produit/produitController.php",
+		data: formProduit,
+        dataType: "text",
+        async: false,
+		cache: false,
+		contentType: false,
+		processData: false
+    }).done((reponse) => {
+        reponse = JSON.parse(reponse);
+        if(reponse.OK){
+            listeProduits = reponse.listeProduits;
+            action = "listerProduits";
+            creerVue(action, listeProduits);
+        }else{
+            alert("Problème pour enregistrer le produit");
+        }
+    }).fail((e) => {
+    	alert("Erreur: " + e.message());
+  	})
+}
+
 
 // Contrôleur de requêtes
 let requeteAdminServeur = (action) => {
@@ -103,10 +131,13 @@ let requeteAdminServeur = (action) => {
             reqEnregistrerProduit(action);
         break;
         case "listerProduits":
-            reqListerProduits(action);
+            reqLister(action);
         break;
         case "listerActivations":
-            //reqLister(action);
+            reqListerActivations(action);
+        break;
+        case "rechercherProduit":
+            reqRechercher(action);
         break;
     }
 }

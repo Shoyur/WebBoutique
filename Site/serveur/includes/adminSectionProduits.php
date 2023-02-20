@@ -17,8 +17,19 @@
 			<button type="button" class="btn btn-dark">Ajouter un produit</button>
 		</a>
 	</div>
+	<!-- SEARCH BAR -->
+		<!-- <div class="col-md-6"> -->
+			<div class="header-search">
+				<form id="formRechercherProd">
+					<input  type="text" class="input" id="prodRechercher" placeholder="Recherchez ici">
+					<button class="search-btn" onClick="requeteAdminServeur('rechercherProduit');"><i class="fa fa-search"></i></button>
+				</form>
+			</div>
+		<!-- </div> -->
+		<!-- /SEARCH BAR -->
 	<br><br>
 	<!-- /BOUTON AJOUTER -->
+	
 
 	<!-- MODAL AJOUTER UN PRODUIT -->
 	<div class="modal fade" id="ajoutModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel" aria-hidden="true">

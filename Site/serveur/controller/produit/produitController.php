@@ -135,6 +135,32 @@ function utf8ize($d) // fonction pour mettre tous les caractères en UTF8
     return $d;
 }
 
+// -------- RECHERCHER UN PRODUIT ------------------------------------------------------------------------------------------------------
+function chercherProds() {
+    global $reponse;
+    $reponse['listeProduits'] = array();
+    $nom_produits = "%";
+    $nom_produits .= $_POST["prodRechercher"];
+    $nom_produits .= "%";
+    require_once("../../includes/configdb.inc.php");
+    try{
+        $requete = "SELECT * FROM produits WHERE nom_prod LIKE ?";
+        $stmt = $conn->prepare($requete);
+        $stmt->bind_param("s", $nom_produits);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $reponse['OK'] = true;
+        while ($ligne = mysqli_fetch_array($result)){
+            $reponse['listeProduits'][] = $ligne;
+        }
+    }catch(Exception $e){
+        $reponse['OK'] = false;
+        $reponse['message'] = "Probleme pour lister dans controller!";
+    }finally{
+        mysqli_close($conn);
+    }
+}
+
 
 
 //UNCOMMENT POUR TESTER FONCTION
@@ -154,6 +180,9 @@ switch ($action) {
     break;
     case 'listerProduits':
         readAll();
+    break;
+    case 'rechercherProduit':
+        chercherProds();
     break;
 }
 header("Content-Type: application/json");
