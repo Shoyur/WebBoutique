@@ -11,20 +11,6 @@
 	</nav>
 	<!-- /NAVIGATION -->
 
-	<!-- FILTRE CONTENU AJAX -->
-	<form class="container" id="filter-form" style="">
-		<label for="category-select">Catégorie:</label>
-  		<select id="category-select">
-			<!-- Remplissage dynamique lors de l'appel à la méthode lister du CRUD pour les produits -->
-  		</select>
-  		<label for="price-min">Prix Min:</label>
-  		<input type="number" id="price-min" min="0" step="0.01">
-		<label for="price-max">Prix Max:</label>
-		<input type="number" id="price-max" min="0" step="0.01">
-  		<button type="submit">Filtrer</button>
-	</form>
-	<!-- /FILTRE CONTENU AJAX -->
-
 	<!-- AFFICHAGE CONTENU AJAX -->
 	<div class="container affichageAdmin" id="affichageAdmin" style="margin-top:5px;">
 		<!-- -->
@@ -43,4 +29,4 @@
 
 </html>
 
-<?php echo '<script type="text/javascript">requeteAdminServeur("listerActivations");</script>'; ?>
+<?php echo '<script type="text/javascript">reqListerActivations();</script>'; ?>

@@ -36,7 +36,17 @@ if (!isset($_SESSION['statut_m']) || $_SESSION['statut_m'] != 'A') {
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 	<script type="text/javascript" src="../client/js/global.js"></script>
-	<script src="../client/js/requetes.js"></script>
+	<script type="text/javascript" src="../client/js/requetes.js"></script>
+
+
+	<!-- TEST -->
+	<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+
+
+
 </head>
 <body>
 
