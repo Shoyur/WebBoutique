@@ -29,7 +29,7 @@ session_start();
 	<script src="./client/js/requetes.js"></script>
 </head>
 
-<body>
+<body onload="test000();">
 
 	<!-- HEADER -->
 	<header>
@@ -119,23 +119,17 @@ session_start();
 						<form class="row g-3 espace">
 							<div class="col-md-12">
 								<label for="emailUser" class="form-label">Courriel</label>
-								<input type="text" class="form-control is-valid" id="emailConn" name="emailConn"
-									required>
+								<input type="text" class="form-control is-valid" id="emailConn" name="emailConn" required>
 							</div>
 							<div class="col-md-12">
 								<label for="mdpUser" class="form-label">Mot de passe</label>
-								<input type="password" class="form-control is-valid" id="mdpConn" name="mdpConn"
-									required>
+								<input type="password" class="form-control is-valid" id="mdpConn" name="mdpConn" required>
 							</div>
 							<br />
 							<div class="col-md-12">
 								<div class="modal-footer">
-									<button type="button" class="btn btn-primary"
-										onclick="connecter();">Connecter</button>
-									<button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal"
-										data-target="#enregistrerModal">
-										Créer un compte
-									</button>
+									<button id="btConnConn" type="button" class="btn btn-primary" onclick="connecter();">Connecter</button>
+									<button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#enregistrerModal">Créer un compte</button>
 									<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 								</div>
 							</div>

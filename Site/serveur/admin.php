@@ -1,7 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['statut_m']) || $_SESSION['statut_m'] != 'A') {
+if (!isset($_SESSION['role']) || $_SESSION['role'] != 'A') {
 	echo '<h2 style="color:red;">!!! VOUS DEVEZ ÊTRE AUTHENTIFIÉ COMME ADMINISTRATEUR POUR ACCÉDER À CETTE PAGE !!!</h2>';
+	echo '<a href="../">Retour à la page d\'acceuil</a>';
 	exit();
 };
 ?>

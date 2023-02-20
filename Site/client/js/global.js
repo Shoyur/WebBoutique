@@ -243,11 +243,9 @@ function creerRangeeMembre(unMembre) {
             <td>${unMembre.prenom}</td>
             <td>${unMembre.email}</td>
             <td>${unMembre.sexe}</td>
-            <td>${unMembre.daten}</td>
-            <td>${unMembre.role_m}</td>
-            <td>`;
+            <td>${unMembre.daten}</td><td>`
     if (unMembre.role_m == "M") {
-        texte += `<label class="switch">
+        texte += `Membre</td><td><label class="switch">
                     <input type="checkbox" `;
         if (unMembre.statut_m == "A") {
             texte += `checked `
@@ -258,17 +256,14 @@ function creerRangeeMembre(unMembre) {
                                </label>
             </td>`
     }
+    else { texte+= "👑</td><td></td>"; }
     texte += `</tr>`;
     return texte;
 }
 
 function activationToggle(id) {
-    // alert(id + " sera maintenant " + document.getElementById(id).checked);
     reqModifierActivation(id, document.getElementById(id).checked ? "A" : "I");
 }
-
-// ************* mettre un update sur clic du toggle
-// ************* ajouter au READ de BD, un JOIN? pour que toutes les infos reviennent...
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

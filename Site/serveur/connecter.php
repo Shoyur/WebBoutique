@@ -17,7 +17,7 @@ if (!$ligne = $result->fetch_object()) {
 } else {
     if ($ligne->statut_m == "A") {
         if ($ligne->role_m == "M") {
-            $_SESSION['statut_m'] = 'M';
+            $_SESSION['role'] = 'M';
 
             // Aller chercher son prénom :
             $requete = "SELECT * FROM membres WHERE email = ?";
@@ -32,7 +32,7 @@ if (!$ligne = $result->fetch_object()) {
             }
             echo "M";
         } elseif ($ligne->role_m == "A") {
-            $_SESSION['statut_m'] = 'A';
+            $_SESSION['role'] = 'A';
             echo "A";
         }
     } else {
