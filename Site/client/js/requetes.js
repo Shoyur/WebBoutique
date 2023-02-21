@@ -98,9 +98,9 @@ let reqSupprimer = (action, id, value) => {
 
 let reqModifier = (action, id) => {	
    
-    let formProduit = new FormData(document.getElementById('formEnregistrerProduit'));
-    formProduit.append("categorie",formProduit.get('categorie-select'));
+    let formProduit = new FormData(document.getElementById('formModifierProduit'));
     formProduit.append("action", action);
+    
     $.ajax({
         type: "POST",
         url: "controller/produit/produitController.php",

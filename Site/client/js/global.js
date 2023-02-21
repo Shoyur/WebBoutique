@@ -182,50 +182,50 @@ let modfifierForm = (id, nom) => {
 			</div>
 			<div class="modal-body">
 				<span id="msgErrConn" style="color:#8B0000;"></span>
-				<form class="espace" id="formEnregistrer" method="POST">
-					<div class="row">
-						<div class="col-md-12">
-							<label for="nom_prod" class="form-label">Nom</label>
-							<input type="text" class="form-control is-valid" id="nom_prod" name="nom_prod" required>
+				<form id="formModifierProduit">
+						<div class="row">
+							<div class="col-md-12">
+								<label for="nom_prod" class="form-label">Nom</label>
+								<input type="text" class="form-control is-valid" id="nom_prod" name="nom_prod" >
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<label for="categorie" class="form-label">Catégorie</label>
-							<input type="text" class="form-control is-valid" id="categorie" name="categorie" required>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="categorie">Catégorie</label>
+								<input type="text" class="form-control is-valid" id="categorie" name="categorie" >
+							</div>
+							<div class="col-md-6">
+								<label for="modele" class="form-label">Modèle</label>
+								<input type="text" class="form-control is-valid" id="modele" name="modele" >
+							</div>
 						</div>
-						<div class="col-md-6">
-							<label for="modele" class="form-label">Modèle</label>
-							<input type="text" class="form-control is-valid" id="modele" name="modele" required>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="fabriquant" class="form-label">Fabriquant</label>
+								<input type="text" class="form-control is-valid" id="fabriquant" name="fabriquant" >
+							</div>
+							<div class="col-md-6">
+								<label for="prix" class="form-label">Prix</label>
+								<input type="text" class="form-control is-valid" id="prix" name="prix" >
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<label for="fabriquant" class="form-label">Fabriquant</label>
-							<input type="text" class="form-control is-valid" id="fabriquant" name="fabriquant" required>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="qte_totale" class="form-label">Quantité totale</label>
+								<input type="text" class="form-control is-valid" id="qte_totale" name="qte_totale" >
+							</div>
+							<div class="col-md-6">
+								<label for="photo" class="form-label">Photo</label>
+								<input type="file" class="form-control is-valid" id="photo" name="photo" >
+							</div>
 						</div>
-						<div class="col-md-6">
-							<label for="prix" class="form-label">Prix</label>
-							<input type="text" class="form-control is-valid" id="prix" name="prix" required>
+						<br>
+						<div class="row">
+							<div class="col-md-6">
+								<button class="btn btn-primary" onClick="reqModifier('modifier');">Enregistrer</button>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<label for="qte_totale" class="form-label">Quantité totale</label>
-							<input type="text" class="form-control is-valid" id="qte_totale" name="qte_totale" required>
-						</div>
-						<div class="col-md-6">
-							<label for="qte_vendu" class="form-label">Photo</label>
-							<input type="file" class="form-control is-valid" id="qte_vendu" name="qte_vendu">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<button class="btn btn-primary" id="${id}"
-								onClick="reqModifier('modifier', this.id);">Valider mes modifications</button>
-						</div>
-					</div>
-				</form>
+					</form>
 			</div>
 		</div>
 	</div>

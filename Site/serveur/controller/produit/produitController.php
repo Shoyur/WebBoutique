@@ -165,8 +165,10 @@ switch ($action) {
         lister();
         break;
     case 'supprimer':
-        
         supprimerProduits();
+        break;
+    case 'modifier':
+        updateProduits();
         break;
 
 }
