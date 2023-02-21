@@ -71,19 +71,20 @@ let reqLister = (action) => {
     })
 }
 
-let reqSupprimer = (action, id) => {	
+let reqSupprimer = (action, id, value) => {	
 	$.ajax({
 		type : "POST",
 		url : "controller/produit/produitController.php",
 		data : {
             "action":action,
-            "id":id
+            "id":id,
+            "nom":value
         },
         dataType: "text",
         success: (reponse) => {
             reponse = JSON.parse(reponse);
             if(reponse.OK){
-                alert("Le produit a bien été supprimé");
+                alert("Le produit " + reponse.nom_prod + " a bien été supprimé");
                 location.reload(); // a modifier 
             }else{
                 alert("Problème pour supprimer le produit");

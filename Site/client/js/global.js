@@ -130,13 +130,43 @@ let creerRangee = (unProduit) => {
             <td>${unProduit.prix}</td>
             <td>${unProduit.qte_totale}</td>
             <td>${unProduit.qte_vendue}</td>
-            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}" onClick="modfifierForm(this.id);">Modifier</button></td>
-            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}" onClick="reqSupprimer('supprimer', this.id);">Supprimer</button></td>
+            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}" value="${unProduit.nom_prod}" onClick="modfifierForm(this.id, this.value);">Modifier</button></td>
+            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}" value="${unProduit.nom_prod}" onClick="confirmationSupprimerForm(this.id, this.value);">Supprimer</button></td>
         </tr>
     `;
 }
 
-let modfifierForm = (id) => {
+let confirmationSupprimerForm = (id, nom) => {
+    let contenu = `
+    <div class="container">
+        <div class="modal fade" id="modifierModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Supprimer un produit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Désirez vous vraiment supprimer le produit suivant : </p>
+                    <p>${nom}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="${id}" value="${nom}" onClick="reqSupprimer('supprimer', this.id, this.value);">Supprimer</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+
+    document.getElementById('affichageAdmin').innerHTML += contenu;
+    $('#modifierModal').modal('show'); // affiche manuellement le modal
+}
+
+let modfifierForm = (id, nom) => {
     let contenu = `
     <!-- Modal Modifier-->
     <div class="modal fade" id="modifierModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel"
@@ -144,7 +174,7 @@ let modfifierForm = (id) => {
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="connectionModalLabel">Mofier un produit</h5>
+				<h5 class="modal-title" id="connectionModalLabel">Mofier un produit : ${nom}</h5>
                 <h6 class="modal-title" id="connectionModalLabel">Entrez les informations à modifier si applicable et appuyez sur valider</h6>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>

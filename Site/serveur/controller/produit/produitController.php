@@ -36,10 +36,10 @@ function ajouterProduits()
     // VARIABLES TEST QUI SERONT REMPLACÉ PAR $_POST
     $idProd = date("Ymdhis"); // retourne un string format (year-month-day-hour-minutes-secondes) sans les tirets
     $cheminImg = "client/images/produit1.png";
-    $nomProd = "nom1";
-    $categ = "categ1";
-    $modele = "modele1";
-    $fabriquant = "fabricant1";
+    $nomProd = "nom5";
+    $categ = "categ5";
+    $modele = "modele5";
+    $fabriquant = "fabricant5";
     $prix = 500.00;
     $qte_totale = 500;
     $qte_vendue = 50;
@@ -60,10 +60,11 @@ function ajouterProduits()
 }
 
 // -------- DELETE -------------------------------------------------------------------------------------------------------
-function supprimerProduits($id)
+function supprimerProduits()
 {
-
+    $id = $_POST['id'];
     global $reponse;
+    $reponse['nom_prod'] = $_POST['nom'];
 
     require_once("../../includes/configdb.inc.php");
 
@@ -146,7 +147,7 @@ function utf8ize($d) // fonction pour mettre tous les caractères en UTF8
 
 //UNCOMMENT POUR TESTER FONCTION
 // listerProduits();
-// ajouterProduits();
+//ajouterProduits();
 // supprimerProduits();
 // updateProduits();
 
@@ -164,8 +165,8 @@ switch ($action) {
         lister();
         break;
     case 'supprimer':
-        $id = $_POST['id'];
-        supprimerProduits($id);
+        
+        supprimerProduits();
         break;
 
 }
