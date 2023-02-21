@@ -97,29 +97,30 @@ let reqSupprimer = (action, id, value) => {
 }
 
 let reqModifier = (action, id) => {	
-    alert( action + " " + id);
-	// $.ajax({
-	// 	type : "POST",
-	// 	url : "controller/produit/produitController.php",
-	// 	data : {
-    //         "action":action,
-    //         "id":id
-    //     },
-    //     dataType: "text",
-    //     success: (reponse) => {
-    //         alert(reponse);
-    //         // reponse = JSON.parse(reponse);
-    //         // if(reponse.OK){
-    //         //     listeProduits = reponse.listeProduits;
-    //         //     creerVue('lister', listeProduits);
-    //         // }else{
-    //         //     alert("Problème pour récupérer les produits");
-    //         // }
-    //     }, 
-    //     fail: (e) => {
-    // 	    alert("Erreur: " + e.message());
-  	//     }
-    // })
+   
+    let formProduit = new FormData(document.getElementById('formEnregistrerProduit'));
+    formProduit.append("categorie",formProduit.get('categorie-select'));
+    formProduit.append("action", action);
+    $.ajax({
+        type: "POST",
+        url: "controller/produit/produitController.php",
+        data: formProduit,
+        dataType: "text",
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false
+    }).done((reponse) => {
+        reponse = JSON.parse(reponse);
+        if(reponse.OK){
+            //
+        }else{
+            alert("Problème pour enregistrer le produit");
+        }
+    }).fail((e) => {
+        alert("Erreur: " + e.message());
+        })
+    
 }
 
 
