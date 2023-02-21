@@ -222,7 +222,7 @@ let modfifierForm = (id, nom) => {
 						<br>
 						<div class="row">
 							<div class="col-md-6">
-								<button class="btn btn-primary" onClick="reqModifier('modifier');">Enregistrer</button>
+								<button class="btn btn-primary" id="${id}" onClick="reqModifier('modifier', this.id);">Enregistrer</button>
 							</div>
 						</div>
 					</form>

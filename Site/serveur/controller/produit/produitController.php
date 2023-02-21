@@ -88,9 +88,18 @@ function supprimerProduits()
 // -------- UPDATE ------------------------------------------------------------------------------------------------------
 function updateProduits()
 {
+    global $reponse;
+    $cheminImg = "../../../client/images/";
+    empty($_POST['nom_prod']) ? $nom = [] : $nom = ["nom_prod", $_POST['nom_prod']];
+    empty($_POST['categorie']) ? $categ = [] : $categ = ["categorie", $_POST['categorie']];
+    empty($_POST['modele']) ? $modele = [] : $modele = ["modele", $_POST['modele']];
+    empty($_POST['fabriquant']) ? $fabriquant = [] : $fabriquant = ["fabriquant", $_POST['fabriquant']];
+    empty($_POST['prix']) ? $prix = [] : $prix = ["prix", $_POST['prix']];
+    empty($_POST['qte_totale']) ? $qteTotale = [] : $qteTotale = ["qte_totale", $_POST['qte_totale']];
+
     // VARIABLES TEST QUI SERONT REMPLACÉ PAR $_POST
-    $id = "20230202064550";
-    $object = [["nom_prod", "Blablabla"], ["prix", 275.95], ["qte_vendue", 3]]; //sera créer via le formulaire et envoyer par le controlleur
+    $id = $_POST['id'];
+    $object = [$nom, $categ, $modele, $fabriquant, $prix, $qteTotale]; //sera créer via le formulaire et envoyer par le controlleur
 
     require_once("../../includes/configdb.inc.php");
 
@@ -114,13 +123,16 @@ function mapToStringUpdates($object)
     $updateRequest = "";
 
     foreach ($object as $modifications) {
-        $modifColumn = $modifications[0];
+        if (!empty($modifications)) {
 
-        // Si la valeur est un string, on ajoute des guillemets (pour faire fonctionner la requete sinon on laisse comme ça----- //
-        $modifNewValue = is_String($modifications[1]) ? "'$modifications[1]'" : $modifications[1];
-        // -------------------------------------------------------------------------------------------- //
+            $modifColumn = $modifications[0];
 
-        $updateRequest .= $modifColumn . " = " . $modifNewValue . ", ";
+            // Si la valeur est un string, on ajoute des guillemets (pour faire fonctionner la requete sinon on laisse comme ça----- //
+            $modifNewValue = is_String($modifications[1]) ? "'$modifications[1]'" : $modifications[1];
+            // -------------------------------------------------------------------------------------------- //
+
+            $updateRequest .= $modifColumn . " = " . $modifNewValue . ", ";
+        }
     }
 
     $updateRequest = substr($updateRequest, 0, -2); //retrait de la virgule et de l'espace de trop
@@ -147,7 +159,7 @@ function utf8ize($d) // fonction pour mettre tous les caractères en UTF8
 
 //UNCOMMENT POUR TESTER FONCTION
 // listerProduits();
-//ajouterProduits();
+// ajouterProduits();
 // supprimerProduits();
 // updateProduits();
 
