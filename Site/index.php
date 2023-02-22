@@ -24,8 +24,8 @@ session_start();
 	<!-- Custom Stylesheet -->
 	<link type="text/css" rel="stylesheet" href="client/css/style.css" />
 	<!-- Custom Scripts -->
-	<script src="client/js/connecter.js"></script>
-	<script type="text/javascript" src="client/js/global.js"></script>
+	<script src="./client/js/connecter.js"></script>
+	<script src="./client/js/global.js"></script>
 	<script src="./client/js/requetes.js"></script>
 </head>
 

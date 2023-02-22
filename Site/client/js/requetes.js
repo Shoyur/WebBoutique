@@ -118,7 +118,6 @@ let reqModifier = (action, id) => {
     let formProduit = new FormData(document.getElementById('formModifierProduit'));
     formProduit.append("action", action);
     formProduit.append("id", id);
-    
     $.ajax({
         type: "POST",
         url: "controller/produit/produitController.php",

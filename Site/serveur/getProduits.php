@@ -1,6 +1,6 @@
 <?php
 
-  require_once("includes/configdb.inc.php");
+  require_once("./includes/configdb.inc.php");
 
   $query = "SELECT * FROM produits ORDER BY qte_vendue DESC LIMIT 0,8";
   $result = mysqli_query($conn, $query);
