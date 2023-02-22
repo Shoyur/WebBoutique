@@ -63,20 +63,26 @@ function create()
 // -------- DELETE -------------------------------------------------------------------------------------------------------
 function delete()
 {
-    // VARIABLE TEST QUI SERONT REMPLACÉ PAR $_POST -- A MODIFIÉ POUR CHAQUE TEST
-    $id = "20230202062534";
+    $id = $_POST['id'];
+    global $reponse;
+    $reponse['nom_prod'] = $_POST['nom'];
 
     require_once("../../includes/configdb.inc.php");
 
-    $requete = "DELETE FROM produits WHERE id_prod=?";
-    $stmt = $conn->prepare($requete);
-    $stmt->bind_param("s", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    var_dump($result);
+    try {
+        $requete = "DELETE FROM produits WHERE id_prod=?";
+        $stmt = $conn->prepare($requete);
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $reponse['OK'] = true;
 
-    mysqli_close($conn);
-
+    } catch (Exception $e) {
+        $reponse['OK'] = false;
+        $reponse['message'] = "Probleme pour lister dans controller!";
+    } finally {
+        mysqli_close($conn);
+    }
 }
 
 // -------- UPDATE ------------------------------------------------------------------------------------------------------

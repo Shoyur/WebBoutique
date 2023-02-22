@@ -103,7 +103,6 @@ let reqSupprimer = (action, id, value) => {
             reponse = JSON.parse(reponse);
             if(reponse.OK){
                 alert("Le produit " + reponse.nom_prod + " a bien été supprimé");
-                location.reload(); // a modifier 
             }else{
                 alert("Problème pour supprimer le produit");
             }
@@ -115,7 +114,7 @@ let reqSupprimer = (action, id, value) => {
 }
 
 let reqModifier = (action, id) => {	
-   
+    console.log(action);
     let formProduit = new FormData(document.getElementById('formModifierProduit'));
     formProduit.append("action", action);
     formProduit.append("id", id);
@@ -131,6 +130,7 @@ let reqModifier = (action, id) => {
         processData: false
     }).done((reponse) => {
         reponse = JSON.parse(reponse);
+        console.log(reponse);
         if(reponse.OK){
             //
         }else{
