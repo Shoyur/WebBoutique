@@ -29,7 +29,7 @@ session_start();
 	<script src="./client/js/requetes.js"></script>
 </head>
 
-<body onload="test000();">
+<body>
 
 	<!-- HEADER -->
 	<header>

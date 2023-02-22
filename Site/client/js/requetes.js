@@ -51,6 +51,7 @@ let reqListerProduits = (action) => {
         dataType: "text",
         success: (reponse) => {
             reponse = JSON.parse(reponse);
+            
             if(reponse.OK){
                 listeProduits = reponse.listeProduits;
                 creerVue('lister', listeProduits);
