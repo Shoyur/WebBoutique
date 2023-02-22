@@ -139,7 +139,6 @@ let creerRangeeProduit = (unProduit) => {
 
 let confirmationSupprimerForm = (id, nom) => {
     document.getElementById('affichageModal').innerHTML = "";
-    alert(id + "\n" + nom);
     let contenu = `
     <div class="container">
         <div class="modal fade" id="supprimerModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel" aria-hidden="true">
