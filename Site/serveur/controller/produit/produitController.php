@@ -61,76 +61,42 @@ function create() {
 // -------- DELETE -------------------------------------------------------------------------------------------------------
 function delete()
 {
-    $id = $_POST['id'];
-    global $reponse;
-    $reponse['nom_prod'] = $_POST['nom'];
+    // VARIABLE TEST QUI SERONT REMPLACÉ PAR $_POST -- A MODIFIÉ POUR CHAQUE TEST
+    $id = "20230202062534";
 
     require_once("../../includes/configdb.inc.php");
 
-    try {
-        $requete = "DELETE FROM produits WHERE id_prod=?";
-        $stmt = $conn->prepare($requete);
-        $stmt->bind_param("s", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $reponse['OK'] = true;
+    $requete = "DELETE FROM produits WHERE id_prod=?";
+    $stmt = $conn->prepare($requete);
+    $stmt->bind_param("s", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    var_dump($result);
 
-    } catch (Exception $e) {
-        $reponse['OK'] = false;
-        $reponse['message'] = "Probleme pour lister dans controller!";
-    } finally {
-        mysqli_close($conn);
-    }
+    mysqli_close($conn);
 
 }
 
 // -------- UPDATE ------------------------------------------------------------------------------------------------------
 function update()
 {
-    global $reponse;
-    $cheminImg = "../../../client/images/";
-    empty($_POST['nom_prod']) ? $nom = [] : $nom = ["nom_prod", $_POST['nom_prod']];
-    empty($_POST['categorie']) ? $categ = [] : $categ = ["categorie", $_POST['categorie']];
-    empty($_POST['modele']) ? $modele = [] : $modele = ["modele", $_POST['modele']];
-    empty($_POST['fabriquant']) ? $fabriquant = [] : $fabriquant = ["fabriquant", $_POST['fabriquant']];
-    empty($_POST['prix']) ? $prix = [] : $prix = ["prix", $_POST['prix']];
-    empty($_POST['qte_totale']) ? $qteTotale = [] : $qteTotale = ["qte_totale", $_POST['qte_totale']];
-
     // VARIABLES TEST QUI SERONT REMPLACÉ PAR $_POST
-    $id = $_POST['id'];
-    $modifications = [$nom, $categ, $modele, $fabriquant, $prix, $qteTotale]; //sera créer via le formulaire et envoyer par le controlleur
-
+    $id = "20230202064550";
+    $object = [["nom_prod", "Blablabla"], ["prix", 275.95], ["qte_vendue", 3]]; //sera créer via le formulaire et envoyer par le controlleur
 
     require_once("../../includes/configdb.inc.php");
 
-    try {
-        if (!empty($_FILES['photo']['name'])) {
-            $nomFichierTemp = $_FILES['photo']['tmp_name'];
-            $nomFichierOriginal = $_FILES['photo']['name'];
-            $extensionFichier = strrchr($nomFichierOriginal, '.');
-            $nomPhoto = $id . $extensionFichier;
-            @move_uploaded_file($nomFichierTemp, $cheminImg . $nomPhoto);
-            $cheminImg = "client/images/" . $nomPhoto;
+    //Fonction qui transforme le "Map object" en partie de requetes mySQL
+    $requeteUpdates = mapToStringUpdates($object);
 
-            array_push($modifications, ["chemin_img", $cheminImg]);
-        }
+    $requete = "UPDATE produits SET $requeteUpdates WHERE id_prod=?";
+    echo $requete; //TEST VERIF REQUETE
+    $stmt = $conn->prepare($requete);
+    $stmt->bind_param("s", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        //Fonction qui transforme le "Map object" en partie de requetes mySQL
-        $requeteUpdates = mapToStringUpdates($modifications);
-
-        $requete = "UPDATE produits SET $requeteUpdates WHERE id_prod=?";
-        echo $requete; //TEST VERIF REQUETE
-        $stmt = $conn->prepare($requete);
-        $stmt->bind_param("s", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-    } catch (Exception $e) {
-        $reponse['OK'] = false;
-        $reponse['message'] = "Probleme pour modifier dans controller!";
-    } finally {
-        mysqli_close($conn);
-    }
+    mysqli_close($conn);
 
 }
 
@@ -140,13 +106,13 @@ function mapToStringUpdates($object)
     $updateRequest = "";
 
     foreach ($object as $modifications) {
-        if (!empty($modifications)) {
+        $modifColumn = $modifications[0];
 
-            $modifColumn = $modifications[0];
-            $modifNewValue = is_String($modifications[1]) ? "'$modifications[1]'" : $modifications[1];
-            $updateRequest .= $modifColumn . " = " . $modifNewValue . ", ";
+        // Si la valeur est un string, on ajoute des guillemets (pour faire fonctionner la requete sinon on laisse comme ça----- //
+        $modifNewValue = is_String($modifications[1]) ? "'$modifications[1]'" : $modifications[1];
+        // -------------------------------------------------------------------------------------------- //
 
-        }
+        $updateRequest .= $modifColumn . " = " . $modifNewValue . ", ";
     }
 
     $updateRequest = substr($updateRequest, 0, -2); //retrait de la virgule et de l'espace de trop
@@ -178,12 +144,12 @@ function utf8ize($d) // fonction pour mettre tous les caractères en UTF8
 // update();
 
 // ------------  AVEC COMMANDE PHP SEULEMENT ------------
-// - cd serveur/controller/produit
-// - php produitController.php
+// - cd serveur/model/produit
+// - php produitModel.php
 
 $action = $_POST['action'];
-
 switch ($action) {
+<<<<<<< HEAD
     case 'enregistrer':
         // enregistrer();
         break;
@@ -197,6 +163,14 @@ switch ($action) {
         updateProduits();
         break;
 
+=======
+    case 'enregistrerProduit':
+        create();
+    break;
+    case 'listerProduits':
+        readAll();
+    break;
+>>>>>>> parent of 50ec513 (Merge branch 'Steph')
 }
 header("Content-Type: application/json");
 echo json_encode(utf8ize($reponse));
