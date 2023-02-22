@@ -10,23 +10,30 @@
 		</div>
 	</nav>
 	<!-- /NAVIGATION -->
-
+	<div class="row">
 	<!-- BOUTON AJOUTER -->
 	<div class="container" style="margin-top:50px;">
-		<a href="#" data-toggle="modal" data-target="#ajoutModal">
+		<a class="col-md-3" href="#" data-toggle="modal" data-target="#ajoutModal">
 			<button type="button" class="btn btn-dark">Ajouter un produit</button>
 		</a>
+		<div class="header-search-admin">
+		<form class="col-md-6 " id="formRechercherProd">
+					<input  type="text" class="input" id="prodRechercher" placeholder="Recherchez ici">
+					<button type="button" class="search-btn" onClick="requeteAdminServeur('rechercherProduit');"><i class="fa fa-search"></i></button>
+				</form>
+				</div>
 	</div>
 	<!-- SEARCH BAR -->
 		<!-- <div class="col-md-6"> -->
-			<div class="header-search">
-				<form id="formRechercherProd">
+			<!-- <div class="header-search"> -->
+				<!-- <form id="formRechercherProd">
 					<input  type="text" class="input" id="prodRechercher" placeholder="Recherchez ici">
-					<button class="search-btn" onClick="requeteAdminServeur('rechercherProduit');"><i class="fa fa-search"></i></button>
-				</form>
-			</div>
+					<button type="button" class="search-btn" onClick="requeteAdminServeur('rechercherProduit');"><i class="fa fa-search"></i></button>
+				</form> -->
+			<!-- </div> -->
 		<!-- </div> -->
 		<!-- /SEARCH BAR -->
+		</div>
 	<br><br>
 	<!-- /BOUTON AJOUTER -->
 	

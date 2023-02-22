@@ -71,21 +71,21 @@ let validerFormEnregPartTwo = (reponse) => {
 
 // Contrôleur vue panneau admin (page produits)
 let creerVue = (action, donnees) => {
-    switch(action){
+    switch (action) {
         case "enregistrerProduit":
             // pas besoin d'une méthode la page se recharge et 
             // donc ré-appelle automatiquement listerProduits().
-        break;
+            break;
         case "modifier":
             //
-        break;
-        case "enlever" :
+            break;
+        case "enlever":
             // afficherMessage(donnees);
-        break;
+            break;
         case "listerProduits":
             listerProduits(donnees);
             preparerFiltre();
-        break;
+            break;
     }
 }
 
@@ -110,7 +110,7 @@ let listerProduits = (listeProduits) => {
                 </thead>
                 <tbody>
     `;
-    for(let unProduit of listeProduits){
+    for (let unProduit of listeProduits) {
         contenu += creerRangeeProduit(unProduit);
         tableauCategProduits.add(unProduit.categorie);
     }
@@ -119,7 +119,7 @@ let listerProduits = (listeProduits) => {
             </table>
         </div>
     `;
-    document.getElementById('affichageAdmin').innerHTML += contenu;
+    document.getElementById('affichageAdmin').innerHTML = contenu;
 }
 
 let creerRangeeProduit = (unProduit) => {
@@ -148,35 +148,35 @@ let preparerFiltre = () => {
     let productTable = document.getElementById('table_produits');
     let productRows = productTable.getElementsByTagName('tr');
     categorySelect.innerHTML = `<option value="Tout">Tout</option>`;
-    tableauCategProduits.forEach( (elem1, elem2, tableauCategProduits) => {
+    tableauCategProduits.forEach((elem1, elem2, tableauCategProduits) => {
         categorySelect.innerHTML += `
             <option value='${elem1}'>${elem2}</option>
         `;
-        if(elem1 != 'Tout'){
+        if (elem1 != 'Tout') {
             categorySelectModalAjout.innerHTML += `
                 <option value='${elem1}'>${elem2}</option>
             `;
         }
     })
-    filterForm.addEventListener("submit", function(event) {
+    filterForm.addEventListener("submit", function (event) {
         event.preventDefault();
         const selectedCategory = categorySelect.value;
         const minPrice = parseFloat(priceMin.value) || 0;
         const maxPrice = parseFloat(priceMax.value) || Number.POSITIVE_INFINITY;
-        for(let i = 1; i < productRows.length; i++){
+        for (let i = 1; i < productRows.length; i++) {
             const productRow = productRows[i];
             const productCells = productRow.getElementsByTagName("td");
             const productCategory = productCells[2].innerText;
             const productPrice = parseFloat(productCells[5].innerText);
-            if(selectedCategory === 'Tout'){
+            if (selectedCategory === 'Tout') {
                 productRow.style.display = "";
-            }else if(productCategory === selectedCategory || selectedCategory === ""){
-                if(productPrice >= minPrice && productPrice <= maxPrice){
+            } else if (productCategory === selectedCategory || selectedCategory === "") {
+                if (productPrice >= minPrice && productPrice <= maxPrice) {
                     productRow.style.display = "";
-                }else{
+                } else {
                     productRow.style.display = "none";
                 }
-            }else{
+            } else {
                 productRow.style.display = "none";
             }
         }
@@ -226,7 +226,7 @@ function creerVueActivations(listeActivations) {
             </thead>
             <tbody>
     `;
-    for(let unMembre of listeActivations){
+    for (let unMembre of listeActivations) {
         contenu += creerRangeeMembre(unMembre);
     }
     contenu += `
@@ -239,7 +239,7 @@ function creerVueActivations(listeActivations) {
 
 function creerRangeeMembre(unMembre) {
     texte = "";
-    texte+= `
+    texte += `
         <tr>
             <td>${unMembre.nom}</td>
             <td>${unMembre.prenom}</td>
