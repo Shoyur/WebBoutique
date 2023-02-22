@@ -107,10 +107,6 @@ let reqModifier = (action, id) => {
         url: "controller/produit/produitController.php",
         data: formProduit,
         dataType: "text",
-        async: false,
-        cache: false,
-        contentType: false,
-        processData: false
     }).done((reponse) => {
         reponse = JSON.parse(reponse);
         if(reponse.OK){

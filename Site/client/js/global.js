@@ -166,6 +166,8 @@ let confirmationSupprimerForm = (id, nom) => {
     $('#modifierModal').modal('show'); // affiche manuellement le modal
 }
 
+
+
 let modfifierForm = (id, nom) => {
     let contenu = `
     <!-- Modal Modifier-->
