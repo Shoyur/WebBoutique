@@ -65,19 +65,46 @@ let reqListerProduits = (action) => {
     })
 }
 
-let reqEnregistrerProduit = (action) => {	
-    let formProduit = new FormData(document.getElementById('formEnregistrerProduit'));
-    formProduit.append("categorie",formProduit.get('categorie-select'));
-	formProduit.append("action", action);
+let reqSupprimer = (action, id, value) => {	
 	$.ajax({
-		type: "POST",
-		url: "controller/produit/produitController.php",
-		data: formProduit,
+		type : "POST",
+		url : "controller/produit/produitController.php",
+		data : {
+            "action":action,
+            "id":id,
+            "nom":value
+        },
+        dataType: "text",
+        success: (reponse) => {
+            reponse = JSON.parse(reponse);
+            if(reponse.OK){
+                alert("Le produit " + reponse.nom_prod + " a bien été supprimé");
+                location.reload(); // a modifier 
+            }else{
+                alert("Problème pour supprimer le produit");
+            }
+        }, 
+        fail: (e) => {
+    	    alert("Erreur: " + e.message());
+  	    }
+    })
+}
+
+let reqModifier = (action, id) => {	
+   
+    let formProduit = new FormData(document.getElementById('formModifierProduit'));
+    formProduit.append("action", action);
+    formProduit.append("id", id);
+    
+    $.ajax({
+        type: "POST",
+        url: "controller/produit/produitController.php",
+        data: formProduit,
         dataType: "text",
         async: false,
-		cache: false,
-		contentType: false,
-		processData: false
+        cache: false,
+        contentType: false,
+        processData: false
     }).done((reponse) => {
         reponse = JSON.parse(reponse);
         if(reponse.OK){
@@ -86,9 +113,12 @@ let reqEnregistrerProduit = (action) => {
             alert("Problème pour enregistrer le produit");
         }
     }).fail((e) => {
-    	alert("Erreur: " + e.message());
-  	})
+        alert("Erreur: " + e.message());
+        })
+    
 }
+
+
 
 
 // Contrôleur de requêtes
