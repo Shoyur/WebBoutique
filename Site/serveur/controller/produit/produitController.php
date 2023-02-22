@@ -188,7 +188,7 @@ switch ($action) {
         // enregistrer();
         break;
     case 'lister':
-        lister();
+        readAll();
         break;
     case 'supprimer':
         supprimerProduits();

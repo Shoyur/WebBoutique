@@ -3,7 +3,7 @@ window.addEventListener("load", function () {
 });
 
 let showProduct = async () => {
-    let reponse = await fetch('serveur/getProduits.php');
+    let reponse = await fetch('getProduits.php');
     let responseText = await reponse.text();
     let data = await JSON.parse(responseText);
     for (let i = 0; i < data.length; i++) {
