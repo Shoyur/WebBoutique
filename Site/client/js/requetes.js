@@ -44,6 +44,7 @@ async function membreSeConnecte(email, mdp) {
 }
 
 let reqListerProduits = (action) => {
+    console.log(action);
 	$.ajax({
 		type : "POST",
 		url : "controller/produit/produitController.php",
@@ -51,7 +52,6 @@ let reqListerProduits = (action) => {
         dataType: "text",
         success: (reponse) => {
             reponse = JSON.parse(reponse);
-            
             if(reponse.OK){
                 listeProduits = reponse.listeProduits;
                 creerVue('lister', listeProduits);

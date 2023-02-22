@@ -151,10 +151,10 @@ function utf8ize($d) // fonction pour mettre tous les caractères en UTF8
 
 $action = $_POST['action'];
 switch ($action) {
-    case 'lister':
+    case 'listerProduits':
         readAll();
         break;
-    case 'enregistrer':
+    case 'enregistrerProduit':
         create();
         break;
     case 'modifier':

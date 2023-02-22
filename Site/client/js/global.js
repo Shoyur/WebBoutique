@@ -80,7 +80,7 @@ let creerVue = (action, donnees) => {
         case "enlever" :
             // afficherMessage(donnees);
         break;
-        case "listerProduits":
+        case "lister":
             listerProduits(donnees);
             preparerFiltre();
         break;
