@@ -48,13 +48,13 @@ let reqListerProduits = (action) => {
 	$.ajax({
 		type : "POST",
 		url : "controller/produit/produitController.php",
-		data : {"action": action},
+		data : {"action":action},
         dataType: "text",
         success: (reponse) => {
             reponse = JSON.parse(reponse);
             if(reponse.OK){
                 listeProduits = reponse.listeProduits;
-                creerVue(action, listeProduits);
+                creerVue('lister', listeProduits);
             }else{
                 alert("Problème pour récupérer les produits");
             }
