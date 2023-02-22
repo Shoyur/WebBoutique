@@ -44,7 +44,6 @@ async function membreSeConnecte(email, mdp) {
 }
 
 let reqListerProduits = (action) => {
-    let listeProduits;
 	$.ajax({
 		type : "POST",
 		url : "controller/produit/produitController.php",
