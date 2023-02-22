@@ -141,13 +141,13 @@ function mapToStringUpdates($object)
     $updateRequest = "";
 
     foreach ($object as $modifications) {
-        $modifColumn = $modifications[0];
+        if (!empty($modifications)) {
 
-        // Si la valeur est un string, on ajoute des guillemets (pour faire fonctionner la requete sinon on laisse comme ça----- //
-        $modifNewValue = is_String($modifications[1]) ? "'$modifications[1]'" : $modifications[1];
-        // -------------------------------------------------------------------------------------------- //
+            $modifColumn = $modifications[0];
+            $modifNewValue = is_String($modifications[1]) ? "'$modifications[1]'" : $modifications[1];
+            $updateRequest .= $modifColumn . " = " . $modifNewValue . ", ";
 
-        $updateRequest .= $modifColumn . " = " . $modifNewValue . ", ";
+        }
     }
 
     $updateRequest = substr($updateRequest, 0, -2); //retrait de la virgule et de l'espace de trop
