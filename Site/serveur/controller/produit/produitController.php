@@ -149,28 +149,19 @@ function utf8ize($d) // fonction pour mettre tous les caractères en UTF8
 
 $action = $_POST['action'];
 switch ($action) {
-<<<<<<< HEAD
-    case 'enregistrer':
-        // enregistrer();
-        break;
     case 'lister':
         readAll();
         break;
-    case 'supprimer':
-        supprimerProduits();
+    case 'enregistrer':
+        create();
         break;
     case 'modifier':
-        updateProduits();
+        update();
+        break;
+    case 'supprimer':
+        delete();
         break;
 
-=======
-    case 'enregistrerProduit':
-        create();
-    break;
-    case 'listerProduits':
-        readAll();
-    break;
->>>>>>> parent of 50ec513 (Merge branch 'Steph')
 }
 header("Content-Type: application/json");
 echo json_encode(utf8ize($reponse));
