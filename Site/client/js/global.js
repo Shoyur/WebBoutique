@@ -120,7 +120,7 @@ let listerProduits = (listeProduits) => {
     document.getElementById('affichageAdmin').innerHTML += contenu;
 }
 
-let creerRangeeProduit = (unProduit) => {
+let creerRangee = (unProduit) => {
     return `
         <tr>
             <td><img src="../${unProduit.chemin_img}" class="imgTable" alt="Image du produit"></td>
@@ -131,8 +131,8 @@ let creerRangeeProduit = (unProduit) => {
             <td>${unProduit.prix}</td>
             <td>${unProduit.qte_totale}</td>
             <td>${unProduit.qte_vendue}</td>
-            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}">Modifier</button></td>
-            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}">Supprimer</button></td>
+            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}" value="${unProduit.nom_prod}" onClick="modfifierForm(this.id, this.value);">Modifier</button></td>
+            <td><button type="button" class="btn btn-dark" id="${unProduit.id_prod}" value="${unProduit.nom_prod}" onClick="confirmationSupprimerForm(this.id, this.value);">Supprimer</button></td>
         </tr>
     `;
 }
