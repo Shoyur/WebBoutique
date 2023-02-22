@@ -4,28 +4,30 @@
 $reponse = array();
 
 // -------- READ ALL ------------------------------------------------------------------------------------------------------
-function readAll() {
+function readAll()
+{
     global $reponse;
     $reponse['listeProduits'] = array();
     require_once("../../includes/configdb.inc.php");
-    try{
+    try {
         $requete = "SELECT * FROM produits";
         $stmt = $conn->prepare($requete);
         $stmt->execute();
         $result = $stmt->get_result();
         $reponse['OK'] = true;
-        while ($ligne = mysqli_fetch_array($result)){
+        while ($ligne = mysqli_fetch_array($result)) {
             $reponse['listeProduits'][] = $ligne;
         }
-    }catch(Exception $e){
+    } catch (Exception $e) {
         $reponse['OK'] = false;
         $reponse['message'] = "Probleme pour lister dans controller!";
-    }finally{
+    } finally {
         mysqli_close($conn);
     }
 }
 // -------- CREATE --------------------------------------------------------------------------------------------------------
-function create() {
+function create()
+{
     global $reponse;
     $id = date("Ymdhis"); // retourne un string format (year-month-day-hour-minutes-secondes) sans les tirets
     $cheminImg = "../../../client/images/";
@@ -33,28 +35,28 @@ function create() {
     $categ = $_POST['categorie'];
     $modele = $_POST['modele'];
     $fabriquant = $_POST['fabriquant'];
-    $prix =$_POST['prix'];
+    $prix = $_POST['prix'];
     $qte_totale = $_POST['qte_totale'];
     $qte_vendue = 0;
     require_once("../../includes/configdb.inc.php");
-    try{
+    try {
         $nomFichierTemp = $_FILES['photo']['tmp_name'];
         $nomFichierOriginal = $_FILES['photo']['name'];
-        $extensionFichier = strrchr($nomFichierOriginal,'.');
-        $nomPhoto = $id.$extensionFichier;
-        @move_uploaded_file($nomFichierTemp, $cheminImg.$nomPhoto);
-        $cheminImg = "client/images/".$nomPhoto;
+        $extensionFichier = strrchr($nomFichierOriginal, '.');
+        $nomPhoto = $id . $extensionFichier;
+        @move_uploaded_file($nomFichierTemp, $cheminImg . $nomPhoto);
+        $cheminImg = "client/images/" . $nomPhoto;
         //
         $requete = "INSERT INTO produits VALUES(?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($requete);
         $stmt->bind_param("sssssdiis", $id, $nom, $categ, $modele, $fabriquant, $prix, $qte_totale, $qte_vendue, $cheminImg);
         $stmt->execute();
         $reponse['OK'] = true;
-        $reponse['message'] = "Produit ".$nom." enregistre";
-    }catch(Exception $err){
+        $reponse['message'] = "Produit " . $nom . " enregistre";
+    } catch (Exception $err) {
         $reponse['OK'] = false;
-        $reponse['message'] = "Server-side error: ".$err;
-    }finally{
+        $reponse['message'] = "Server-side error: " . $err;
+    } finally {
         mysqli_close($conn);
     }
 }
