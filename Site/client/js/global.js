@@ -137,9 +137,11 @@ let creerRangee = (unProduit) => {
 }
 
 let confirmationSupprimerForm = (id, nom) => {
+    document.getElementById('affichageModal').innerHTML = "";
+    alert(id + "\n" + nom);
     let contenu = `
     <div class="container">
-        <div class="modal fade" id="modifierModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel" aria-hidden="true">
+        <div class="modal fade" id="supprimerModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -162,13 +164,16 @@ let confirmationSupprimerForm = (id, nom) => {
     </div>
     `;
 
-    document.getElementById('affichageAdmin').innerHTML += contenu;
-    $('#modifierModal').modal('show'); // affiche manuellement le modal
+    document.getElementById('affichageModal').innerHTML += contenu;
+    $('#supprimerModal').modal('show'); // affiche manuellement le modal
 }
 
 
 
+
+
 let modfifierForm = (id, nom) => {
+    document.getElementById('affichageModal').innerHTML = "";
     let contenu = `
     <!-- Modal Modifier-->
     <div class="modal fade" id="modifierModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel"
@@ -225,6 +230,7 @@ let modfifierForm = (id, nom) => {
 						<div class="row">
 							<div class="col-md-6">
 								<button class="btn btn-primary" id="${id}" onClick="reqModifier('modifier', this.id);">Enregistrer</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 							</div>
 						</div>
 					</form>
@@ -233,9 +239,12 @@ let modfifierForm = (id, nom) => {
 	</div>
 </div>
     `
-    document.getElementById('affichageAdmin').innerHTML += contenu;
+    document.getElementById('affichageModal').innerHTML += contenu;
     $('#modifierModal').modal('show'); // affiche manuellement le modal
 }
+
+
+
 
 let preparerFiltre = () => {
     let filterForm = document.getElementById('filter-form');

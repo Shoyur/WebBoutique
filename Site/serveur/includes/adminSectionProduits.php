@@ -102,6 +102,11 @@
 	<!-- -->
 </div>
 
+<!-- AFFICHAGE MODAL -->
+<div class="container affichageModal" id="affichageModal" style="margin-top:5px;">
+	<!-- -->
+</div>
+
 <!-- JQUERY PLUGINS -->
 <script src="../client/js/jquery.min.js"></script>
 <script src="../client/js/bootstrap.min.js"></script>
