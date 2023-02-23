@@ -86,7 +86,7 @@ let creerVue = (action, donnees) => {
         case "enlever":
             // afficherMessage(donnees);
             break;
-        case "lister":
+        case "listerProduits":
             listerProduits(donnees);
             preparerFiltre();
             break;
@@ -123,8 +123,8 @@ let listerProduits = (listeProduits) => {
             </table>
         </div>
     `;
-    document.getElementById("affichageAdmin").innerHTML += contenu;
-};
+    document.getElementById('affichageAdmin').innerHTML = contenu;
+}
 
 let creerRangeeProduit = (unProduit) => {
     return `
@@ -300,7 +300,7 @@ let preparerFiltre = () => {
         categorySelect.innerHTML += `
             <option value='${elem1}'>${elem2}</option>
         `;
-        if (elem1 != "Tout") {
+        if (elem1 != 'Tout') {
             categorySelectModalAjout.innerHTML += `
                 <option value='${elem1}'>${elem2}</option>
             `;
