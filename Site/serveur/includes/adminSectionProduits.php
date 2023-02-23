@@ -16,23 +16,15 @@
 		<a class="col-md-3" href="#" data-toggle="modal" data-target="#ajoutModal">
 			<button type="button" class="btn btn-dark">Ajouter un produit</button>
 		</a>
+		<!-- SEARCH BAR -->
 		<div class="header-search-admin">
 		<form class="col-md-6 " id="formRechercherProd">
 					<input  type="text" class="input" id="prodRechercher" placeholder="Recherchez ici">
-					<button type="button" class="search-btn" onClick="requeteAdminServeur('rechercherProduit');"><i class="fa fa-search"></i></button>
+					<button type="button" class="search-btn" onClick="reqRechercher('rechercherProduit');"><i class="fa fa-search"></i></button>
 				</form>
 				</div>
-	</div>
-	<!-- SEARCH BAR -->
-		<!-- <div class="col-md-6"> -->
-			<!-- <div class="header-search"> -->
-				<!-- <form id="formRechercherProd">
-					<input  type="text" class="input" id="prodRechercher" placeholder="Recherchez ici">
-					<button type="button" class="search-btn" onClick="requeteAdminServeur('rechercherProduit');"><i class="fa fa-search"></i></button>
-				</form> -->
-			<!-- </div> -->
-		<!-- </div> -->
 		<!-- /SEARCH BAR -->
+	</div>
 		</div>
 	<br><br>
 	<!-- /BOUTON AJOUTER -->
@@ -138,4 +130,4 @@
 </body>
 </html>
 
-<?php echo '<script type="text/javascript">reqListerProduits("lister");</script>'; ?>
+<?php echo '<script type="text/javascript">reqListerProduits("listerProduits");</script>'; ?>

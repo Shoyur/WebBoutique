@@ -64,6 +64,7 @@ let reqListerProduits = (action) => {
             reponse = JSON.parse(reponse);
             if (reponse.OK) {
                 listeProduits = reponse.listeProduits;
+                console.log(listeProduits);
                 creerVue(action, listeProduits);
             } else {
                 alert("Problème pour récupérer les produits");

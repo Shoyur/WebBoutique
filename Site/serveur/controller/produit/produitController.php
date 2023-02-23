@@ -187,7 +187,7 @@ function chercherProds() {
 
 $action = $_POST['action'];
 switch ($action) {
-    case 'lister':
+    case 'listerProduits':
         readAll();
     break;
     case 'ajouter':
