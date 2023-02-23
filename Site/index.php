@@ -24,9 +24,9 @@ session_start();
 	<!-- Custom Stylesheet -->
 	<link type="text/css" rel="stylesheet" href="client/css/style.css" />
 	<!-- Custom Scripts -->
-	<script src="./client/js/connecter.js"></script>
-	<script src="./client/js/global.js"></script>
-	<script src="./client/js/requetes.js"></script>
+	<script defer src="./client/js/connecter.js"></script>
+	<script defer src="./client/js/global.js"></script>
+	<script defer src="./client/js/requetes.js"></script>
 </head>
 
 <body>
@@ -116,7 +116,7 @@ session_start();
 					</div>
 					<div class="modal-body">
 						<span id="msgErrConn" style="color:#8B0000;"></span>
-						<form class="row g-3 espace">
+						<form class="row g-3 espace" id="formConn">
 							<div class="col-md-12">
 								<label for="emailUser" class="form-label">Courriel</label>
 								<input type="text" class="form-control is-valid" id="emailConn" name="emailConn" required>
@@ -173,7 +173,7 @@ session_start();
 							<!-- ACCOUNT OPTIONS -->
 							<div class="divUser">
 								<?php
-								if (isset($_SESSION['statut_m']) && $_SESSION['statut_m'] == "M") {
+								if (isset($_SESSION['role']) && $_SESSION['role'] == "M") {
 									$prenom = trim($_SESSION['prenom']);
 									echo '
 										<a href="#" data-toggle="dropdown" data-hover="dropdown">
