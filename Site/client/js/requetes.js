@@ -115,17 +115,24 @@ let reqSupprimer = (action, id, value) => {
 }
 
 let reqModifier = (action, id) => {	
+    console.log(action + "\n" + id)
     let formProduit = new FormData(document.getElementById('formModifierProduit'));
     formProduit.append("action", action);
     formProduit.append("id", id);
-    
+    console.log(formProduit);
+
     $.ajax({
         type: "POST",
         url: "controller/produit/produitController.php",
         data: formProduit,
         dataType: "text",
+        async: false,
+		cache: false,
+		contentType: false,
+		processData: false
     }).done((reponse) => {
         reponse = JSON.parse(reponse);
+        console.log(reponse);
         if(reponse.OK){
             alert("Le produit " + reponse.nom_prod + " a bien été modifié");
         }else{

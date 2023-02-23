@@ -97,9 +97,9 @@ function update()
     empty($_POST['prix']) ? $prix = [] : $prix = ["prix", $_POST['prix']];
     empty($_POST['qte_totale']) ? $qteTotale = [] : $qteTotale = ["qte_totale", $_POST['qte_totale']];
 
-    // VARIABLES TEST QUI SERONT REMPLACÉ PAR $_POST
+    
     $id = $_POST['id'];
-    $modifications = [$nom, $categ, $modele, $fabriquant, $prix, $qteTotale]; //sera créer via le formulaire et envoyer par le controlleur
+    $modifications = [$nom, $categ, $modele, $fabriquant, $prix, $qteTotale]; 
 
 
     require_once("../../includes/configdb.inc.php");
