@@ -73,7 +73,7 @@
 						<br>
 						<div class="row">
 							<div class="col-md-6">
-								<button class="btn btn-primary" onClick="requeteAdminServeur('enregistrerProduit');">Enregistrer</button>
+								<button class="btn btn-primary" onClick="reqEnregistrerProduit('ajouter');">Enregistrer</button>
 							</div>
 						</div>
 					</form>
@@ -120,4 +120,4 @@
 </body>
 </html>
 
-<?php echo '<script type="text/javascript">requeteAdminServeur("listerProduits");</script>'; ?>
+<?php echo '<script type="text/javascript">reqListerProduits("lister");</script>'; ?>
