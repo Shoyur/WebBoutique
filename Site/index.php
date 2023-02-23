@@ -24,9 +24,8 @@ session_start();
 	<!-- Custom Stylesheet -->
 	<link type="text/css" rel="stylesheet" href="client/css/style.css" />
 	<!-- Custom Scripts -->
-	<script src="./client/js/connecter.js"></script>
-	<script src="./client/js/global.js"></script>
-	<script src="./client/js/requetes.js"></script>
+	<script src="./client/Membres/auth/connecter.js"></script>
+	<script src="./client/Membres/requetes/requetesMembres.js"></script>
 </head>
 
 <body>
@@ -128,7 +127,7 @@ session_start();
 							<br />
 							<div class="col-md-12">
 								<div class="modal-footer">
-									<button id="btConnConn" type="button" class="btn btn-primary" onclick="connecter();">Connecter</button>
+									<button id="btConnConn" type="button" class="btn btn-primary" onClick="connecter();">Connecter</button>
 									<button type="button" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#enregistrerModal">Créer un compte</button>
 									<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 								</div>

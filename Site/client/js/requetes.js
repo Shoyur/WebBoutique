@@ -13,47 +13,6 @@ async function membreExiste(email) {
     });
 }
 
-async function membreSeConnecte(email, mdp) {
-    $.ajax({
-        url: "serveur/connecter.php",
-        type: "POST",
-        data: {
-            email: email,
-            mdp: mdp,
-        },
-        async: false,
-        dataType: "text",
-        success: (reponse) => {
-            switch (reponse) {
-                case "E": {
-                    document.getElementById("msgErrConn").innerText =
-                        "Membre inexistant...";
-                    break;
-                }
-                case "M": {
-                    location.reload();
-                    break;
-                }
-                case "A": {
-                    window.location.href = "serveur/admin.php";
-                    break;
-                }
-                case "I": {
-                    document.getElementById("msgErrConn").innerText =
-                        "Membre existant mais inactif. Contactez l`administrateur.";
-                    break;
-                }
-                default: {
-                    break;
-                }
-            }
-        },
-        fail: (e) => {
-            console.log(`Problème (ajax fail): ${e.message()}`);
-        },
-    });
-}
-
 let reqListerProduits = (action) => {
     $.ajax({
         type: "POST",
