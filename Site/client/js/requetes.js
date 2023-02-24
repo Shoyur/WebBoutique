@@ -64,7 +64,6 @@ let reqListerProduits = (action) => {
             reponse = JSON.parse(reponse);
             if (reponse.OK) {
                 listeProduits = reponse.listeProduits;
-                console.log(listeProduits);
                 creerVue(action, listeProduits);
             } else {
                 alert("Problème pour récupérer les produits");
@@ -90,17 +89,19 @@ let reqEnregistrerProduit = (action) => {
         async: false,
         cache: false,
         contentType: false,
-        processData: false
-    }).done((reponse) => {
-        reponse = JSON.parse(reponse);
-        if (reponse.OK) {
-            //
-        } else {
-            alert("Problème pour enregistrer le produit");
-        }
-    }).fail((e) => {
-        alert("Erreur: " + e.message());
+        processData: false,
     })
+        .done((reponse) => {
+            reponse = JSON.parse(reponse);
+            if (reponse.OK) {
+                //
+            } else {
+                alert("Problème pour enregistrer le produit");
+            }
+        })
+        .fail((e) => {
+            alert("Erreur: " + e.message());
+        });
 };
 
 let reqRechercher = (action) => {
@@ -116,20 +117,22 @@ let reqRechercher = (action) => {
         async: false,
         cache: false,
         contentType: false,
-        processData: false
-    }).done((reponse) => {
-        reponse = JSON.parse(reponse);
-        if (reponse.OK) {
-            listeProduits = reponse.listeProduits;
-            action = "listerProduits";
-            creerVue(action, listeProduits);
-        } else {
-            alert("Problème pour enregistrer le produit");
-        }
-    }).fail((e) => {
-        alert("Erreur: " + e.message());
+        processData: false,
     })
-}
+        .done((reponse) => {
+            reponse = JSON.parse(reponse);
+            if (reponse.OK) {
+                listeProduits = reponse.listeProduits;
+                action = "listerProduits";
+                creerVue(action, listeProduits);
+            } else {
+                alert("Problème pour enregistrer le produit");
+            }
+        })
+        .fail((e) => {
+            alert("Erreur: " + e.message());
+        });
+};
 
 let reqModifierProduit = (action) => {
     let formProduit = new FormData(
@@ -202,7 +205,7 @@ let reqListerActivations = () => {
             } else {
                 alert(
                     "Problème à récupérer les activations (membres).\nDans " +
-                    reponse.message
+                        reponse.message
                 );
             }
         },
@@ -229,7 +232,7 @@ let reqModifierActivation = (email, valeur) => {
             } else {
                 alert(
                     "Problème avec une activation (membre).\nDans " +
-                    reponse.message
+                        reponse.message
                 );
             }
         },

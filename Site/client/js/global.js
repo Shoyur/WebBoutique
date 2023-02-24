@@ -1,8 +1,4 @@
-window.addEventListener("load", function () {
-    showProduct();
-});
-
-let showProduct = async () => {
+let montrerProduitsPopulaires = async () => {
     let reponse = await fetch("serveur/getProduits.php");
     let responseText = await reponse.text();
     let data = await JSON.parse(responseText);
@@ -123,8 +119,8 @@ let listerProduits = (listeProduits) => {
             </table>
         </div>
     `;
-    document.getElementById('affichageAdmin').innerHTML = contenu;
-}
+    document.getElementById("affichageAdmin").innerHTML = contenu;
+};
 
 let creerRangeeProduit = (unProduit) => {
     return `
@@ -176,7 +172,6 @@ let modifierForm = (value) => {
 		        <div class="modal-content">
 			        <div class="modal-header">
 				        <h5 class="modal-title" id="connectionModalLabel">Modifier le produit : ${leProduit.nom_prod}</h5>
-                        <h6 class="modal-title" id="connectionModalLabel">Changez les informations à modifier et appuyez sur valider</h6>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					        <span aria-hidden="true">&times;</span>
 				        </button>
@@ -300,7 +295,7 @@ let preparerFiltre = () => {
         categorySelect.innerHTML += `
             <option value='${elem1}'>${elem2}</option>
         `;
-        if (elem1 != 'Tout') {
+        if (elem1 != "Tout") {
             categorySelectModalAjout.innerHTML += `
                 <option value='${elem1}'>${elem2}</option>
             `;
@@ -316,17 +311,18 @@ let preparerFiltre = () => {
             const productCells = productRow.getElementsByTagName("td");
             const productCategory = productCells[2].innerText;
             const productPrice = parseFloat(productCells[5].innerText);
-            if (selectedCategory === "Tout") {
+            if (
+                selectedCategory === "Tout" &&
+                productPrice >= minPrice &&
+                productPrice <= maxPrice
+            ) {
                 productRow.style.display = "";
             } else if (
-                productCategory === selectedCategory ||
-                selectedCategory === ""
+                productCategory === selectedCategory &&
+                productPrice >= minPrice &&
+                productPrice <= maxPrice
             ) {
-                if (productPrice >= minPrice && productPrice <= maxPrice) {
-                    productRow.style.display = "";
-                } else {
-                    productRow.style.display = "none";
-                }
+                productRow.style.display = "";
             } else {
                 productRow.style.display = "none";
             }
