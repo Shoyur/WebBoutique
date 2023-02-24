@@ -402,7 +402,7 @@ session_start();
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- TOP FOOTER -->
-		<div class="section">
+		<div id="top-footer" class="section">
 			<!-- CONTAINER -->
 			<div class="container">
 				<!-- ROW -->
@@ -410,10 +410,8 @@ session_start();
 					<div class="col-md-4 col-xs-12">
 						<div class="footer">
 							<h3 class="footer-title">À propos de nous</h3>
-							<div class="footer-description">
-								<p>Nous sommes les seuls Mousquitaires avec qui vous ferez affaire pour trouver ce que
-									vous cherchez en terme de technologie informatique dernier cri!</p>
-							</div>
+							<p>Nous sommes les seuls Mousquitaires avec qui vous ferez affaire pour trouver ce que
+								vous cherchez en terme de technologie informatique dernier cri!</p>
 							<ul class="footer-links">
 								<li><a href="#"><i class="fa fa-map-marker"></i>2030 Boulevard Pie-IX</a></li>
 								<li><a href="#"><i class="fa fa-phone"></i>1-514-420-6969</a></li>

@@ -483,6 +483,7 @@ textarea.input {
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #15161D;
+  text-align: center;
 }
 
 .header-logo {
@@ -510,7 +511,7 @@ textarea.input {
 
 .header-search form {
   position: relative;
-  margin-left: 130px;
+  margin-left: 0px;
 }
 
 .header-search form .input-select {
@@ -569,12 +570,12 @@ textarea.input {
 \*----------------------------*/
 
 .header-ctn {
-  float: right;
   padding: 15px 0px;
   margin-top: 10px;
   /* mike : pour ajouter un espace libre */
   white-space: nowrap !important;
   /* mike : pour que le carret reste sur une seule ligne, ...les autres liens aussi */
+
 }
 
 .header-ctn>div {
@@ -2136,6 +2137,7 @@ textarea.input {
 #footer {
   background: #15161D;
   color: #B9BABC;
+  text-align: center;
 }
 
 #bottom-footer {
@@ -2176,22 +2178,6 @@ textarea.input {
   margin-top: 30px;
   display: block;
   font-size: 12px;
-}
-
-.footer-payments li {
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.footer-payments li a {
-  color: #15161D;
-  font-size: 36px;
-  display: block;
-}
-
-.footer-description {
-  max-width: 250px;
-  min-height: auto;
 }
 
 /*=========================================================
