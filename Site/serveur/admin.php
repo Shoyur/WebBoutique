@@ -28,10 +28,14 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'A') {
 	<link rel="stylesheet" href="../client/css/font-awesome.min.css">
 	<!-- Custom Stylesheet -->
 	<link type="text/css" rel="stylesheet" href="../client/css/style.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<!-- Custom Scripts -->
 	<script src="../client/js/connecter.js"></script>
 	<script type="text/javascript" src="../client/js/global.js"></script>
 	<script type="text/javascript" src="../client/js/requetes.js"></script>
+
 </head>
 
 <body>

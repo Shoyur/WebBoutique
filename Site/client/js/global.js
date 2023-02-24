@@ -104,8 +104,8 @@ let listerProduits = (listeProduits) => {
                         <th scope="col">Prix</th>
                         <th scope="col">Qté total</th>
                         <th scope="col">Qté vendue</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
+                        <th scope="col">Modifier</th>
+                        <th scope="col">Supprimer</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -146,7 +146,7 @@ let creerRangeeProduit = (unProduit) => {
                     value='${JSON.stringify(unProduit)}' 
                     onClick="modifierForm(this.value);"
                 >
-                    Modifier
+                <span class="glyphicon glyphicon-pencil"></span>
                 </button>
             </td>
             <td>
@@ -156,7 +156,7 @@ let creerRangeeProduit = (unProduit) => {
                     value='${JSON.stringify(unProduit)}' 
                     onClick="supprimerForm(this.value);"
                 >
-                    Supprimer
+                <span class="glyphicon glyphicon-trash"></span>
                 </button>
             </td>
         </tr>
