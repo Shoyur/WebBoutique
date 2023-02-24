@@ -179,12 +179,6 @@ let modifierForm = (value) => {
 			        <div class="modal-body">
 				        <span id="msgErrConn" style="color:#8B0000;"></span>
 				        <form id="formModifierProduit">
-                        	<div class="row">
-							    <div class="col-md-12">
-								    <label for="id_prod" class="form-label">Id</label>
-								    <input type="text" class="form-control is-valid" id="id_prod" name="id_prod" value="${leProduit.id_prod}" readonly>
-							    </div>
-						    </div>
 						    <div class="row">
 							    <div class="col-md-12">
 								    <label for="nom_prod" class="form-label">Nom</label>
@@ -224,7 +218,7 @@ let modifierForm = (value) => {
 						    <br>
 						    <div class="row">
 							    <div class="col-md-6">
-								    <button type="button" class="btn btn-primary" id="${leProduit.id_prod}" onClick="reqModifierProduit('modifier');">Modifier</button>
+								    <button type="button" class="btn btn-primary" id="${leProduit.id_prod}" onClick="reqModifierProduit('modifier', this.id);">Modifier</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 							    </div>
 						    </div>
@@ -257,12 +251,6 @@ let supprimerForm = (value) => {
                                 <p>Désirez vous vraiment supprimer le produit suivant : </p>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="id_prod" class="form-label">Id</label>
-                                        <input type="text" class="form-control is-valid" id="id_prod" name="id_prod" value="${leProduit.id_prod}" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
                                         <label for="nom_prod" class="form-label">Nom</label>
                                         <input type="text" class="form-control is-valid" id="nom_prod" name="nom_prod" value="${leProduit.nom_prod}" readonly>
                                     </div>
@@ -270,7 +258,7 @@ let supprimerForm = (value) => {
                             </form>                        
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="${leProduit.id_prod}" onClick="reqSupprimerProduit('supprimer');">Supprimer</button>
+                            <button type="button" class="btn btn-primary" id="${leProduit.id_prod}" onClick="reqSupprimerProduit('supprimer', this.id);">Supprimer</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                         </div>
                     </div>

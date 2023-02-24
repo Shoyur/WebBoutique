@@ -134,10 +134,11 @@ let reqRechercher = (action) => {
         });
 };
 
-let reqModifierProduit = (action) => {
+let reqModifierProduit = (action, id) => {
     let formProduit = new FormData(
         document.getElementById("formModifierProduit")
     );
+    formProduit.append("id_prod", id);
     formProduit.append("action", action);
     $.ajax({
         type: "POST",
@@ -163,10 +164,11 @@ let reqModifierProduit = (action) => {
         });
 };
 
-let reqSupprimerProduit = (action) => {
+let reqSupprimerProduit = (action, id) => {
     let formProduit = new FormData(
         document.getElementById("formSupprimerProduit")
     );
+    formProduit.append("id_prod", id);
     formProduit.append("action", action);
     $.ajax({
         type: "POST",
