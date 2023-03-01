@@ -15,10 +15,6 @@ function rafraichirPanier(action, item) {
                 break;
         }
     }
-    // Pour voir l'objet avant de l'envoyer
-    console.info("Dans rafraichirPanier(), avant le Ajax, data = ");
-    console.info(data);
-    
     $.ajax({
         type: "POST",
         url: "serveur/controller/panier/panierController.php",
@@ -26,19 +22,37 @@ function rafraichirPanier(action, item) {
         dataType: "text",
         success: (reponse) => {
             reponse = JSON.parse(reponse);
+            // icone rond rouge :
+            $("#panierCompteur").html(reponse.compteur);
+            // contenu modal panier :
             $("#panierItems").html(reponse.donnees);
-            $("#panierCompte").html(reponse.compte);
-            if (reponse.compte > 0) {
+            if (reponse.compteur > 0) {
                 $("#panierFooter").html('<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>' +
-                '<button type="button" class="btn btn-primary my-cart-checkout">Passer la commande</button>');
+                '<button type="submit" class="btn btn-primary my-cart-checkout" onclick="afficherPageCommande();" data-dismiss="modal">Passer la commande</button>');
             }
-            else {
-                $("#panierFooter").html('');
-            }
-            // alert("Il y a", reponse.compte, "produits dans le panier.");
-            // alert("TEST, reponse=", reponse);
-            
+            else { $("#panierFooter").html(''); }
         },
         fail: (e) => { alert("Erreur: " + e.message()); },
     });
-};
+}
+
+function afficherPageCommande() {
+    // $.ajax({
+    //     type: "POST",
+    //     url: "serveur/controller/panier/commandeController.php",
+    //     data: data,
+    //     dataType: "text",
+    //     success: (reponse) => {
+    //         reponse = JSON.parse(reponse);
+    //         $("#panierItems").html(reponse.donnees);
+    //         $("#panierCompteur").html(reponse.compteur);
+    //         if (reponse.compteur > 0) {
+    //             $("#panierFooter").html('<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>' +
+    //             '<button type="submit" class="btn btn-primary my-cart-checkout" onclick="afficherPageCommande();">Passer la commande</button>');
+    //         }
+    //         else { $("#panierFooter").html(''); }
+    //     },
+    //     fail: (e) => { alert("Erreur: " + e.message()); },
+    // });
+    $("#zoneTest").html("\nWohh\nWohh\nWohh\nWohh\nWohh\nWohh\n");
+}

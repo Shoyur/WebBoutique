@@ -241,7 +241,7 @@
 							<div>
 								<a href="#" data-toggle="modal" data-target="#panierModal">
 									<i class="fa fa-shopping-cart"></i>
-									<div class="qty" id="panierCompte">?</div>
+									<div class="qty" id="panierCompteur">?</div>
 								</a>
 							</div>
 							<!-- /CART -->
@@ -257,6 +257,8 @@
 		<!-- /MAIN HEADER -->
 	</header>
 	<!-- /HEADER -->
+
+	<div id="zoneTest"></div>
 
 
 	<!-- NAVIGATION -->

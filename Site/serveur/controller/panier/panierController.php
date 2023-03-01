@@ -2,7 +2,7 @@
     session_start();
 
     $reponse = array();
-    $reponse["compte"] = 0;
+    $reponse["compteur"] = 0;
     $reponse["donnees"] = "";
     $sousTotal = 0.0;
 
@@ -51,7 +51,7 @@
                     </td>
                 </tr> 
             ';
-            $reponse["compte"] = ($reponse["compte"] + (int)$produit["quantite"]);
+            $reponse["compteur"] = ($reponse["compteur"] + (int)$produit["quantite"]);
             $sousTotal = ((int)$sousTotal + (int)$totalLigne);
         }
         // sous-total :
