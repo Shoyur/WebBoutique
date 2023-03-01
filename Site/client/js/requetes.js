@@ -57,7 +57,7 @@ async function membreSeConnecte(email, mdp) {
 let reqListerProduits = (action) => {
     $.ajax({
         type: "POST",
-        url: "controller/produit/produitController.php",
+        url: "Produit/routes.php",
         data: { action: action },
         dataType: "text",
         success: (reponse) => {
@@ -83,7 +83,7 @@ let reqEnregistrerProduit = (action) => {
     formProduit.append("action", action);
     $.ajax({
         type: "POST",
-        url: "controller/produit/produitController.php",
+        url: "Produit/routes.php",
         data: formProduit,
         dataType: "text",
         async: false,
@@ -111,7 +111,7 @@ let reqRechercher = (action) => {
     formProduit.append("action", action);
     $.ajax({
         type: "POST",
-        url: "controller/produit/produitController.php",
+        url: "Produit/routes.php",
         data: formProduit,
         dataType: "text",
         async: false,
@@ -142,7 +142,7 @@ let reqModifierProduit = (action, id) => {
     formProduit.append("action", action);
     $.ajax({
         type: "POST",
-        url: "controller/produit/produitController.php",
+        url: "Produit/routes.php",
         data: formProduit,
         dataType: "text",
         async: false,
@@ -172,7 +172,7 @@ let reqSupprimerProduit = (action, id) => {
     formProduit.append("action", action);
     $.ajax({
         type: "POST",
-        url: "controller/produit/produitController.php",
+        url: "Produit/routes.php",
         data: formProduit,
         dataType: "text",
         async: false,

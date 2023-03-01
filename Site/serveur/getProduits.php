@@ -1,6 +1,7 @@
 <?php
 
-  require_once("./includes/configdb.inc.php");
+  require_once(__DIR__ . "./../serveur/ressources/Connexion.php");
+  $conn = Connexion::getConnexion();
 
   $query = "SELECT * FROM produits ORDER BY qte_vendue DESC LIMIT 0,8";
   $result = mysqli_query($conn, $query);
@@ -20,6 +21,7 @@
       exit();
   }
 
+  Connexion::unsetConnexion();
   echo $json;
 
 ?>

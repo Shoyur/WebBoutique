@@ -1,6 +1,7 @@
 let montrerProduitsPopulaires = async () => {
     let reponse = await fetch("serveur/getProduits.php");
     let responseText = await reponse.text();
+    console.log(responseText);
     let data = await JSON.parse(responseText);
     for (let i = 0; i < data.length; i++) {
         let produit = `

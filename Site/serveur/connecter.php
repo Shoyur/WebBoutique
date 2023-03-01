@@ -2,7 +2,8 @@
 
 session_start();
 
-require_once("includes/configdb.inc.php");
+require_once(__DIR__ . "/ressources/Connexion.php");
+$conn = Connexion::getConnexion();
 
 $email = $_POST['email'];
 $mdp = $_POST['mdp'];
