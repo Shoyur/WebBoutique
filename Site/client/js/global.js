@@ -1,5 +1,6 @@
 window.addEventListener("load", function () {
     showProduct();
+    rafraichirPanier(null, null);
 });
 
 let showProduct = async () => {
@@ -21,7 +22,7 @@ let showProduct = async () => {
                     <a href="#">${data[i].nom_prod.substring(0, 15)}</a>
                 </h3>
                 <h4 class="product-price">
-                    $${data[i].prix} 
+                    ${data[i].prix} $ 
                     <del class="product-old-price">$990.00</del>
                 </h4>
                 <div class="product-rating">
@@ -38,11 +39,19 @@ let showProduct = async () => {
                 </div>
             </div>
             <div class="add-to-cart">
-                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                <button class="add-to-cart-btn" 
+                data-id_prod="${data[i].id_prod}" 
+                data-nom_prod="${data[i].nom_prod}" 
+                data-chemin_img="${data[i].chemin_img}" 
+                data-prix="${data[i].prix}" 
+                onclick="rafraichirPanier('ajout', this)">
+                    <i class="fa fa-shopping-cart"></i> Ajouter au panier
+                </button>
             </div>
         `;
         let idIndexHTML = "produit" + (i + 1);
         document.getElementById(idIndexHTML).innerHTML = produit;
+        // alert(data[i].id_prod);
     }
 };
 

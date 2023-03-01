@@ -172,7 +172,8 @@ let reqListerActivations = () => {
             reponse = JSON.parse(reponse);
             if (reponse.OK) {
                 creerVueActivations(reponse.listeActivations);
-            } else {
+            }
+            else {
                 alert(
                     "Problème à récupérer les activations (membres).\nDans " +
                         reponse.message

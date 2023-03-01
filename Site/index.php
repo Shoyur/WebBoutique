@@ -1,7 +1,4 @@
-<?php
-session_start();
-?>
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,12 +24,25 @@ session_start();
 	<script defer src="./client/js/connecter.js"></script>
 	<script defer src="./client/js/global.js"></script>
 	<script defer src="./client/js/requetes.js"></script>
+	<script defer src="./client/js/panier.js"></script>
 </head>
 
 <body>
 
 	<!-- HEADER -->
 	<header>
+
+
+
+
+
+	<!-- Mike : Je dois mettre les modals dans d'autres fichiers... -->
+	<!-- <div w3-include-html="modalCreerCompte.html"></div>  -->
+
+
+
+
+
 		<!-- MODAL CREER UN COMPTE -->
 		<div class="modal fade" id="enregistrerModal" tabindex="-1" role="dialog"
 			aria-labelledby="enregistrerModalLabel" aria-hidden="true">
@@ -103,6 +113,11 @@ session_start();
 			</div>
 		</div>
 		<!-- /MODAL CREER UN COMPTE -->
+
+
+
+
+
 		<!-- MODAL OUVRIR UNE SESSION -->
 		<div class="modal fade" id="connectionModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel"
 			aria-hidden="true">
@@ -139,6 +154,31 @@ session_start();
 			</div>
 		</div>
 		<!-- /MODAL OUVRIR UNE SESSION -->
+
+
+		<!-- MODAL PANIER -->
+		<div class="modal fade" id="panierModal" tabindex="-1" role="dialog" aria-labelledby="panierModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+						<h4 class="modal-title" id="panierModalLabel">Panier</h4>
+					</div>
+					<div class="modal-body" id="panierItems">
+						<table class="table table-hover table-responsive" id="my-cart-table"><tbody>
+							<div id="panierItems"></div>
+						</tbody></table>
+					</div>
+					<div class="modal-footer" id="panierFooter"></div>
+				</div>
+			</div>
+		</div>
+		<!-- /MODAL PANIER -->
+
+
+
+
+
 		<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- CONTAINER -->
@@ -196,54 +236,16 @@ session_start();
 								?>
 							</div>
 							<!-- /ACCOUNT OPTIONS -->
-							<!-- ACCOUNT CART -->
-							<div class="dropdown">
-								<a href="#" data-toggle="dropdown">
+
+							<!-- CART -->
+							<div>
+								<a href="#" data-toggle="modal" data-target="#panierModal">
 									<i class="fa fa-shopping-cart"></i>
-									<div class="qty">3</div>
-								</a>
-								<div class="cart-dropdown">
-									<div class="cart-list">
-										<div class="product-widget">
-											<div class="product-img">
-												<img src="client/images/product01.png" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-											</div>
-											<button class="delete"><i class="fa fa-close"></i></button>
-										</div>
-										<div class="product-widget">
-											<div class="product-img">
-												<img src="client/images/product02.png" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-											</div>
-											<button class="delete"><i class="fa fa-close"></i></button>
-										</div>
-									</div>
-									<div class="cart-summary">
-										<small>3 Item(s) selected</small>
-										<h5>SUBTOTAL: $2940.00</h5>
-									</div>
-									<div class="cart-btns">
-										<a href="#">View Cart</a>
-										<a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
-									</div>
-								</div>
-							</div>
-							<!-- /ACCOUNT CART -->
-							<!-- MENU TOGGLE 
-							<div class="menu-toggle">
-								<a href="#">
-									<i class="fa fa-bars"></i>
-									<span>Menu</span>
+									<div class="qty" id="panierCompte">?</div>
 								</a>
 							</div>
-						    /MENU TOGGLE -->
+							<!-- /CART -->
+
 						</div>
 					</div>
 					<!-- /ACCOUNT -->
@@ -255,6 +257,7 @@ session_start();
 		<!-- /MAIN HEADER -->
 	</header>
 	<!-- /HEADER -->
+
 
 	<!-- NAVIGATION -->
 	<nav id="navigation">
@@ -280,11 +283,11 @@ session_start();
 	<!-- /NAVIGATION -->
 
 	<!-- HOT DEAL SECTION -->
-	<div id="hot-deal" class="section">
+	<!-- <div id="hot-deal" class="section"> -->
 		<!-- CONTAINER -->
-		<div class="container">
+		<!-- <div class="container"> -->
 			<!-- ROW -->
-			<div class="row">
+			<!-- <div class="row">
 				<div class="col-md-12">
 					<div class="hot-deal">
 						<ul class="hot-deal-countdown">
@@ -318,11 +321,11 @@ session_start();
 						<a class="primary-btn cta-btn" href="#">Magasinez Maintenant</a>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- /ROW -->
-		</div>
+		<!-- </div> -->
 		<!-- /CONTAINER -->
-	</div>
+	<!-- </div> -->
 	<!-- /HOT DEAL SECTION -->
 
 	<!-- SECTION PRODUITS POPULAIRES -->
@@ -425,7 +428,7 @@ session_start();
 						<div class="footer">
 							<h3 class="footer-title">Catégories</h3>
 							<ul class="footer-links">
-								<li><a href="#">Aubaines</a></li>
+								<li><a href="#" onclick="alert('Aubaines!!!');">Aubaines</a></li>
 								<li><a href="#">Portables</a></li>
 								<li><a href="#">Téléphones</a></li>
 								<li><a href="#">Tours</a></li>
