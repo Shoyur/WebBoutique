@@ -20,7 +20,7 @@
 		<div class="header-search-admin">
 		<form class="col-md-6 " id="formRechercherProd">
 					<input  type="text" class="input" id="prodRechercher" placeholder="Recherchez ici">
-					<button type="button" class="search-btn" onClick="reqRechercher('rechercherProduit');"><i class="fa fa-search"></i></button>
+					<button type="button" class="search-btn" onClick="reqRechercherProduits('rechercherProduits');"><i class="fa fa-search"></i></button>
 				</form>
 				</div>
 		<!-- /SEARCH BAR -->

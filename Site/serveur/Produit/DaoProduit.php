@@ -39,6 +39,28 @@ class DaoProduit {
         }
     }
 
+    function readSome(string $attributVise, string $nbDeProduits):string {
+        $this->connexion = Connexion::getConnexion();
+        $requete="SELECT * FROM produits ORDER BY " . $attributVise . " DESC LIMIT 0," . $nbDeProduits;
+        error_log($requete);
+        try {
+            $stmt = $this->connexion->prepare($requete);
+            $stmt->execute();
+            $resultat = $stmt->get_result();
+            $this->reponse['listeProduits'] = array();
+            while($ligne = mysqli_fetch_array($resultat)) {
+                $this->reponse['listeProduits'][] = $ligne;
+            }
+            $this->reponse['OK'] = true;
+        }catch(Exception $e) { 
+            $this->reponse['message'] = "Server-side error: " . $e;
+            $this->reponse['OK'] = false;
+        }finally {
+            Connexion::unsetConnexion();
+            return json_encode($this->reponse);
+        }
+    }
+
     function read(int $id_prod):string {
         $this->connexion = Connexion::getConnexion();
         $requete="SELECT * FROM produits WHERE id_prod=?";

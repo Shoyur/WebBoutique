@@ -8,7 +8,7 @@ async function membreExiste(email) {
             validerFormEnregPartTwo(reponse);
         },
         fail: (e) => {
-            alert(`Problème: ${e.message()}`);
+            alert(`Problème: ${e.responseText}`);
         },
     });
 }
@@ -49,10 +49,41 @@ async function membreSeConnecte(email, mdp) {
             }
         },
         fail: (e) => {
-            console.log(`Problème (ajax fail): ${e.message()}`);
+            console.log(`Problème (ajax fail): ${e.responseText}`);
         },
     });
 }
+
+let reqListerProduitsPopulairesAccueil = (action, nbDeProduits) => {
+    let formProduit = new FormData();
+    formProduit.append("action", action);
+    formProduit.append("attributVise", "qte_vendue");
+    formProduit.append("nbDeProduits", nbDeProduits);
+    $.ajax({
+        type: "POST",
+        url: "serveur/Produit/routes.php",
+        data: formProduit,
+        dataType: "text",
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
+    })
+        .done((reponse) => {
+            reponse = JSON.parse(reponse);
+            if (reponse.OK) {
+                listeProduits = reponse.listeProduits;
+                montrerProduitsPopulairesAccueil(listeProduits);
+            } else {
+                alert(
+                    "Problème pour récupérer les produits populaires pour la page d'accueil"
+                );
+            }
+        })
+        .fail((e) => {
+            alert("Erreur: " + e.responseText);
+        });
+};
 
 let reqListerProduits = (action) => {
     $.ajax({
@@ -70,7 +101,7 @@ let reqListerProduits = (action) => {
             }
         },
         fail: (e) => {
-            alert("Erreur: " + e.message());
+            alert("Erreur: " + e.responseText);
         },
     });
 };
@@ -100,11 +131,12 @@ let reqEnregistrerProduit = (action) => {
             }
         })
         .fail((e) => {
-            alert("Erreur: " + e.message());
+            alert("Erreur: " + e.responseText);
         });
 };
 
 let reqRechercher = (action) => {
+    //here
     let prodRechercher = document.getElementById("prodRechercher").value;
     let formProduit = new FormData();
     formProduit.append("prodRechercher", prodRechercher);
@@ -130,7 +162,7 @@ let reqRechercher = (action) => {
             }
         })
         .fail((e) => {
-            alert("Erreur: " + e.message());
+            alert("Erreur: " + e.responseText);
         });
 };
 
@@ -160,7 +192,7 @@ let reqModifierProduit = (action, id) => {
             }
         })
         .fail((e) => {
-            alert("Erreur: " + e.message());
+            alert("Erreur: " + e.responseText);
         });
 };
 
@@ -190,7 +222,7 @@ let reqSupprimerProduit = (action, id) => {
             }
         })
         .fail((e) => {
-            alert("Erreur: " + e.message());
+            alert("Erreur: " + e.responseText);
         });
 };
 
@@ -212,7 +244,7 @@ let reqListerActivations = () => {
             }
         },
         fail: (e) => {
-            alert("Erreur: " + e.message());
+            alert("Erreur: " + e.responseText);
         },
     });
 };
@@ -239,7 +271,7 @@ let reqModifierActivation = (email, valeur) => {
             }
         },
         fail: (e) => {
-            alert("Erreur: " + e.message());
+            alert("Erreur: " + e.responseText);
         },
     });
 };

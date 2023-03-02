@@ -29,7 +29,7 @@ session_start();
 	<script defer src="./client/js/requetes.js"></script>
 </head>
 
-<body onload=montrerProduitsPopulaires();>
+<body onload="reqListerProduitsPopulairesAccueil('listerProduitsPopulaires', 8);">
 
 	<!-- HEADER -->
 	<header>

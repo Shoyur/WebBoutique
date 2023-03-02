@@ -19,6 +19,13 @@ class ControleurProduit {
         return DaoProduit::getDaoProduit()->readAll(); 
     }
 
+    function getSome() {
+        $attributVise = $_POST['attributVise'];
+        $nbDeProduits = $_POST['nbDeProduits'];
+        error_log($nbDeProduits);
+        return DaoProduit::getDaoProduit()->readSome($attributVise, $nbDeProduits);
+    }
+
 	function ajouter() {
         $id = date("Ymdhis"); // retourne un string format (year-month-day-hour-minutes-secondes) sans les tirets
         $nom = $_POST['nom_prod'];
@@ -100,6 +107,9 @@ class ControleurProduit {
             break;
             case "supprimer":
                 return $this->supprimer();
+            break;
+            case "listerProduitsPopulaires":
+                return $this->getSome();
             break;
         }      
     }
