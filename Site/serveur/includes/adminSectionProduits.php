@@ -10,26 +10,28 @@
 		</div>
 	</nav>
 	<!-- /NAVIGATION -->
+
+	<!-- OPTIONS SECTION -->
 	<div class="row">
-	<!-- BOUTON AJOUTER -->
-	<div class="container" style="margin-top:50px;">
-		<a class="col-md-3" href="#" data-toggle="modal" data-target="#ajoutModal">
-			<button type="button" class="btn btn-dark">Ajouter un produit</button>
-		</a>
-		<!-- SEARCH BAR -->
-		<div class="header-search-admin">
-		<form class="col-md-6 " id="formRechercherProd">
+		<div class="container" style="margin-top:50px;">
+			<!-- BOUTON AJOUTER -->
+			<a class="col-md-3" href="#" data-toggle="modal" data-target="#ajoutModal">
+				<button type="button" class="btn btn-dark">Ajouter un produit</button>
+			</a>
+			<!-- /BOUTON AJOUTER -->
+			<!-- SEARCH BAR -->
+			<div class="header-search-admin">
+				<form class="col-md-6 " id="formRechercherProd">
 					<input  type="text" class="input" id="prodRechercher" placeholder="Recherchez ici">
 					<button type="button" class="search-btn" onClick="reqRechercherProduits('rechercherProduits');"><i class="fa fa-search"></i></button>
 				</form>
-				</div>
-		<!-- /SEARCH BAR -->
-	</div>
+			</div>
+			<!-- /SEARCH BAR -->
 		</div>
+	</div>
 	<br><br>
-	<!-- /BOUTON AJOUTER -->
+	<!-- /OPTIONS SECTION -->
 	
-
 	<!-- MODAL AJOUTER UN PRODUIT -->
 	<div class="modal fade" id="ajoutModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -50,8 +52,8 @@
 						</div>
 						<div class="row">
 							<div class="col-md-6">
-								<label for="categorie-select">Catégorie</label>
-								<select type="text" class="form-control is-valid" id="categorie-select" name="categorie-select" required>
+								<label for="category-select-ajout">Catégorie</label>
+								<select type="text" class="form-control is-valid" id="category-select-ajout" name="category-select-ajout" required>
 									<!-- Remplissage dynamique lors de l'appel à la méthode lister du CRUD pour les produits -->
 								</select>
 							</div>
@@ -113,19 +115,19 @@
 	</div>
 	<!-- /AFFICHAGE CONTENU AJAX -->
 
-<!-- AFFICHAGE MODAL -->
-<div class="container affichageModal" id="affichageModal" style="margin-top:5px;">
-	<!-- -->
-</div>
+	<!-- AFFICHAGE MODAL -->
+	<div class="container affichageModal" id="affichageModal" style="margin-top:5px;">
+		<!-- VUE AUTRES MODALS -->
+	</div>
+	<!-- /AFFICHAGE MODAL -->
 
-<!-- JQUERY PLUGINS -->
-<script src="../client/js/jquery.min.js"></script>
-<script src="../client/js/bootstrap.min.js"></script>
-<script src="../client/js/slick.min.js"></script>
-<script src="../client/js/nouislider.min.js"></script>
-<script src="../client/js/jquery.zoom.min.js"></script>
-<script src="../client/js/main.js"></script>
-
+	<!-- JQUERY PLUGINS -->
+	<script src="../client/js/jquery.min.js"></script>
+	<script src="../client/js/bootstrap.min.js"></script>
+	<script src="../client/js/slick.min.js"></script>
+	<script src="../client/js/nouislider.min.js"></script>
+	<script src="../client/js/jquery.zoom.min.js"></script>
+	<script src="../client/js/main.js"></script>
 
 </body>
 </html>

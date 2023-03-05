@@ -39,12 +39,17 @@ class DaoProduit {
         }
     }
 
-    function readSome(string $attributVise, string $nbDeProduits):string {
+    function readSome(string $condition, $searchTerm = null):string {
         $this->connexion = Connexion::getConnexion();
-        $requete="SELECT * FROM produits ORDER BY " . $attributVise . " DESC LIMIT 0," . $nbDeProduits;
-        error_log($requete);
-        try {
+        $requete="SELECT * FROM produits " . $condition;
+        if(isset($searchTerm)) {
+            $searchTerm = "%" . $this->connexion->real_escape_string($searchTerm) . "%";
             $stmt = $this->connexion->prepare($requete);
+            $stmt->bind_param("s", $searchTerm);
+        }else {
+            $stmt = $this->connexion->prepare($requete);
+        }
+        try {
             $stmt->execute();
             $resultat = $stmt->get_result();
             $this->reponse['listeProduits'] = array();

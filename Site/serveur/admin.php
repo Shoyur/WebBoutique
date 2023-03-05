@@ -35,7 +35,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'A') {
 	<script src="../client/js/connecter.js"></script>
 	<script type="text/javascript" src="../client/js/global.js"></script>
 	<script type="text/javascript" src="../client/js/requetes.js"></script>
-
+	<script type="text/javascript" src="../client/Produits/requetes.js"></script>
+	<script type="text/javascript" src="../client/Produits/vues.js"></script>
 </head>
 
 <body>

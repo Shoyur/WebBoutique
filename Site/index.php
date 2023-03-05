@@ -27,9 +27,10 @@ session_start();
 	<script defer src="./client/js/connecter.js"></script>
 	<script defer src="./client/js/global.js"></script>
 	<script defer src="./client/js/requetes.js"></script>
+	<script defer src="./client/Produits/requetes.js"></script>
+	<script defer src="./client/Produits/vues.js"></script>
 </head>
-
-<body onload="reqListerProduitsPopulairesAccueil('listerProduitsPopulaires', 8);">
+<body onload="reqListerProduitsPopulaires('listerProduitsPopulaires', 8, true);">
 
 	<!-- HEADER -->
 	<header>
@@ -479,5 +480,4 @@ session_start();
 	<!-- /JQUERY PLUGINS -->
 
 </body>
-
 </html>

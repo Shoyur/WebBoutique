@@ -20,10 +20,14 @@ class ControleurProduit {
     }
 
     function getSome() {
-        $attributVise = $_POST['attributVise'];
-        $nbDeProduits = $_POST['nbDeProduits'];
-        error_log($nbDeProduits);
-        return DaoProduit::getDaoProduit()->readSome($attributVise, $nbDeProduits);
+        $condition = $_POST['condition'];
+        if(isset($_POST['params']) && !empty($_POST['params'])) {
+            $params = $_POST['params'];
+            return DaoProduit::getDaoProduit()->readSome($condition, $params);
+        }elseif(isset($_POST['params']) && empty($_POST['params'])) {
+            return DaoProduit::getDaoProduit()->readAll(); 
+        }
+        return DaoProduit::getDaoProduit()->readSome($condition);
     }
 
 	function ajouter() {
@@ -96,9 +100,6 @@ class ControleurProduit {
             case "listerProduits":
                 return $this->getAll();
             break;
-            case "obtenirProduit":
-                //fiche(); 
-            break;
             case "ajouter":
                 return $this->ajouter();
             break;
@@ -109,6 +110,7 @@ class ControleurProduit {
                 return $this->supprimer();
             break;
             case "listerProduitsPopulaires":
+            case "rechercherProduits":
                 return $this->getSome();
             break;
         }      
