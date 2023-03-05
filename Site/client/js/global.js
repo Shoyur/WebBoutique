@@ -9,12 +9,12 @@ let validerFormEnregPartOne = () => {
         }, 5000);
     } else {
         const email = document.getElementById("email").value;
-        membreExiste(email); // requete ajax
+        reqLireMembre("lire", email, true); // requete ajax
     }
 };
 
 let validerFormEnregPartTwo = (reponse) => {
-    if (reponse == "false") {
+    if (!reponse) {
         document.getElementById("enreg_btn").removeAttribute("disabled");
     } else {
         document.getElementById("msgErrEnreg").innerHTML =
@@ -24,17 +24,6 @@ let validerFormEnregPartTwo = (reponse) => {
         }, 5000);
     }
 };
-
-// Crée une erreur au browser
-// $('.dropdown-toggle').click(function(e) {
-//     if ($(document).width() > 768) {
-//       e.preventDefault();
-//       var url = $(this).attr('href');
-//       if (url !== '#') {
-//         window.location.href = url;
-//       }
-//     }
-// });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////// *** CODE MIKE *** ///////////////////////////////////////////////////////////////////////////

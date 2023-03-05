@@ -1,18 +1,3 @@
-async function membreExiste(email) {
-    $.ajax({
-        url: "serveur/existeMembre.php",
-        type: "POST",
-        data: { email: email },
-        dataType: "text",
-        success: (reponse) => {
-            validerFormEnregPartTwo(reponse);
-        },
-        fail: (e) => {
-            alert(`Problème: ${e.responseText}`);
-        },
-    });
-}
-
 async function membreSeConnecte(email, mdp) {
     $.ajax({
         url: "serveur/connecter.php",

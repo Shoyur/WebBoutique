@@ -24,19 +24,20 @@ session_start();
 	<!-- Custom Stylesheet -->
 	<link type="text/css" rel="stylesheet" href="client/css/style.css" />
 	<!-- Custom Scripts -->
-	<script defer src="./client/js/connecter.js"></script>
 	<script defer src="./client/js/global.js"></script>
 	<script defer src="./client/js/requetes.js"></script>
 	<script defer src="./client/Produits/requetes.js"></script>
 	<script defer src="./client/Produits/vues.js"></script>
+	<script defer src="./client/Membres/requetes.js"></script>
+	<script defer src="./client/js/connecter.js"></script>
+
 </head>
 <body onload="reqListerProduitsPopulaires('listerProduitsPopulaires', 8, true);">
 
 	<!-- HEADER -->
 	<header>
 		<!-- MODAL CREER UN COMPTE -->
-		<div class="modal fade" id="enregistrerModal" tabindex="-1" role="dialog"
-			aria-labelledby="enregistrerModalLabel" aria-hidden="true">
+		<div class="modal fade" id="enregistrerModal" tabindex="-1" role="dialog" aria-labelledby="enregistrerModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -47,7 +48,8 @@ session_start();
 					</div>
 					<div class="modal-body">
 						<span id="msgErrEnreg" style="color:#8B0000;"></span>
-						<form class="row g-3 espace" action="serveur/enregMembre.php" method="POST">
+						<form class="row g-3 espace" id="formEnregistrerMembre" action="serveur/Membre/routes.php" method="POST">
+							<input type="hidden" name="action" value="enregistrer">
 							<div class="col-md-12">
 								<label for="nom" class="form-label">Nom</label>
 								<input type="text" class="form-control is-valid" id="nom" name="nom" required>
@@ -76,9 +78,8 @@ session_start();
 								</div>
 							</div>
 							<div class="col-md-6">
-								<label for="daten">Date de naissance
-									<input type="date" name="daten" id="daten">
-								</label>
+								<label for="daten">Date de naissance</label>
+								<input type="date" name="daten" id="daten" required>
 							</div>
 							<div class="col-md-8">
 								<label for="mdp" class="form-label">Mot de passe</label>
@@ -91,10 +92,8 @@ session_start();
 							<br />
 							<div class="col-md-12">
 								<div class="modal-footer">
-									<button type="button" class="btn btn-success"
-										onclick="validerFormEnregPartOne();">Valider</button>
-									<button type="submit" class="btn btn-primary" id="enreg_btn"
-										disabled>Enregistrer</button>
+									<button type="button" class="btn btn-success" onclick="validerFormEnregPartOne();">Valider</button>
+									<button type="submit" class="btn btn-primary" id="enreg_btn" disabled>Enregistrer</button>
 									<button type="reset" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 								</div>
 							</div>
