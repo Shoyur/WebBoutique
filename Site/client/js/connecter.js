@@ -12,5 +12,46 @@ function connecter(e) {
             "Les champs 'Courriel' et 'Mot de passe' doivent être remplis.\n";
         return;
     }
-    membreSeConnecte(email, mdp); // requete ajax
+    reqConnexion(email, mdp); // requete ajax
+}
+
+async function reqConnexion(email, mdp) {
+    $.ajax({
+        url: "serveur/connecter.php",
+        type: "POST",
+        data: {
+            email: email,
+            mdp: mdp,
+        },
+        async: false,
+        dataType: "text",
+        success: (reponse) => {
+            switch (reponse) {
+                case "E": {
+                    document.getElementById("msgErrConn").innerText =
+                        "Membre inexistant...";
+                    break;
+                }
+                case "M": {
+                    location.reload();
+                    break;
+                }
+                case "A": {
+                    window.location.href = "serveur/admin.php";
+                    break;
+                }
+                case "I": {
+                    document.getElementById("msgErrConn").innerText =
+                        "Membre existant mais inactif. Contactez l`administrateur.";
+                    break;
+                }
+                default: {
+                    break;
+                }
+            }
+        },
+        fail: (e) => {
+            console.log(`Problème (ajax fail): ${e.responseText}`);
+        },
+    });
 }

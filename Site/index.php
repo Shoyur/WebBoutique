@@ -30,7 +30,6 @@ session_start();
 	<script defer src="./client/Produits/vues.js"></script>
 	<script defer src="./client/Membres/requetes.js"></script>
 	<script defer src="./client/js/connecter.js"></script>
-
 </head>
 <body onload="reqListerProduitsPopulaires('listerProduitsPopulaires', 8, true);">
 

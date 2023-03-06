@@ -1,59 +1,22 @@
-async function membreSeConnecte(email, mdp) {
-    $.ajax({
-        url: "serveur/connecter.php",
-        type: "POST",
-        data: {
-            email: email,
-            mdp: mdp,
-        },
-        async: false,
-        dataType: "text",
-        success: (reponse) => {
-            switch (reponse) {
-                case "E": {
-                    document.getElementById("msgErrConn").innerText =
-                        "Membre inexistant...";
-                    break;
-                }
-                case "M": {
-                    location.reload();
-                    break;
-                }
-                case "A": {
-                    window.location.href = "serveur/admin.php";
-                    break;
-                }
-                case "I": {
-                    document.getElementById("msgErrConn").innerText =
-                        "Membre existant mais inactif. Contactez l`administrateur.";
-                    break;
-                }
-                default: {
-                    break;
-                }
-            }
-        },
-        fail: (e) => {
-            console.log(`Problème (ajax fail): ${e.responseText}`);
-        },
-    });
-}
-
 let reqListerActivations = () => {
+    formActivation = new FormData();
+    formActivation.append("action", "listerActivations");
     $.ajax({
         type: "POST",
-        url: "controller/activations/activationsController.php",
-        data: { action: "lister" },
+        url: "Auth/routes.php",
+        data: formActivation,
         dataType: "text",
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
         success: (reponse) => {
+            console.log(reponse);
             reponse = JSON.parse(reponse);
             if (reponse.OK) {
                 creerVueActivations(reponse.listeActivations);
             } else {
-                alert(
-                    "Problème à récupérer les activations (membres).\nDans " +
-                        reponse.message
-                );
+                alert(reponse.message);
             }
         },
         fail: (e) => {
@@ -65,22 +28,23 @@ let reqListerActivations = () => {
 let reqModifierActivation = (email, valeur) => {
     $.ajax({
         type: "POST",
-        url: "controller/activations/activationsController.php",
+        url: "Auth/routes.php",
         data: {
             action: "modifier",
             email: email,
             valeur: valeur,
         },
-        // dataType: "text",
+        dataType: "text",
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
         success: (reponse) => {
             reponse = JSON.parse(reponse);
             if (reponse.OK) {
-                console.log(reponse.message);
+                alert(reponse.message);
             } else {
-                alert(
-                    "Problème avec une activation (membre).\nDans " +
-                        reponse.message
-                );
+                alert(reponse.message);
             }
         },
         fail: (e) => {

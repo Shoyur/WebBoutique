@@ -77,7 +77,7 @@ class DaoAuth {
             $stmt = $this->connexion->prepare($requete);
             $stmt->bind_param("ssss", $donnees[0], $donnees[1], $donnees[2], $donnees[3]);
             $stmt->execute();
-            $this->reponse['message'] = "Authentification reliée au Compte du Membre " . $donnees[3] . " modifie";
+            $this->reponse['message'] = "Authentification reliée au Compte du Membre '$donnees[3]' a été " . ($valeur == "A") ? "activé" : "désactivé";
             $this->reponse['OK'] = true;
         }catch(Exception $e) {
             $this->reponse['message'] = "Server-side error: " . $e;
@@ -89,7 +89,7 @@ class DaoAuth {
     }
 
     // Fonction pour mettre tous les caractères en encodage UTF8
-    function utf8ize($d) {
+    function utf8ize($d):string {
         if (is_array($d)) {
             foreach ($d as $k => $v) {
                 $d[$k] = utf8ize($v);

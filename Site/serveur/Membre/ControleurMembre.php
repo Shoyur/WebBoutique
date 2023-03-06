@@ -36,13 +36,11 @@ class ControleurMembre {
         $reponse = json_decode(DaoMembre::getDaoMembre()->create($leMembre)); 
         $ok = $reponse->OK;
         if($ok){
-            // Set up the POST data
-            $action = $_POST['action'];
-            $mdp = $_POST['mdp'];
-            $data = array('action' => $action, 'email' => $email, 'mdp' => $mdp);
-            // Set the URL of the target routes.php
-            $url = __DIR__ . "/../Auth/routes.php";
-            // Send the POST request using curl
+            $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+            $host = $_SERVER['HTTP_HOST'];
+            $url = "{$protocol}://{$host}{$_SERVER['REQUEST_URI']}";
+            $url = str_replace("Membre/routes.php","Auth/routes.php",$url);
+            $data = $_POST;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_POST, 1);
