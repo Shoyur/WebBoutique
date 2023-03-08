@@ -82,18 +82,31 @@ function creerRangeeMembre(unMembre) {
             <td>${unMembre.prenom}</td>
             <td>${unMembre.email}</td>
             <td>${unMembre.sexe}</td>
-            <td>${unMembre.daten}</td><td>`;
+            <td>${unMembre.daten}</td>
+            <td>
+    `;
     if (unMembre.role_m == "M") {
-        texte += `Membre</td><td><label class="switch">
-                    <input type="checkbox" `;
+        texte += `
+            Membre</td>
+            <td>
+                <label class="switch">
+                <input type="checkbox" 
+        `;
         if (unMembre.statut_m == "A") {
-            texte += `checked `;
+            texte += `
+                checked 
+            `;
         }
-        texte += `id="${unMembre.email}" `;
-        texte += ` onclick="activationToggle(this.id);">
-                               <span class="slider round"></span>
-                               </label>
-            </td>`;
+        texte += `
+            id="${unMembre.email}" 
+        `;
+        texte += `
+            value='${JSON.stringify(unMembre)}' 
+            onclick="activationToggle(this.value);">
+            <span class="slider round"></span>
+            </label>
+            </td>
+        `;
     } else {
         texte += "👑</td><td></td>";
     }
@@ -101,8 +114,12 @@ function creerRangeeMembre(unMembre) {
     return texte;
 }
 
-function activationToggle(id) {
-    reqModifierActivation(id, document.getElementById(id).checked ? "A" : "I");
+function activationToggle(value) {
+    let unMembre = JSON.parse(value);
+    reqModifierActivation(
+        unMembre,
+        document.getElementById(unMembre.email).checked ? "A" : "I"
+    );
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

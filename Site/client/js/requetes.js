@@ -11,7 +11,6 @@ let reqListerActivations = () => {
         contentType: false,
         processData: false,
         success: (reponse) => {
-            console.log(reponse);
             reponse = JSON.parse(reponse);
             if (reponse.OK) {
                 creerVueActivations(reponse.listeActivations);
@@ -25,15 +24,17 @@ let reqListerActivations = () => {
     });
 };
 
-let reqModifierActivation = (email, valeur) => {
+let reqModifierActivation = (unMembre, nouvelleValeur) => {
+    formActivation = new FormData();
+    formActivation.append("email", unMembre.email);
+    formActivation.append("mdp", unMembre.mdp);
+    formActivation.append("role", unMembre.role_m);
+    formActivation.append("valeur", nouvelleValeur);
+    formActivation.append("action", "modifier");
     $.ajax({
         type: "POST",
         url: "Auth/routes.php",
-        data: {
-            action: "modifier",
-            email: email,
-            valeur: valeur,
-        },
+        data: formActivation,
         dataType: "text",
         async: false,
         cache: false,

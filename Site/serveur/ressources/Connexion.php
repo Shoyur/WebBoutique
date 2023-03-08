@@ -16,17 +16,22 @@ class Connexion{
 	}
 
 	static function unsetConnexion():void {
+		mysqli_close(self::$conn);
 		self::$conn = null;
 	}
 	
 	private static function connecter():void {
 		global $SERVEUR, $BD, $USAGER, $PASS; 
-        self::$conn = new mysqli(
-            $SERVEUR,
+		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+		self::$conn= new mysqli();
+		self::$conn->set_opt(MYSQLI_OPT_READ_TIMEOUT, 60);
+		self::$conn->connect(
+			$SERVEUR,
             $USAGER,
             $PASS,
             $BD
-        );
+		);
+		self::$conn->set_charset('utf8');
         if(self::$conn == false) {
             die("Connection failed: "
                 . mysqli_connect_error());
